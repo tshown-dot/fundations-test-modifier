@@ -86,7 +86,7 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
             </div>
           </div>
 
-          {/* SECTION: Sounds (Centered columns, 40px inter-item spacing, balanced widths) */}
+          {/* SECTION: Sounds */}
           <div className="my-auto">
             <h3 className="font-serif text-2xl font-bold text-slate-900 mb-3 tracking-wide pl-1">
               Sounds:
@@ -104,7 +104,7 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
                 ))}
               </div>
 
-              {/* Column 2: Items 4, 5 (Balanced and centered, well clear of the right margin) */}
+              {/* Column 2: Items 4, 5 */}
               <div className="flex flex-col gap-y-10">
                 {testData.sounds.slice(3, 5).map((item) => (
                   <FundationsGridRow
@@ -118,7 +118,7 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
             </div>
           </div>
 
-          {/* SECTION: Words (Centered columns, 40px inter-item spacing, balanced widths) */}
+          {/* SECTION: Words */}
           <div className="my-auto">
             <h3 className="font-serif text-2xl font-bold text-slate-900 mb-3 tracking-wide pl-1">
               Words:
@@ -135,7 +135,7 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
                 ))}
               </div>
 
-              {/* Column 2: Items 4, 5 (Balanced and centered, well clear of the right margin) */}
+              {/* Column 2: Items 4, 5 */}
               <div className="flex flex-col gap-y-10">
                 {testData.words.slice(3, 5).map((item) => (
                   <FundationsGridRow
@@ -159,8 +159,8 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
       <div className="print-page bg-white text-black w-[8.5in] h-[11in] px-14 py-7 flex flex-col justify-between border-0 shadow-none print:border-none print:shadow-none print:px-12 print:py-5">
         <div className="flex flex-col flex-1 justify-between">
           {/* SECTION: Trick Words */}
-          <div className="mb-2">
-            <h3 className="font-serif text-2xl font-bold text-slate-900 mb-3 tracking-wide pl-1">
+          <div className="mb-1">
+            <h3 className="font-serif text-2xl font-bold text-slate-900 mb-2 tracking-wide pl-1">
               Trick Words:
             </h3>
             <div className="grid grid-cols-2 gap-x-12 gap-y-4">
@@ -174,20 +174,20 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
             </div>
           </div>
 
-          {/* SECTION: Sentences */}
+          {/* SECTION: Sentences (Spacious gaps between each set of lines) */}
           <div className="my-auto">
-            <h3 className="font-serif text-2xl font-bold text-slate-900 mb-3 tracking-wide pl-1">
+            <h3 className="font-serif text-2xl font-bold text-slate-900 mb-2 tracking-wide pl-1">
               Sentences:
             </h3>
 
             {/* Sentence 1 */}
-            <div className="mb-6 space-y-4">
+            <div className="mb-7 flex flex-col gap-y-7">
               {/* Line 1 */}
               <FundationsGridRow
                 itemNumber={1}
                 slots={getSentenceWordSlots(s1Line1Words)}
               />
-              {/* Line 2 continuation (no itemNumber, perfectly indented) */}
+              {/* Line 2 continuation */}
               <FundationsGridRow
                 slots={getSentenceWordSlots(s1Line2Words)}
                 trailingPunctuation={settings.sentencePunctuationCue ? testData.sentences[0]?.punctuation || '.' : undefined}
@@ -195,7 +195,7 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
             </div>
 
             {/* Sentence 2 */}
-            <div className="space-y-4">
+            <div className="flex flex-col gap-y-7">
               {/* Line 1 */}
               <FundationsGridRow
                 itemNumber={2}
@@ -207,8 +207,11 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
             </div>
           </div>
 
-          {/* BOTTOM: Scoring Guide (Clean, NO horizontal divider lines or borders) */}
-          <div className="pt-2 mt-4">
+          {/* Solid divider line separating Sentences from the Scoring section */}
+          <div className="w-full border-b-2 border-slate-700 my-4" />
+
+          {/* BOTTOM: Scoring Guide */}
+          <div className="pt-1">
             {/* Scoring Row 1 */}
             <div className="flex justify-between items-center text-sm font-semibold text-slate-800 mb-2 px-1">
               <div>Sounds: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
@@ -245,7 +248,7 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
             </div>
 
             {/* Footer: Final Score & Grade */}
-            <div className="flex justify-end items-baseline gap-10 pt-2 px-1 text-base font-bold text-slate-800">
+            <div className="flex justify-end items-baseline gap-10 pt-1 px-1 text-base font-bold text-slate-800">
               <div>
                 Score: <span className="inline-block w-20 border-b-2 border-slate-700 text-center font-normal"></span> /{testData.totalScore || 25}
               </div>
