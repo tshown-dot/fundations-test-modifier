@@ -17,7 +17,7 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
   const getSoundSlots = (answers: string[]): BlankSlot[] | undefined => {
     if (!settings.soundBlanksCount) return undefined;
     return answers.map(() => ({
-      width: 48,
+      width: 46,
     }));
   };
 
@@ -28,7 +28,7 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
       const isWider = settings.wordWiderDigraphSuffix && (unit.isDigraphOrSuffix || unit.text.length > 1);
       return {
         isWider,
-        width: isWider ? (unit.text.length >= 3 ? 56 : 46) : 30,
+        width: isWider ? (unit.text.length >= 3 ? 54 : 44) : 28,
       };
     });
   };
@@ -37,11 +37,11 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
   const getTrickWordSlots = (word: string): BlankSlot[] | undefined => {
     if (!settings.trickWordLetterBlanks) return undefined;
     return Array.from({ length: word.length }).map(() => ({
-      width: 28,
+      width: 26,
     }));
   };
 
-  // Sentence word slots: EXPAND to fill the entire writing line across the page
+  // Sentence word slots: expand to fill the bounded writing line
   const s1Words = testData.sentences[0]?.words || [];
   const s1Line1Words = s1Words.slice(0, Math.ceil(s1Words.length / 2));
   const s1Line2Words = s1Words.slice(Math.ceil(s1Words.length / 2));
@@ -58,8 +58,8 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
   return (
     <div className="flex flex-col gap-12 items-center justify-center font-sans print:gap-0">
       {/* ================= PAGE 1: Sounds & Words ================= */}
-      <div className="print-page bg-white text-black w-[8.5in] h-[11in] px-14 py-7 flex flex-col justify-between border-0 shadow-none print:border-none print:shadow-none print:px-12 print:py-5">
-        <div className="flex flex-col flex-1 justify-between">
+      <div className="print-page bg-white text-black w-[8.5in] h-[11in] px-16 py-7 flex flex-col justify-between border-0 shadow-none print:border-none print:shadow-none print:px-14 print:py-6 box-border">
+        <div className="flex flex-col flex-1 justify-between max-w-[670px] mx-auto w-full">
           {/* Header */}
           <div>
             <div className="text-center mb-1.5">
@@ -156,9 +156,10 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
       </div>
 
       {/* ================= PAGE 2: Trick Words & Sentences ================= */}
-      <div className="print-page bg-white text-black w-[8.5in] h-[11in] px-14 py-7 flex flex-col justify-between border-0 shadow-none print:border-none print:shadow-none print:px-12 print:py-5">
-        <div className="flex flex-col flex-1 justify-between">
-          {/* SECTION: Trick Words */}
+      <div className="print-page bg-white text-black w-[8.5in] h-[11in] px-16 py-7 flex flex-col justify-between border-0 shadow-none print:border-none print:shadow-none print:px-14 print:py-6 box-border">
+        {/* Constrain width to 670px to match Page 1 perfectly and prevent lines running too far right */}
+        <div className="flex flex-col flex-1 justify-between max-w-[670px] mx-auto w-full">
+          {/* SECTION: Trick Words (Column 2 aligns perfectly with Column 2 of Page 1) */}
           <div className="mb-1">
             <h3 className="font-serif text-2xl font-bold text-slate-900 mb-2 tracking-wide pl-1">
               Trick Words:
@@ -174,14 +175,14 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
             </div>
           </div>
 
-          {/* SECTION: Sentences (Spacious gaps between clusters) */}
+          {/* SECTION: Sentences (Slightly shorter lines, perfectly centered, generous space) */}
           <div className="my-auto">
             <h3 className="font-serif text-2xl font-bold text-slate-900 mb-2 tracking-wide pl-1">
               Sentences:
             </h3>
 
             {/* Line Cluster 1: Sentence 1 */}
-            <div className="mb-14 flex flex-col gap-y-6">
+            <div className="mb-12 flex flex-col gap-y-6">
               {/* Line 1 */}
               <FundationsGridRow
                 itemNumber={1}

@@ -3,45 +3,56 @@
 @layer base {
   @page {
     size: letter portrait;
-    margin: 0.35in;
+    margin: 0;
   }
 }
 
 @media print {
+  *, *::before, *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
   html, body {
     margin: 0 !important;
     padding: 0 !important;
     background: white !important;
     background-color: white !important;
     color: black !important;
-    print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    width: 100% !important;
+  }
+
+  #root, #root > div, main {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    background-color: white !important;
+    width: 100% !important;
+    max-width: none !important;
   }
 
   .no-print {
     display: none !important;
   }
 
-  main {
-    margin: 0 !important;
-    padding: 0 !important;
-    max-width: none !important;
-    width: 100% !important;
-  }
-
   .print-page {
-    width: 100% !important;
-    height: 10.25in !important;
-    max-height: 10.25in !important;
+    width: 8.5in !important;
+    max-width: 8.5in !important;
+    height: 11in !important;
+    max-height: 11in !important;
+    margin: 0 auto !important;
+    padding: 0.55in 0.85in !important;
+    background: white !important;
+    background-color: white !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    box-sizing: border-box !important;
     page-break-before: auto !important;
     page-break-after: always !important;
     break-after: page !important;
-    box-shadow: none !important;
-    border: none !important;
-    outline: none !important;
-    margin: 0 !important;
-    padding: 0.1in 0.1in !important;
-    box-sizing: border-box !important;
     overflow: hidden !important;
   }
 

@@ -50,7 +50,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-100 text-slate-900 pb-16">
+    <div className="min-h-screen bg-slate-100 text-slate-900 pb-16 print:bg-white print:p-0 print:m-0 print:min-h-0">
       {/* ================= TOP TEACHER CONTROL BAR (Hidden on Print) ================= */}
       <header className="no-print sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
@@ -319,7 +319,7 @@ export const App: React.FC = () => {
       </header>
 
       {/* ================= MAIN SHEET PREVIEW ================= */}
-      <main className="max-w-5xl mx-auto mt-8 px-4 sm:px-6">
+      <main className="max-w-5xl mx-auto mt-8 px-4 sm:px-6 print:m-0 print:p-0 print:max-w-none print:w-full">
         <FundationsTestSheet
           testData={currentTest}
           settings={currentSettings}
