@@ -25,20 +25,20 @@ export const FundationsGridRow: React.FC<FundationsGridRowProps> = ({
   className = '',
   showIcons = true,
 }) => {
-  // Generous 1st and 2nd grade handwriting proportions:
-  // Total height: 96px
-  // Skyline: y = 10px (slightly thicker solid)
-  // Plane line: y = 42px (dashed line, 32px below skyline)
-  // Grass line: y = 74px (regular solid baseline, 32px below plane line)
-  // Worm line: y = 92px (regular solid descender, 18px below grass line)
-  const totalHeight = 96;
+  // Proportions:
+  // Total height: 78px
+  // Skyline: y = 8px (slightly thicker solid)
+  // Plane line: y = 34px (dashed line, 26px below skyline)
+  // Grass line: y = 60px (regular solid baseline, 26px below plane line)
+  // Worm line: y = 74px (regular solid descender, 14px below grass line)
+  const totalHeight = 78;
 
   return (
     <div className={`flex items-start w-full ${className}`}>
-      {/* 1. Item Number Column (Fixed 36px width for 100% consistent alignment across all rows) */}
-      <div className="w-9 shrink-0 flex items-start justify-end pr-1 pt-[36px]">
+      {/* 1. Item Number Column (Fixed 34px width for 100% consistent alignment across all rows) */}
+      <div className="w-[34px] shrink-0 flex items-start justify-end pr-1 pt-[28px]">
         {itemNumber !== undefined ? (
-          <span className="font-serif text-3xl font-bold text-slate-900 leading-none">
+          <span className="font-serif text-2xl font-bold text-slate-900 leading-none">
             {itemNumber}.
           </span>
         ) : (
@@ -47,31 +47,31 @@ export const FundationsGridRow: React.FC<FundationsGridRowProps> = ({
         )}
       </div>
 
-      {/* 2. Authentic Guide Icons Column (Fixed 34px width, vertically centered on each line) */}
+      {/* 2. Authentic Guide Icons Column (Fixed 30px width, vertically centered on each line) */}
       {showIcons && (
         <div
-          className="relative w-9 shrink-0 mr-2.5 select-none"
+          className="relative w-[30px] shrink-0 mr-2 select-none"
           style={{ height: `${totalHeight}px` }}
           aria-hidden="true"
         >
-          {/* Skyline (centered at y = 10px) */}
-          <div className="absolute top-[-2px] left-0.5 flex items-center justify-center w-7 h-6">
-            <SkylineImage className="w-7 h-6 object-contain" />
+          {/* Skyline (centered at y = 8px) */}
+          <div className="absolute top-[-2px] left-0 flex items-center justify-center w-6 h-5">
+            <SkylineImage className="w-6 h-5 object-contain" />
           </div>
 
-          {/* Plane line (centered at y = 42px) */}
-          <div className="absolute top-[30px] left-0 flex items-center justify-center w-8 h-6">
-            <PlaneImage className="w-8 h-6 object-contain" />
+          {/* Plane line (centered at y = 34px) */}
+          <div className="absolute top-[24px] left-0 flex items-center justify-center w-7 h-5">
+            <PlaneImage className="w-7 h-5 object-contain" />
           </div>
 
-          {/* Grass line (centered at y = 74px) */}
-          <div className="absolute top-[62px] left-0.5 flex items-center justify-center w-7 h-6">
-            <GrassImage className="w-7 h-6 object-contain" />
+          {/* Grass line (centered at y = 60px) */}
+          <div className="absolute top-[50px] left-0 flex items-center justify-center w-6 h-5">
+            <GrassImage className="w-6 h-5 object-contain" />
           </div>
 
-          {/* Worm line (centered at y = 92px) */}
-          <div className="absolute top-[80px] left-0.5 flex items-center justify-center w-7 h-6">
-            <WormImage className="w-7 h-6 object-contain" />
+          {/* Worm line (centered at y = 74px) */}
+          <div className="absolute top-[64px] left-0 flex items-center justify-center w-6 h-5">
+            <WormImage className="w-6 h-5 object-contain" />
           </div>
         </div>
       )}
@@ -82,14 +82,14 @@ export const FundationsGridRow: React.FC<FundationsGridRowProps> = ({
         <svg
           className="absolute inset-0 w-full h-full pointer-events-none"
           preserveAspectRatio="none"
-          viewBox="0 0 100 96"
+          viewBox="0 0 100 78"
         >
           {/* 1. Skyline: slightly thicker solid line */}
           <line
             x1="0"
-            y1="10"
+            y1="8"
             x2="100"
-            y2="10"
+            y2="8"
             stroke="#1E293B"
             strokeWidth="2.2"
             vectorEffect="non-scaling-stroke"
@@ -98,43 +98,43 @@ export const FundationsGridRow: React.FC<FundationsGridRowProps> = ({
           {/* 2. Plane line: dashed line */}
           <line
             x1="0"
-            y1="42"
+            y1="34"
             x2="100"
-            y2="42"
+            y2="34"
             stroke="#64748B"
-            strokeWidth="1.5"
-            strokeDasharray="7 5"
+            strokeWidth="1.4"
+            strokeDasharray="6 4.5"
             vectorEffect="non-scaling-stroke"
           />
 
           {/* 3. Grass line: regular solid line (baseline) */}
           <line
             x1="0"
-            y1="74"
+            y1="60"
             x2="100"
-            y2="74"
+            y2="60"
             stroke="#475569"
-            strokeWidth="1.6"
+            strokeWidth="1.5"
             vectorEffect="non-scaling-stroke"
           />
 
           {/* 4. Worm line: regular solid line (descender) */}
           <line
             x1="0"
-            y1="92"
+            y1="74"
             x2="100"
-            y2="92"
+            y2="74"
             stroke="#64748B"
-            strokeWidth="1.6"
+            strokeWidth="1.5"
             vectorEffect="non-scaling-stroke"
           />
         </svg>
 
         {/* Level 1 Scaffold Layer: Distinct blank underlines drawn on the Grass line */}
         {slots && slots.length > 0 && (
-          <div className="absolute inset-0 flex items-center gap-x-3 z-10 pointer-events-none pr-1">
+          <div className="absolute inset-0 flex items-center gap-x-2.5 z-10 pointer-events-none pr-1">
             {slots.map((slot, index) => {
-              const defaultWidth = slot.isWider ? 'w-20' : 'w-12';
+              const defaultWidth = slot.isWider ? 'w-16' : 'w-10';
               const widthStyle: React.CSSProperties = {
                 ...(slot.flexGrow !== undefined
                   ? { flex: `${slot.flexGrow} ${slot.flexGrow} 0px` }
@@ -148,7 +148,7 @@ export const FundationsGridRow: React.FC<FundationsGridRowProps> = ({
               return (
                 <React.Fragment key={index}>
                   <div
-                    className={`relative h-[96px] flex flex-col justify-end ${
+                    className={`relative h-[78px] flex flex-col justify-end ${
                       typeof slot.width === 'string' && slot.width.startsWith('w-')
                         ? slot.width
                         : !slot.width && slot.flexGrow === undefined
@@ -157,17 +157,17 @@ export const FundationsGridRow: React.FC<FundationsGridRowProps> = ({
                     }`}
                     style={widthStyle}
                   >
-                    {/* Dark, prominent blank underline resting exactly on the Grass line (y = 74px) */}
+                    {/* Dark, prominent blank underline resting exactly on the Grass line (y = 60px) */}
                     <div
-                      className="absolute left-0 right-0 h-[4px] bg-slate-950 rounded-xs"
-                      style={{ top: '72px' }}
+                      className="absolute left-0 right-0 h-[3.5px] bg-slate-950 rounded-xs"
+                      style={{ top: '58px' }}
                     />
 
                     {/* Pre-filled text if applicable */}
                     {slot.label && (
                       <div
-                        className="absolute inset-x-0 text-center font-sans text-2xl font-bold text-slate-800 leading-none"
-                        style={{ top: '44px' }}
+                        className="absolute inset-x-0 text-center font-sans text-xl font-bold text-slate-800 leading-none"
+                        style={{ top: '36px' }}
                       >
                         {slot.label}
                       </div>
@@ -176,7 +176,7 @@ export const FundationsGridRow: React.FC<FundationsGridRowProps> = ({
 
                   {/* Comma between sound slots (rests right on the grass line) */}
                   {commasBetweenSlots && index < slots.length - 1 && (
-                    <div className="relative h-[96px] flex items-end font-serif text-3xl font-black text-slate-950 select-none pb-[20px]">
+                    <div className="relative h-[78px] flex items-end font-serif text-2xl font-black text-slate-950 select-none pb-[18px]">
                       ,
                     </div>
                   )}
@@ -186,7 +186,7 @@ export const FundationsGridRow: React.FC<FundationsGridRowProps> = ({
 
             {/* Trailing punctuation cue (rests right on the grass line at the end of the sentence) */}
             {trailingPunctuation && (
-              <div className="relative h-[96px] flex items-end font-serif text-4xl font-black text-slate-950 select-none pb-[16px] pl-1">
+              <div className="relative h-[78px] flex items-end font-serif text-3xl font-black text-slate-950 select-none pb-[14px] pl-1">
                 {trailingPunctuation}
               </div>
             )}
