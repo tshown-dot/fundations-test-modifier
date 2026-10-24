@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { sampleTests } from './data/curriculum';
+import { level2Units } from './data/level2Units';
 import { ModificationLevel, ModificationSettings } from './types/fundations';
 import { FundationsTestSheet } from './components/FundationsTestSheet';
 import { Printer, Settings2, Sparkles, BookOpen, User, CheckCircle2 } from 'lucide-react';
@@ -27,13 +27,13 @@ const BASELINE_PRESET: ModificationSettings = {
 };
 
 export const App: React.FC = () => {
-  const [selectedTestKey] = useState<string>('level-2-unit-4');
+  const [selectedTestKey, setSelectedTestKey] = useState<string>('level-2-unit-4');
   const [studentName, setStudentName] = useState<string>('');
   const [activeTier, setActiveTier] = useState<ModificationLevel>('level1');
   const [showAnswerKey, setShowAnswerKey] = useState<boolean>(false);
   const [customSettings, setCustomSettings] = useState<ModificationSettings>(LEVEL_1_PRESET);
 
-  const currentTest = sampleTests[selectedTestKey];
+  const currentTest = level2Units[selectedTestKey] || level2Units['level-2-unit-4'];
 
   // Resolve current active settings
   const currentSettings: ModificationSettings =
@@ -43,7 +43,7 @@ export const App: React.FC = () => {
       ? LEVEL_1_PRESET
       : activeTier === 'custom'
       ? { ...customSettings, level: 'custom' }
-      : LEVEL_1_PRESET; // fallback
+      : LEVEL_1_PRESET;
 
   const handlePrint = () => {
     window.print();
@@ -55,21 +55,37 @@ export const App: React.FC = () => {
       <header className="no-print sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
           <div className="flex flex-wrap items-center justify-between gap-4">
-            {/* Branding & Unit Title */}
+            {/* Branding & Unit Selector */}
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center font-serif font-black text-amber-700 text-xl shadow-xs">
                 F
               </div>
               <div>
-                <h1 className="text-base font-bold text-slate-900 tracking-tight flex items-center gap-2">
-                  Fundations Test Modifier
+                <div className="flex items-center gap-2">
+                  <h1 className="text-base font-bold text-slate-900 tracking-tight">
+                    Fundations Test Modifier
+                  </h1>
                   <span className="text-xs bg-emerald-100 text-emerald-800 font-semibold px-2 py-0.5 rounded-full border border-emerald-300">
                     IEP Scaffold Engine
                   </span>
-                </h1>
-                <p className="text-xs text-slate-500">
-                  Level {currentTest.level} • Unit {currentTest.unit} Assessment
-                </p>
+                </div>
+                <div className="flex items-center gap-2 mt-0.5">
+                  <span className="text-xs font-semibold text-slate-500">Level 2 Grade 2:</span>
+                  <select
+                    value={selectedTestKey}
+                    onChange={(e) => setSelectedTestKey(e.target.value)}
+                    className="text-xs font-bold bg-amber-50 border border-amber-300 text-amber-900 rounded-md px-2 py-0.5 focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer"
+                  >
+                    {Object.keys(level2Units).map((key) => {
+                      const u = level2Units[key];
+                      return (
+                        <option key={key} value={key}>
+                          Unit {u.unit} Assessment
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
               </div>
             </div>
 
@@ -90,14 +106,14 @@ export const App: React.FC = () => {
               {/* View Teacher Answer Key */}
               <button
                 onClick={() => setShowAnswerKey(!showAnswerKey)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md border transition ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md border transition cursor-pointer ${
                   showAnswerKey
                     ? 'bg-amber-100 text-amber-900 border-amber-300'
                     : 'bg-white text-slate-700 border-slate-300 hover:bg-slate-50'
                 }`}
               >
                 <BookOpen className="w-3.5 h-3.5 text-amber-600" />
-                {showAnswerKey ? 'Hide Dictation Key' : 'Dictation Key'}
+                {showAnswerKey ? 'Hide Dictation Key' : 'Dictation & Marking Key'}
               </button>
 
               {/* Print Button */}
@@ -121,7 +137,7 @@ export const App: React.FC = () => {
               {/* Baseline */}
               <button
                 onClick={() => setActiveTier('baseline')}
-                className={`px-3 py-1.5 text-xs font-medium rounded-md transition ${
+                className={`px-3 py-1.5 text-xs font-medium rounded-md transition cursor-pointer ${
                   activeTier === 'baseline'
                     ? 'bg-slate-800 text-white shadow-xs font-semibold'
                     : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -133,7 +149,7 @@ export const App: React.FC = () => {
               {/* Level 1 */}
               <button
                 onClick={() => setActiveTier('level1')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition cursor-pointer ${
                   activeTier === 'level1'
                     ? 'bg-amber-600 text-white shadow-xs font-semibold'
                     : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -166,7 +182,7 @@ export const App: React.FC = () => {
               {/* Super User Custom Toggle */}
               <button
                 onClick={() => setActiveTier('custom')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md border transition ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md border transition cursor-pointer ${
                   activeTier === 'custom'
                     ? 'bg-indigo-600 text-white border-indigo-700 shadow-xs font-semibold'
                     : 'bg-white text-indigo-700 border-indigo-200 hover:bg-indigo-50'
@@ -183,7 +199,7 @@ export const App: React.FC = () => {
               <span>
                 {activeTier === 'baseline' && 'Standard Fundations 4-line grid, unmodified.'}
                 {activeTier === 'level1' &&
-                  'Level 1 Active: Sound count blanks, tap unit blanks (wider digraphs/suffixes), 1-line per letter trick words, sentence word blanks + period.'}
+                  'Level 1 Active: Sound count blanks, tap unit blanks (glued sounds/digraphs), 1-line per letter trick words, sentence word blanks.'}
                 {activeTier === 'custom' && 'Super User Mode: Toggle individual scaffolds below.'}
               </span>
             </div>
@@ -215,7 +231,7 @@ export const App: React.FC = () => {
                   }
                   className="rounded text-indigo-600"
                 />
-                <span>Words: Show blank slots for tap units</span>
+                <span>Words: Show blank slots for tap units (glued sounds = 1 tap)</span>
               </label>
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
@@ -229,7 +245,7 @@ export const App: React.FC = () => {
                   }
                   className="rounded text-indigo-600"
                 />
-                <span>Words: Wider slots for digraphs and suffixes</span>
+                <span>Words: Wider slots for digraphs, suffixes, and welded sounds</span>
               </label>
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
@@ -276,41 +292,73 @@ export const App: React.FC = () => {
             </div>
           )}
 
-          {/* Teacher Dictation Key Drawer */}
+          {/* Teacher Dictation & District Marking Key Drawer */}
           {showAnswerKey && (
-            <div className="mt-3 p-4 bg-amber-50/90 border border-amber-200 rounded-lg text-xs text-slate-800 shadow-sm">
+            <div className="mt-3 p-4 bg-amber-50/90 border border-amber-200 rounded-lg text-xs text-slate-800 shadow-sm animate-fadeIn">
               <div className="font-bold text-amber-900 text-sm mb-2 flex items-center justify-between">
-                <span>Teacher Dictation & Marking Key (Level 2 Unit 4)</span>
-                <span className="text-xs font-normal text-amber-700">For Teacher Administration Only</span>
+                <span>
+                  Teacher Dictation & District Marking Key (Level {currentTest.level} Unit {currentTest.unit})
+                </span>
+                <span className="text-xs font-normal text-amber-700 bg-amber-200/60 px-2 py-0.5 rounded">
+                  2025–2026 District Directions
+                </span>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div className="bg-white p-2.5 rounded border border-amber-200">
-                  <div className="font-semibold text-slate-900 mb-1">Sounds (Say sound):</div>
-                  <ol className="list-decimal list-inside space-y-0.5">
-                    <li>/d/ &rarr; <span className="font-mono font-bold">d, ed</span></li>
-                    <li>/t/ &rarr; <span className="font-mono font-bold">t, ed</span></li>
-                    <li>/ing/ &rarr; <span className="font-mono font-bold">ing</span></li>
-                    <li>/s/ &rarr; <span className="font-mono font-bold">s</span></li>
-                    <li>/z/ &rarr; <span className="font-mono font-bold">z, s</span></li>
+                {/* Sounds */}
+                <div className="bg-white p-3 rounded border border-amber-200 shadow-2xs">
+                  <div className="font-bold text-slate-900 mb-1.5 pb-1 border-b border-amber-100">
+                    Sounds (Dictate sound):
+                  </div>
+                  <ol className="list-decimal list-inside space-y-1">
+                    {currentTest.sounds.map((s) => (
+                      <li key={s.number}>
+                        {s.prompt} &rarr;{' '}
+                        <span className="font-mono font-bold text-amber-950">
+                          {s.answers.join(', ')}
+                        </span>
+                      </li>
+                    ))}
                   </ol>
                 </div>
-                <div className="bg-white p-2.5 rounded border border-amber-200 md:col-span-2">
-                  <div className="font-semibold text-slate-900 mb-1">Words & Markings:</div>
-                  <ol className="list-decimal list-inside space-y-0.5">
-                    <li><span className="font-bold">bunches</span>: breve on u, closed syllable (c), circle suffix -es</li>
-                    <li><span className="font-bold">swishing</span>: breve on i, closed syllable (c), circle suffix -ing</li>
-                    <li><span className="font-bold">coldest</span>: macron on o, closed exception (c/), circle suffix -est</li>
-                    <li><span className="font-bold">spelled</span>: /d/ over ed, breve on e, closed (c), circle suffix -ed</li>
-                    <li><span className="font-bold">dusted</span>: /id/ over ed, breve on u, closed (c), circle suffix -ed</li>
+
+                {/* Words & District Marking Rubric */}
+                <div className="bg-white p-3 rounded border border-amber-200 shadow-2xs md:col-span-2">
+                  <div className="font-bold text-slate-900 mb-1.5 pb-1 border-b border-amber-100">
+                    Words & District Marking Directions:
+                  </div>
+                  <ol className="list-decimal list-inside space-y-1.5">
+                    {currentTest.words.map((w) => (
+                      <li key={w.number} className="leading-relaxed">
+                        <span className="font-bold text-slate-900">{w.word}</span>
+                        {w.markingDescription && (
+                          <span className="text-slate-600 text-[11px] block pl-4">
+                            &bull; {w.markingDescription}
+                          </span>
+                        )}
+                      </li>
+                    ))}
                   </ol>
                 </div>
-                <div className="bg-white p-2.5 rounded border border-amber-200">
-                  <div className="font-semibold text-slate-900 mb-1">Trick Words & Sentences:</div>
-                  <div className="mb-1 font-semibold text-slate-700">Trick Words:</div>
-                  <p className="font-bold">1. again &bull; 2. animal</p>
-                  <div className="mt-2 font-semibold text-slate-700">Sentences:</div>
-                  <p className="italic">1. "The fastest foxes sprinted there by the hills."</p>
-                  <p className="italic mt-1">2. "Please use the blocks."</p>
+
+                {/* Trick Words & Sentences */}
+                <div className="bg-white p-3 rounded border border-amber-200 shadow-2xs">
+                  <div className="font-bold text-slate-900 mb-1.5 pb-1 border-b border-amber-100">
+                    Trick Words & Sentences:
+                  </div>
+                  <div className="mb-2">
+                    <span className="font-semibold text-slate-700">Trick Words:</span>
+                    <p className="font-bold text-slate-900 mt-0.5">
+                      {currentTest.trickWords.map((t) => `${t.number}. ${t.word}`).join(' • ')}
+                    </p>
+                  </div>
+                  <div>
+                    <span className="font-semibold text-slate-700">Sentences:</span>
+                    <ol className="list-decimal list-inside space-y-1 mt-0.5 italic text-slate-800">
+                      {currentTest.sentences.map((st) => (
+                        <li key={st.number}>"{st.text}"</li>
+                      ))}
+                    </ol>
+                  </div>
                 </div>
               </div>
             </div>
