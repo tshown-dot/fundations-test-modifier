@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { level2Units } from './data/level2Units';
+import { level1Units } from './data/level1Units';
 import { ModificationLevel, ModificationSettings } from './types/fundations';
 import { FundationsTestSheet } from './components/FundationsTestSheet';
 import { Printer, Settings2, Sparkles, BookOpen, User, CheckCircle2 } from 'lucide-react';
@@ -27,13 +28,17 @@ const BASELINE_PRESET: ModificationSettings = {
 };
 
 export const App: React.FC = () => {
-  const [selectedTestKey, setSelectedTestKey] = useState<string>('level-2-unit-4');
+  const [selectedGrade, setSelectedGrade] = useState<number>(2); // 1 or 2
+  const [selectedUnit, setSelectedUnit] = useState<number>(4);
   const [studentName, setStudentName] = useState<string>('');
   const [activeTier, setActiveTier] = useState<ModificationLevel>('level1');
   const [showAnswerKey, setShowAnswerKey] = useState<boolean>(false);
   const [customSettings, setCustomSettings] = useState<ModificationSettings>(LEVEL_1_PRESET);
 
-  const currentTest = level2Units[selectedTestKey] || level2Units['level-2-unit-4'];
+  // Pick dataset based on grade
+  const availableUnits = selectedGrade === 1 ? level1Units : level2Units;
+  const currentKey = `level-${selectedGrade}-unit-${selectedUnit}`;
+  const currentTest = availableUnits[currentKey] || Object.values(availableUnits)[0];
 
   // Resolve current active settings
   const currentSettings: ModificationSettings =
@@ -49,13 +54,18 @@ export const App: React.FC = () => {
     window.print();
   };
 
+  const handleGradeChange = (grade: number) => {
+    setSelectedGrade(grade);
+    setSelectedUnit(grade === 1 ? 3 : 1);
+  };
+
   return (
     <div className="min-h-screen bg-slate-100 text-slate-900 pb-16 print:bg-white print:p-0 print:m-0 print:min-h-0">
       {/* ================= TOP TEACHER CONTROL BAR (Hidden on Print) ================= */}
       <header className="no-print sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
           <div className="flex flex-wrap items-center justify-between gap-4">
-            {/* Branding & Unit Selector */}
+            {/* Branding & Grade/Unit Selector */}
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center font-serif font-black text-amber-700 text-xl shadow-xs">
                 F
@@ -69,22 +79,37 @@ export const App: React.FC = () => {
                     IEP Scaffold Engine
                   </span>
                 </div>
-                <div className="flex items-center gap-2 mt-0.5">
-                  <span className="text-xs font-semibold text-slate-500">Level 2 Grade 2:</span>
-                  <select
-                    value={selectedTestKey}
-                    onChange={(e) => setSelectedTestKey(e.target.value)}
-                    className="text-xs font-bold bg-amber-50 border border-amber-300 text-amber-900 rounded-md px-2 py-0.5 focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer"
-                  >
-                    {Object.keys(level2Units).map((key) => {
-                      const u = level2Units[key];
-                      return (
-                        <option key={key} value={key}>
+                
+                {/* Grade & Unit Dropdowns */}
+                <div className="flex items-center gap-3 mt-1">
+                  {/* Grade Selector */}
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-xs font-semibold text-slate-500">Grade:</span>
+                    <select
+                      value={selectedGrade}
+                      onChange={(e) => handleGradeChange(Number(e.target.value))}
+                      className="text-xs font-bold bg-white border border-slate-300 text-slate-800 rounded-md px-2 py-0.5 focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer shadow-2xs"
+                    >
+                      <option value={1}>1st Grade (Level 1)</option>
+                      <option value={2}>2nd Grade (Level 2)</option>
+                    </select>
+                  </div>
+
+                  {/* Unit Selector */}
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-xs font-semibold text-slate-500">Unit:</span>
+                    <select
+                      value={selectedUnit}
+                      onChange={(e) => setSelectedUnit(Number(e.target.value))}
+                      className="text-xs font-bold bg-amber-50 border border-amber-300 text-amber-900 rounded-md px-2 py-0.5 focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer shadow-2xs"
+                    >
+                      {Object.values(availableUnits).map((u) => (
+                        <option key={u.unit} value={u.unit}>
                           Unit {u.unit} Assessment
                         </option>
-                      );
-                    })}
-                  </select>
+                      ))}
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>
@@ -199,7 +224,7 @@ export const App: React.FC = () => {
               <span>
                 {activeTier === 'baseline' && 'Standard Fundations 4-line grid, unmodified.'}
                 {activeTier === 'level1' &&
-                  'Level 1 Active: Sound count blanks, tap unit blanks (glued sounds/digraphs), 1-line per letter trick words, sentence word blanks.'}
+                  `Level 1 Active for Grade ${selectedGrade}: Sound count blanks, tap unit blanks, sentence word blanks.`}
                 {activeTier === 'custom' && 'Super User Mode: Toggle individual scaffolds below.'}
               </span>
             </div>
@@ -231,7 +256,7 @@ export const App: React.FC = () => {
                   }
                   className="rounded text-indigo-600"
                 />
-                <span>Words: Show blank slots for tap units (glued sounds = 1 tap)</span>
+                <span>Words: Show blank slots for tap units</span>
               </label>
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
@@ -247,20 +272,22 @@ export const App: React.FC = () => {
                 />
                 <span>Words: Wider slots for digraphs, suffixes, and welded sounds</span>
               </label>
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={customSettings.trickWordLetterBlanks}
-                  onChange={(e) =>
-                    setCustomSettings({
-                      ...customSettings,
-                      trickWordLetterBlanks: e.target.checked,
-                    })
-                  }
-                  className="rounded text-indigo-600"
-                />
-                <span>Trick Words: 1 blank line per letter</span>
-              </label>
+              {selectedGrade === 2 && (
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={customSettings.trickWordLetterBlanks}
+                    onChange={(e) =>
+                      setCustomSettings({
+                        ...customSettings,
+                        trickWordLetterBlanks: e.target.checked,
+                      })
+                    }
+                    className="rounded text-indigo-600"
+                  />
+                  <span>Trick Words: 1 blank line per letter</span>
+                </label>
+              )}
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
                   type="checkbox"
@@ -297,7 +324,7 @@ export const App: React.FC = () => {
             <div className="mt-3 p-4 bg-amber-50/90 border border-amber-200 rounded-lg text-xs text-slate-800 shadow-sm animate-fadeIn">
               <div className="font-bold text-amber-900 text-sm mb-2 flex items-center justify-between">
                 <span>
-                  Teacher Dictation & District Marking Key (Level {currentTest.level} Unit {currentTest.unit})
+                  Teacher Dictation & District Marking Key (Grade {currentTest.level} Unit {currentTest.unit})
                 </span>
                 <span className="text-xs font-normal text-amber-700 bg-amber-200/60 px-2 py-0.5 rounded">
                   2025–2026 District Directions
@@ -340,17 +367,19 @@ export const App: React.FC = () => {
                   </ol>
                 </div>
 
-                {/* Trick Words & Sentences */}
+                {/* Sentences & Trick Words */}
                 <div className="bg-white p-3 rounded border border-amber-200 shadow-2xs">
                   <div className="font-bold text-slate-900 mb-1.5 pb-1 border-b border-amber-100">
-                    Trick Words & Sentences:
+                    {selectedGrade === 2 ? 'Trick Words & Sentences:' : 'Sentences (Dictate):'}
                   </div>
-                  <div className="mb-2">
-                    <span className="font-semibold text-slate-700">Trick Words:</span>
-                    <p className="font-bold text-slate-900 mt-0.5">
-                      {currentTest.trickWords.map((t) => `${t.number}. ${t.word}`).join(' • ')}
-                    </p>
-                  </div>
+                  {selectedGrade === 2 && currentTest.trickWords.length > 0 && (
+                    <div className="mb-2">
+                      <span className="font-semibold text-slate-700">Trick Words:</span>
+                      <p className="font-bold text-slate-900 mt-0.5">
+                        {currentTest.trickWords.map((t) => `${t.number}. ${t.word}`).join(' • ')}
+                      </p>
+                    </div>
+                  )}
                   <div>
                     <span className="font-semibold text-slate-700">Sentences:</span>
                     <ol className="list-decimal list-inside space-y-1 mt-0.5 italic text-slate-800">

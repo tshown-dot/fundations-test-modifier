@@ -13,6 +13,8 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
   settings,
   studentName = '',
 }) => {
+  const isLevel1 = testData.level === 1;
+
   // Sound slots: discrete blanks on the grass line
   const getSoundSlots = (answers: string[]): BlankSlot[] | undefined => {
     if (!settings.soundBlanksCount) return undefined;
@@ -155,34 +157,35 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
         </div>
       </div>
 
-      {/* ================= PAGE 2: Trick Words & Sentences ================= */}
+      {/* ================= PAGE 2: Sentences (+ Trick Words for Level 2) ================= */}
       <div className="print-page bg-white text-black w-[8.5in] h-[11in] px-16 py-7 flex flex-col justify-between border-0 shadow-none print:border-none print:shadow-none print:px-14 print:py-6 box-border">
-        {/* Constrain width to 670px to match Page 1 perfectly and prevent lines running too far right */}
         <div className="flex flex-col flex-1 justify-between max-w-[670px] mx-auto w-full">
-          {/* SECTION: Trick Words (Column 2 aligns perfectly with Column 2 of Page 1) */}
-          <div className="mb-1">
-            <h3 className="font-serif text-2xl font-bold text-slate-900 mb-2 tracking-wide pl-1">
-              Trick Words:
-            </h3>
-            <div className="grid grid-cols-2 gap-x-12 gap-y-4">
-              {testData.trickWords.map((item) => (
-                <FundationsGridRow
-                  key={item.number}
-                  itemNumber={item.number}
-                  slots={getTrickWordSlots(item.word)}
-                />
-              ))}
+          {/* SECTION: Trick Words (Only shown for Level 2; Grade 1 has no separate trick words section) */}
+          {!isLevel1 && testData.trickWords.length > 0 && (
+            <div className="mb-1">
+              <h3 className="font-serif text-2xl font-bold text-slate-900 mb-2 tracking-wide pl-1">
+                Trick Words:
+              </h3>
+              <div className="grid grid-cols-2 gap-x-12 gap-y-4">
+                {testData.trickWords.map((item) => (
+                  <FundationsGridRow
+                    key={item.number}
+                    itemNumber={item.number}
+                    slots={getTrickWordSlots(item.word)}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
-          {/* SECTION: Sentences (Slightly shorter lines, perfectly centered, generous space) */}
+          {/* SECTION: Sentences */}
           <div className="my-auto">
             <h3 className="font-serif text-2xl font-bold text-slate-900 mb-2 tracking-wide pl-1">
               Sentences:
             </h3>
 
             {/* Line Cluster 1: Sentence 1 */}
-            <div className="mb-12 flex flex-col gap-y-6">
+            <div className={`${isLevel1 ? 'mb-16' : 'mb-12'} flex flex-col gap-y-6`}>
               {/* Line 1 */}
               <FundationsGridRow
                 itemNumber={1}
@@ -203,7 +206,7 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
                 slots={getSentenceWordSlots(s2Words)}
                 trailingPunctuation={settings.sentencePunctuationCue ? testData.sentences[1]?.punctuation || '.' : undefined}
               />
-              {/* Line 2 continuation (clean writing line for students) */}
+              {/* Line 2 continuation */}
               <FundationsGridRow />
             </div>
           </div>
@@ -211,22 +214,40 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
           {/* Solid divider line separating Sentences from the Scoring section */}
           <div className="w-full border-b-2 border-slate-700 my-4" />
 
-          {/* BOTTOM: Scoring Guide */}
+          {/* BOTTOM: Scoring Guide (Dynamically customized for Level 1 vs Level 2) */}
           <div className="pt-1">
-            {/* Scoring Row 1 */}
-            <div className="flex justify-between items-center text-sm font-semibold text-slate-800 mb-2 px-1">
-              <div>Sounds: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
-              <div>Words: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
-              <div>Trick Words: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /2</div>
-              <div>Marking: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
-            </div>
+            {isLevel1 ? (
+              /* Grade 1 Scoring Format: Sounds /5, Words /5, Marking /5, Sentences: Words /5, Trick Words /5 */
+              <>
+                <div className="flex justify-between items-center text-sm font-semibold text-slate-800 mb-2 px-1">
+                  <div>Sounds: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
+                  <div>Words: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
+                  <div>Marking: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
+                </div>
 
-            {/* Scoring Row 2: Sentences Breakdown */}
-            <div className="flex gap-12 items-center text-sm font-semibold text-slate-800 mb-3 px-1">
-              <div className="font-bold text-slate-900">Sentences:</div>
-              <div>Words: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
-              <div>Trick Words: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /3</div>
-            </div>
+                <div className="flex gap-12 items-center text-sm font-semibold text-slate-800 mb-3 px-1">
+                  <div className="font-bold text-slate-900">Sentences:</div>
+                  <div>Words: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
+                  <div>Trick Words in Sentence: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
+                </div>
+              </>
+            ) : (
+              /* Grade 2 Scoring Format: Sounds /5, Words /5, Trick Words /2, Marking /5, Sentences Words /5, Trick Words /3 */
+              <>
+                <div className="flex justify-between items-center text-sm font-semibold text-slate-800 mb-2 px-1">
+                  <div>Sounds: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
+                  <div>Words: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
+                  <div>Trick Words: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /2</div>
+                  <div>Marking: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
+                </div>
+
+                <div className="flex gap-12 items-center text-sm font-semibold text-slate-800 mb-3 px-1">
+                  <div className="font-bold text-slate-900">Sentences:</div>
+                  <div>Words: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
+                  <div>Trick Words: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /3</div>
+                </div>
+              </>
+            )}
 
             {/* Checkboxes: Legibility, Capitalization, Punctuation, Phrasing */}
             <div className="flex justify-between items-center text-sm font-medium text-slate-800 mb-3 px-1">
