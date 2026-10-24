@@ -25,7 +25,7 @@ export const FundationsGridRow: React.FC<FundationsGridRowProps> = ({
   className = '',
   showIcons = true,
 }) => {
-  // Proportions:
+  // Line Proportions:
   // Total height: 78px
   // Skyline: y = 8px (slightly thicker solid)
   // Plane line: y = 34px (dashed line, 26px below skyline)
@@ -35,8 +35,8 @@ export const FundationsGridRow: React.FC<FundationsGridRowProps> = ({
 
   return (
     <div className={`flex items-start w-full ${className}`}>
-      {/* 1. Item Number Column (Fixed 34px width for 100% consistent alignment across all rows) */}
-      <div className="w-[34px] shrink-0 flex items-start justify-end pr-1 pt-[28px]">
+      {/* 1. Item Number Column (Fixed 32px width for 100% consistent alignment across all rows) */}
+      <div className="w-8 shrink-0 flex items-start justify-end pr-1 pt-[28px]">
         {itemNumber !== undefined ? (
           <span className="font-serif text-2xl font-bold text-slate-900 leading-none">
             {itemNumber}.
@@ -47,10 +47,10 @@ export const FundationsGridRow: React.FC<FundationsGridRowProps> = ({
         )}
       </div>
 
-      {/* 2. Authentic Guide Icons Column (Fixed 30px width, vertically centered on each line) */}
+      {/* 2. Authentic Guide Icons Column (Fixed 28px width, vertically centered on each line) */}
       {showIcons && (
         <div
-          className="relative w-[30px] shrink-0 mr-2 select-none"
+          className="relative w-7 shrink-0 mr-2 select-none"
           style={{ height: `${totalHeight}px` }}
           aria-hidden="true"
         >
@@ -132,9 +132,9 @@ export const FundationsGridRow: React.FC<FundationsGridRowProps> = ({
 
         {/* Level 1 Scaffold Layer: Distinct blank underlines drawn on the Grass line */}
         {slots && slots.length > 0 && (
-          <div className="absolute inset-0 flex items-center gap-x-2.5 z-10 pointer-events-none pr-1">
+          <div className="absolute inset-0 flex items-center gap-x-2 z-10 pointer-events-none pr-0.5">
             {slots.map((slot, index) => {
-              const defaultWidth = slot.isWider ? 'w-16' : 'w-10';
+              const defaultWidth = slot.isWider ? 'w-14' : 'w-9';
               const widthStyle: React.CSSProperties = {
                 ...(slot.flexGrow !== undefined
                   ? { flex: `${slot.flexGrow} ${slot.flexGrow} 0px` }
