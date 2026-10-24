@@ -25,18 +25,19 @@ export const FundationsGridRow: React.FC<FundationsGridRowProps> = ({
   className = '',
   showIcons = true,
 }) => {
-  // Line Proportions:
+  // Proportions:
   // Total height: 78px
-  // Skyline: y = 8px (slightly thicker solid)
-  // Plane line: y = 34px (dashed line, 26px below skyline)
-  // Grass line: y = 60px (regular solid baseline, 26px below plane line)
-  // Worm line: y = 74px (regular solid descender, 14px below grass line)
+  // 4 Lines EVENLY SPACED (exact 22px between each line):
+  // Line 1 (Skyline): y = 6px
+  // Line 2 (Plane line): y = 28px (6 + 22)
+  // Line 3 (Grass line): y = 50px (28 + 22)
+  // Line 4 (Worm line): y = 72px (50 + 22)
   const totalHeight = 78;
 
   return (
     <div className={`flex items-start w-full ${className}`}>
-      {/* 1. Item Number Column (Fixed 32px width for 100% consistent alignment across all rows) */}
-      <div className="w-8 shrink-0 flex items-start justify-end pr-1 pt-[28px]">
+      {/* 1. Item Number Column (Aligned with the Grass baseline at y = 50px) */}
+      <div className="w-8 shrink-0 flex items-start justify-end pr-1 pt-[18px]">
         {itemNumber !== undefined ? (
           <span className="font-serif text-2xl font-bold text-slate-900 leading-none">
             {itemNumber}.
@@ -47,30 +48,30 @@ export const FundationsGridRow: React.FC<FundationsGridRowProps> = ({
         )}
       </div>
 
-      {/* 2. Authentic Guide Icons Column (Fixed 28px width, vertically centered on each line) */}
+      {/* 2. Authentic Guide Icons Column (Centered vertically on each of the 4 evenly spaced lines) */}
       {showIcons && (
         <div
           className="relative w-7 shrink-0 mr-2 select-none"
           style={{ height: `${totalHeight}px` }}
           aria-hidden="true"
         >
-          {/* Skyline (centered at y = 8px) */}
-          <div className="absolute top-[-2px] left-0 flex items-center justify-center w-6 h-5">
+          {/* Skyline (centered at y = 6px) */}
+          <div className="absolute top-[-4px] left-0 flex items-center justify-center w-6 h-5">
             <SkylineImage className="w-6 h-5 object-contain" />
           </div>
 
-          {/* Plane line (centered at y = 34px) */}
-          <div className="absolute top-[24px] left-0 flex items-center justify-center w-7 h-5">
+          {/* Plane line (centered at y = 28px) */}
+          <div className="absolute top-[18px] left-0 flex items-center justify-center w-7 h-5">
             <PlaneImage className="w-7 h-5 object-contain" />
           </div>
 
-          {/* Grass line (centered at y = 60px) */}
-          <div className="absolute top-[50px] left-0 flex items-center justify-center w-6 h-5">
+          {/* Grass line (centered at y = 50px) */}
+          <div className="absolute top-[40px] left-0 flex items-center justify-center w-6 h-5">
             <GrassImage className="w-6 h-5 object-contain" />
           </div>
 
-          {/* Worm line (centered at y = 74px) */}
-          <div className="absolute top-[64px] left-0 flex items-center justify-center w-6 h-5">
+          {/* Worm line (centered at y = 72px) */}
+          <div className="absolute top-[62px] left-0 flex items-center justify-center w-6 h-5">
             <WormImage className="w-6 h-5 object-contain" />
           </div>
         </div>
@@ -78,7 +79,7 @@ export const FundationsGridRow: React.FC<FundationsGridRowProps> = ({
 
       {/* 3. The 4-Line Writing Grid Container */}
       <div className="relative flex-1" style={{ height: `${totalHeight}px` }}>
-        {/* Continuous 4 Guidelines across the entire row */}
+        {/* Continuous 4 Guidelines across the entire row (Exact 22px even spacing) */}
         <svg
           className="absolute inset-0 w-full h-full pointer-events-none"
           preserveAspectRatio="none"
@@ -87,50 +88,50 @@ export const FundationsGridRow: React.FC<FundationsGridRowProps> = ({
           {/* 1. Skyline: slightly thicker solid line */}
           <line
             x1="0"
-            y1="8"
+            y1="6"
             x2="100"
-            y2="8"
+            y2="6"
             stroke="#1E293B"
             strokeWidth="2.2"
             vectorEffect="non-scaling-stroke"
           />
 
-          {/* 2. Plane line: dashed line */}
+          {/* 2. Plane line: dashed line (22px below Skyline) */}
           <line
             x1="0"
-            y1="34"
+            y1="28"
             x2="100"
-            y2="34"
+            y2="28"
             stroke="#64748B"
             strokeWidth="1.4"
             strokeDasharray="6 4.5"
             vectorEffect="non-scaling-stroke"
           />
 
-          {/* 3. Grass line: regular solid line (baseline) */}
+          {/* 3. Grass line: regular solid line (22px below Plane line - baseline) */}
           <line
             x1="0"
-            y1="60"
+            y1="50"
             x2="100"
-            y2="60"
+            y2="50"
             stroke="#475569"
             strokeWidth="1.5"
             vectorEffect="non-scaling-stroke"
           />
 
-          {/* 4. Worm line: regular solid line (descender) */}
+          {/* 4. Worm line: regular solid line (22px below Grass line - descender) */}
           <line
             x1="0"
-            y1="74"
+            y1="72"
             x2="100"
-            y2="74"
+            y2="72"
             stroke="#64748B"
             strokeWidth="1.5"
             vectorEffect="non-scaling-stroke"
           />
         </svg>
 
-        {/* Level 1 Scaffold Layer: Distinct blank underlines drawn on the Grass line */}
+        {/* Level 1 Scaffold Layer: Distinct blank underlines resting on the Grass line (y = 50px) */}
         {slots && slots.length > 0 && (
           <div className="absolute inset-0 flex items-center gap-x-2 z-10 pointer-events-none pr-0.5">
             {slots.map((slot, index) => {
@@ -157,26 +158,26 @@ export const FundationsGridRow: React.FC<FundationsGridRowProps> = ({
                     }`}
                     style={widthStyle}
                   >
-                    {/* Dark, prominent blank underline resting exactly on the Grass line (y = 60px) */}
+                    {/* Dark, prominent blank underline resting exactly on the Grass line (y = 50px) */}
                     <div
                       className="absolute left-0 right-0 h-[3.5px] bg-slate-950 rounded-xs"
-                      style={{ top: '58px' }}
+                      style={{ top: '48.5px' }}
                     />
 
                     {/* Pre-filled text if applicable */}
                     {slot.label && (
                       <div
                         className="absolute inset-x-0 text-center font-sans text-xl font-bold text-slate-800 leading-none"
-                        style={{ top: '36px' }}
+                        style={{ top: '28px' }}
                       >
                         {slot.label}
                       </div>
                     )}
                   </div>
 
-                  {/* Comma between sound slots (rests right on the grass line) */}
+                  {/* Comma between sound slots (rests right on the grass line at y = 50px) */}
                   {commasBetweenSlots && index < slots.length - 1 && (
-                    <div className="relative h-[78px] flex items-end font-serif text-2xl font-black text-slate-950 select-none pb-[18px]">
+                    <div className="relative h-[78px] flex items-end font-serif text-2xl font-black text-slate-950 select-none pb-[26px]">
                       ,
                     </div>
                   )}
@@ -184,9 +185,9 @@ export const FundationsGridRow: React.FC<FundationsGridRowProps> = ({
               );
             })}
 
-            {/* Trailing punctuation cue (rests right on the grass line at the end of the sentence) */}
+            {/* Trailing punctuation cue (rests right on the grass line at y = 50px) */}
             {trailingPunctuation && (
-              <div className="relative h-[78px] flex items-end font-serif text-3xl font-black text-slate-950 select-none pb-[14px] pl-1">
+              <div className="relative h-[78px] flex items-end font-serif text-3xl font-black text-slate-950 select-none pb-[22px] pl-1">
                 {trailingPunctuation}
               </div>
             )}
