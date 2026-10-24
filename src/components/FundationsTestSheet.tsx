@@ -64,7 +64,7 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
           <div>
             <div className="text-center mb-1.5">
               <h2 className="font-serif text-lg tracking-wide text-slate-800">
-                {testData.title || 'Fundations: End of Unit Test'}
+                Fundations: End of Unit {testData.unit} Test
               </h2>
               <h1 className="font-serif text-4xl font-extrabold tracking-wider text-slate-900 mt-0.5">
                 Dictation
