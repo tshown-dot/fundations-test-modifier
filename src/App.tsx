@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { level2Units } from './data/level2Units';
 import { level1Units } from './data/level1Units';
-import { ModificationLevel, ModificationSettings } from './types/fundations';
+import { ModificationLevel, ModificationSettings, UnitTestData } from './types/fundations';
 import { FundationsTestSheet } from './components/FundationsTestSheet';
-import { Printer, Settings2, Sparkles, BookOpen, User, CheckCircle2, Layers } from 'lucide-react';
+import { DatabaseManager } from './components/DatabaseManager';
+import { Printer, Settings2, Sparkles, BookOpen, User, CheckCircle2, Layers, Database } from 'lucide-react';
 
 const BASELINE_PRESET: ModificationSettings = {
   level: 'baseline',
@@ -60,11 +61,56 @@ export const App: React.FC = () => {
   const [activeTier, setActiveTier] = useState<ModificationLevel>('level2');
   const [showAnswerKey, setShowAnswerKey] = useState<boolean>(false);
   const [customSettings, setCustomSettings] = useState<ModificationSettings>(LEVEL_2_PRESET);
+  const [viewMode, setViewMode] = useState<'sheet' | 'database'>('sheet');
 
-  // Pick dataset based on grade
-  const availableUnits = selectedGrade === 1 ? level1Units : level2Units;
+  // Custom user unit overrides saved in localStorage
+  const [customUnits, setCustomUnits] = useState<Record<string, UnitTestData>>(() => {
+    try {
+      const saved = localStorage.getItem('fundations_custom_units_v1');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  // Pick dataset based on grade and merge with any user overrides
+  const baseUnits = selectedGrade === 1 ? level1Units : level2Units;
+  const availableUnits: Record<string, UnitTestData> = {
+    ...baseUnits,
+    ...Object.fromEntries(
+      Object.entries(customUnits).filter(([k]) => k.startsWith(`level-${selectedGrade}-`))
+    ),
+  };
+
   const currentKey = `level-${selectedGrade}-unit-${selectedUnit}`;
   const currentTest = availableUnits[currentKey] || Object.values(availableUnits)[0];
+  const isCustomized = Boolean(customUnits[currentKey]);
+
+  const handleSaveUnit = (updatedUnit: UnitTestData) => {
+    const key = `level-${updatedUnit.level}-unit-${updatedUnit.unit}`;
+    const updatedMap = {
+      ...customUnits,
+      [key]: updatedUnit,
+    };
+    setCustomUnits(updatedMap);
+    try {
+      localStorage.setItem('fundations_custom_units_v1', JSON.stringify(updatedMap));
+    } catch (e) {
+      console.error('Failed to save to localStorage', e);
+    }
+  };
+
+  const handleResetUnit = () => {
+    const key = `level-${selectedGrade}-unit-${selectedUnit}`;
+    const updatedMap = { ...customUnits };
+    delete updatedMap[key];
+    setCustomUnits(updatedMap);
+    try {
+      localStorage.setItem('fundations_custom_units_v1', JSON.stringify(updatedMap));
+    } catch (e) {
+      console.error('Failed to reset in localStorage', e);
+    }
+  };
 
   // Resolve current active settings
   const currentSettings: ModificationSettings =
@@ -167,6 +213,19 @@ export const App: React.FC = () => {
               >
                 <BookOpen className="w-3.5 h-3.5 text-amber-600" />
                 {showAnswerKey ? 'Hide Dictation Key' : 'Dictation & Marking Key'}
+              </button>
+
+              {/* Database Manager Button */}
+              <button
+                onClick={() => setViewMode(viewMode === 'sheet' ? 'database' : 'sheet')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-md border transition cursor-pointer ${
+                  viewMode === 'database'
+                    ? 'bg-amber-500 text-slate-950 border-amber-600 shadow-xs'
+                    : 'bg-slate-900 text-amber-300 hover:bg-slate-800 border-slate-700 shadow-xs'
+                }`}
+              >
+                <Database className="w-3.5 h-3.5" />
+                {viewMode === 'sheet' ? 'Database Manager' : 'Back to Test Sheet'}
               </button>
 
               {/* Print Button */}
@@ -422,14 +481,29 @@ export const App: React.FC = () => {
         </div>
       </header>
 
-      {/* ================= MAIN SHEET PREVIEW ================= */}
-      <main className="max-w-5xl mx-auto mt-8 px-4 sm:px-6 print:m-0 print:p-0 print:max-w-none print:w-full">
-        <FundationsTestSheet
-          testData={currentTest}
-          settings={currentSettings}
-          studentName={studentName}
+      {/* ================= MAIN CONTENT ================= */}
+      {viewMode === 'database' ? (
+        <DatabaseManager
+          grade={selectedGrade}
+          onGradeChange={handleGradeChange}
+          unit={selectedUnit}
+          onUnitChange={setSelectedUnit}
+          unitData={currentTest}
+          onSaveUnit={handleSaveUnit}
+          onResetUnit={handleResetUnit}
+          onBackToTest={() => setViewMode('sheet')}
+          availableUnits={availableUnits}
+          isCustomized={isCustomized}
         />
-      </main>
+      ) : (
+        <main className="max-w-5xl mx-auto mt-8 px-4 sm:px-6 print:m-0 print:p-0 print:max-w-none print:w-full">
+          <FundationsTestSheet
+            testData={currentTest}
+            settings={currentSettings}
+            studentName={studentName}
+          />
+        </main>
+      )}
     </div>
   );
 };

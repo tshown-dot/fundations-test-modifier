@@ -21,7 +21,7 @@ export function getTileType(
 ): TileColorType {
   const clean = text.toLowerCase().trim().replace(/^-/, '');
 
-  if (options?.isSuffix || (options?.isSuffix !== false && SUFFIXES.has(clean) && clean.length >= 2)) {
+  if (options?.isSuffix || SUFFIXES.has(clean)) {
     return 'suffix'; // Yellow Rectangle
   }
 
