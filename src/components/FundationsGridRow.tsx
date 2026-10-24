@@ -1,6 +1,7 @@
 import React from 'react';
 import { SkylineImage, PlaneImage, GrassImage, WormImage } from './FundationsIcons';
 import { TileColorType, SentenceWordToken } from '../types/fundations';
+import { calculateTapCount } from '../utils/tileHelper';
 
 export interface BlankSlot {
   width?: number | string; // width in px or tailwind class
@@ -144,32 +145,39 @@ export const FundationsGridRow: React.FC<FundationsGridRowProps> = ({
           />
         </svg>
 
-        {/* Level 2 Tile Overlay: Color-coded Fundations sound tile boxes directly framing the 4 lines */}
+        {/* Level 2 Tile Overlay: Color-coded Fundations sound tile boxes spanning Skyline (y=6) to Grass baseline (y=50) */}
         {tiles && tiles.length > 0 && (
-          <div className="absolute inset-0 flex items-center gap-0.5 z-10 pointer-events-none pl-0.5">
+          <div
+            className="absolute inset-x-0 flex items-start gap-0.5 z-10 pointer-events-none pl-0.5"
+            style={{ top: '6px' }}
+          >
             {tiles.map((tile, index) => {
-              let bgBorder = 'bg-yellow-200/45 border-amber-400';
-              let widthClass = tile.isRectangle ? 'w-20' : 'w-12';
+              // Calibrated colors:
+              // Consonant: warm tan
+              // Suffix: vibrant yellow
+              // Vowel: salmon / peach
+              // Welded: spring green
+              let bgBorder = 'bg-[#F1E5D1] border-[#B89874]';
+              let widthClass = tile.isRectangle ? 'w-[76px]' : 'w-[44px]'; // square 44x44 for consonant/vowel
 
               if (tile.type === 'vowel') {
-                bgBorder = 'bg-orange-200/45 border-orange-400';
-                widthClass = tile.isRectangle ? 'w-20' : 'w-12';
+                bgBorder = 'bg-[#FED7AA] border-[#FB923C]';
+                widthClass = tile.isRectangle ? 'w-[76px]' : 'w-[44px]';
               } else if (tile.type === 'welded') {
-                bgBorder = 'bg-emerald-200/45 border-emerald-500';
-                widthClass = 'w-20';
+                bgBorder = 'bg-[#A7F3D0] border-[#10B981]';
+                widthClass = 'w-[76px]';
               } else if (tile.type === 'suffix') {
-                bgBorder = 'bg-yellow-200/55 border-yellow-500';
-                widthClass = 'w-20';
+                bgBorder = 'bg-[#FDE047] border-[#EAB308]';
+                widthClass = 'w-[76px]';
               }
 
               return (
                 <React.Fragment key={index}>
                   <div
-                    className={`h-[68px] ${widthClass} rounded-md border-2 ${bgBorder} flex items-center justify-center select-none shadow-2xs`}
-                    style={{ marginTop: '4px' }}
+                    className={`h-[44px] ${widthClass} rounded-sm border-2 ${bgBorder} flex items-center justify-center select-none shadow-2xs`}
                   >
                     {tile.text && (
-                      <span className="font-serif text-2xl font-bold text-slate-900 pb-3">
+                      <span className="font-serif text-xl font-bold text-slate-900 pb-1">
                         {tile.text}
                       </span>
                     )}
@@ -177,7 +185,7 @@ export const FundationsGridRow: React.FC<FundationsGridRowProps> = ({
 
                   {/* Comma between sound tiles */}
                   {commasBetweenSlots && index < tiles.length - 1 && (
-                    <div className="relative h-[78px] flex items-end font-serif text-2xl font-black text-slate-950 select-none pb-[26px] px-1">
+                    <div className="h-[44px] flex items-end font-serif text-2xl font-black text-slate-950 select-none pb-0 px-1">
                       ,
                     </div>
                   )}
@@ -206,15 +214,15 @@ export const FundationsGridRow: React.FC<FundationsGridRowProps> = ({
                 return (
                   <div
                     key={index}
-                    className="min-w-[95px] h-[50px] rounded-full border-2 border-slate-700 bg-white/75 shadow-2xs flex items-center justify-center mb-[14px]"
+                    className="min-w-[130px] h-[54px] rounded-full border-2 border-slate-700 bg-white/80 shadow-2xs flex items-center justify-center mb-[14px]"
                   >
-                    {/* Clean empty oval pill on the lines - NO text */}
+                    {/* Large clean empty oval pill on the lines for student writing */}
                   </div>
                 );
               }
 
               if (token.type === 'phonetic') {
-                const tapCount = token.tapCount || Math.max(3, token.word.length);
+                const tapCount = token.tapCount || calculateTapCount(token.word);
                 const tapDots = Array.from({ length: tapCount });
                 return (
                   <div

@@ -88,16 +88,20 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "skim",
         "tapUnits": [
           {
-            "text": "s"
+            "text": "s",
+            "type": "single"
           },
           {
-            "text": "k"
+            "text": "k",
+            "type": "single"
           },
           {
-            "text": "i"
+            "text": "i",
+            "type": "single"
           },
           {
-            "text": "m"
+            "text": "m",
+            "type": "single"
           }
         ],
         "markingDescription": "Spell the word, \"skim\" and mark the closed syllable."
@@ -107,19 +111,24 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "strap",
         "tapUnits": [
           {
-            "text": "s"
+            "text": "s",
+            "type": "single"
           },
           {
-            "text": "t"
+            "text": "t",
+            "type": "single"
           },
           {
-            "text": "r"
+            "text": "r",
+            "type": "single"
           },
           {
-            "text": "a"
+            "text": "a",
+            "type": "single"
           },
           {
-            "text": "p"
+            "text": "p",
+            "type": "single"
           }
         ],
         "markingDescription": "Spell the word, \"strap\" and mark the closed syllable."
@@ -172,10 +181,7 @@ export const level2Units: Record<string, UnitTestData> = {
           "milk",
           "snack"
         ],
-        "trickWords": [
-          "with",
-          "his"
-        ],
+        "trickWords": [],
         "punctuation": "."
       },
       {
@@ -196,7 +202,6 @@ export const level2Units: Record<string, UnitTestData> = {
         "trickWords": [
           "They",
           "said",
-          "to",
           "one"
         ],
         "punctuation": "."
@@ -662,7 +667,9 @@ export const level2Units: Record<string, UnitTestData> = {
           },
           {
             "text": "es",
-            "isDigraphOrSuffix": true
+            "isDigraphOrSuffix": true,
+            "type": "suffix",
+            "tileType": "suffix"
           }
         ],
         "markingDescription": "Spell the word, \"bunches\" and underline the base word and circle the suffix."
@@ -1545,7 +1552,9 @@ export const level2Units: Record<string, UnitTestData> = {
           },
           {
             "text": "es",
-            "isDigraphOrSuffix": true
+            "isDigraphOrSuffix": true,
+            "type": "suffix",
+            "tileType": "suffix"
           }
         ],
         "markingDescription": "Spell the word, \"porches\" and scoop the word and mark the syllable. Circle the suffix."
@@ -2142,7 +2151,9 @@ export const level2Units: Record<string, UnitTestData> = {
           },
           {
             "text": "es",
-            "isDigraphOrSuffix": true
+            "isDigraphOrSuffix": true,
+            "type": "suffix",
+            "tileType": "suffix"
           }
         ],
         "markingDescription": "Spell the word, \"speeches\" and scoop the word and mark the syllable. Circle the suffix."

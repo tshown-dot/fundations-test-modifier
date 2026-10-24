@@ -1,7 +1,7 @@
 import React from 'react';
 import { UnitTestData, ModificationSettings, WordItem, SoundItem, SentenceItem, SentenceWordToken } from '../types/fundations';
 import { FundationsGridRow, BlankSlot, GridTile } from './FundationsGridRow';
-import { getTileType } from '../utils/tileHelper';
+import { getTileType, calculateTapCount } from '../utils/tileHelper';
 import { Level2TrickWordBank } from './Level2TrickWordBank';
 
 interface FundationsTestSheetProps {
@@ -106,7 +106,7 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
       return {
         word,
         type,
-        tapCount: type === 'phonetic' ? Math.max(3, clean.length) : undefined,
+        tapCount: type === 'phonetic' ? calculateTapCount(clean) : undefined,
       };
     });
   };

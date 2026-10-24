@@ -55,8 +55,15 @@ const LEVEL_2_PRESET: ModificationSettings = {
 };
 
 export const App: React.FC = () => {
-  const [selectedGrade, setSelectedGrade] = useState<number>(2); // 1 or 2
-  const [selectedUnit, setSelectedUnit] = useState<number>(4);
+  const queryParams = new URLSearchParams(typeof window !== 'undefined' ? window.location.search : '');
+  const [selectedGrade, setSelectedGrade] = useState<number>(() => {
+    const g = Number(queryParams.get('grade'));
+    return g === 1 || g === 2 ? g : 2;
+  });
+  const [selectedUnit, setSelectedUnit] = useState<number>(() => {
+    const u = Number(queryParams.get('unit'));
+    return u >= 1 ? u : 4;
+  });
   const [studentName, setStudentName] = useState<string>('');
   const [activeTier, setActiveTier] = useState<ModificationLevel>('level2');
   const [showAnswerKey, setShowAnswerKey] = useState<boolean>(false);
