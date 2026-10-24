@@ -1,20 +1,22 @@
 import React from 'react';
 
+const BASE = import.meta.env.BASE_URL;
+
 // Authentic Fundations Line Icons using the official imagery
 export const SkylineImage: React.FC<{ className?: string }> = ({ className = 'w-5 h-5 object-contain' }) => (
-  <img src="/assets/icons/skyline.png" alt="Skyline" className={className} draggable={false} />
+  <img src={`${BASE}assets/icons/skyline.png`} alt="Skyline" className={className} draggable={false} />
 );
 
 export const PlaneImage: React.FC<{ className?: string }> = ({ className = 'w-6 h-4 object-contain' }) => (
-  <img src="/assets/icons/plane.png" alt="Plane line" className={className} draggable={false} />
+  <img src={`${BASE}assets/icons/plane.png`} alt="Plane line" className={className} draggable={false} />
 );
 
 export const GrassImage: React.FC<{ className?: string }> = ({ className = 'w-5 h-5 object-contain' }) => (
-  <img src="/assets/icons/grass.png" alt="Grass line" className={className} draggable={false} />
+  <img src={`${BASE}assets/icons/grass.png`} alt="Grass line" className={className} draggable={false} />
 );
 
 export const WormImage: React.FC<{ className?: string }> = ({ className = 'w-5 h-5 object-contain' }) => (
-  <img src="/assets/icons/worm.png" alt="Worm line" className={className} draggable={false} />
+  <img src={`${BASE}assets/icons/worm.png`} alt="Worm line" className={className} draggable={false} />
 );
 
 // Echo the Owl Mascot Icon
