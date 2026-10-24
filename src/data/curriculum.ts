@@ -1,5 +1,25 @@
 import { UnitTestData } from '../types/fundations';
 
+// Wilson Fundations Glued / Welded Sounds
+export const GLUED_SOUNDS = [
+  'all',
+  'am',
+  'an',
+  'ang',
+  'ing',
+  'ong',
+  'ung',
+  'ank',
+  'ink',
+  'onk',
+  'unk',
+  'ild',
+  'ind',
+  'old',
+  'olt',
+  'ost',
+] as const;
+
 export const sampleTests: Record<string, UnitTestData> = {
   'level-2-unit-4': {
     level: 2,
@@ -49,12 +69,10 @@ export const sampleTests: Record<string, UnitTestData> = {
         suffix: 'est',
         tapUnits: [
           { text: 'c', type: 'single' },
-          { text: 'o', type: 'single' },
-          { text: 'l', type: 'single' },
-          { text: 'd', type: 'single' },
+          { text: 'old', isDigraphOrSuffix: true, type: 'welded' }, // Glued sound /ōld/ = 1 tap unit!
           { text: 'est', isDigraphOrSuffix: true, type: 'suffix' },
         ],
-        markingDescription: 'macron on o, closed syllable exception, circle est suffix',
+        markingDescription: 'macron on o, closed exception (c/), box old, circle est suffix',
       },
       {
         number: 4,
@@ -65,10 +83,10 @@ export const sampleTests: Record<string, UnitTestData> = {
           { text: 's', type: 'single' },
           { text: 'p', type: 'single' },
           { text: 'e', type: 'single' },
-          { text: 'll', isDigraphOrSuffix: true, type: 'blend' },
+          { text: 'll', isDigraphOrSuffix: true, type: 'blend' }, // Bonus letter unit
           { text: 'ed', isDigraphOrSuffix: true, type: 'suffix' },
         ],
-        markingDescription: '/d/ over ed, breve on e, c closed syllable, circle ed suffix',
+        markingDescription: '/d/ over ed, breve on e, star bonus l, c closed, circle ed suffix',
       },
       {
         number: 5,
