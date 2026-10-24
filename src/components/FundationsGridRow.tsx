@@ -1,17 +1,15 @@
 import React from 'react';
-import { SkylineIcon, PlaneIcon, GrassIcon, WormIcon } from './FundationsIcons';
+import { SkylineImage, PlaneImage, GrassImage, WormImage } from './FundationsIcons';
 
 export interface BlankSlot {
   width?: number | string; // width in px or tailwind class
   label?: string; // e.g. pre-filled text or hint
   isWider?: boolean;
-  isPunctuation?: boolean;
 }
 
 interface FundationsGridRowProps {
   itemNumber?: number | string;
-  width?: string;
-  slots?: BlankSlot[]; // if provided, renders distinct blank slots
+  slots?: BlankSlot[]; // if provided, renders distinct blank slots on the grass line
   commasBetweenSlots?: boolean; // puts a comma between slots (for Sounds)
   trailingPunctuation?: string; // e.g. "." at the end of a sentence
   className?: string;
@@ -20,158 +18,180 @@ interface FundationsGridRowProps {
 
 export const FundationsGridRow: React.FC<FundationsGridRowProps> = ({
   itemNumber,
-  width = 'w-full',
   slots,
   commasBetweenSlots = false,
   trailingPunctuation,
   className = '',
   showIcons = true,
 }) => {
-  // Height metrics matching authentic Fundations proportions
-  // Skyline: y=4px, Plane: y=18px (dashed), Grass: y=32px (baseline), Worm: y=42px
-  const totalHeight = 46;
+  // Proportions optimized for 1st and 2nd graders:
+  // Total height: 68px
+  // Skyline: y = 8px (slightly thicker solid)
+  // Plane line: y = 30px (dashed)
+  // Grass line: y = 52px (regular solid baseline)
+  // Worm line: y = 64px (regular solid descender)
+  const totalHeight = 68;
 
   return (
-    <div className={`flex items-start gap-1.5 ${width} ${className}`}>
-      {/* Item Number */}
-      {itemNumber !== undefined && (
-        <div className="w-6 shrink-0 pt-2 font-serif text-xl font-bold text-slate-800 text-right pr-0.5">
-          {itemNumber}.
-        </div>
-      )}
+    <div className={`flex items-start w-full ${className}`}>
+      {/* 1. Item Number Column (Fixed 32px width for 100% consistent alignment across all rows) */}
+      <div className="w-8 shrink-0 flex items-start justify-end pr-1 pt-[22px]">
+        {itemNumber !== undefined ? (
+          <span className="font-serif text-2xl font-bold text-slate-900 leading-none">
+            {itemNumber}.
+          </span>
+        ) : (
+          /* Invisible spacer to maintain identical indentation on continuation lines */
+          <div className="w-full" />
+        )}
+      </div>
 
-      {/* 4 Guide Icons on Left */}
+      {/* 2. Authentic Guide Icons Column (Fixed 32px width, vertically centered on each line) */}
       {showIcons && (
         <div
-          className="relative w-4.5 shrink-0 flex flex-col justify-between select-none"
+          className="relative w-8 shrink-0 mr-2 select-none"
           style={{ height: `${totalHeight}px` }}
           aria-hidden="true"
         >
-          {/* Skyline icon (top) */}
-          <div className="absolute top-[0px] left-0">
-            <SkylineIcon className="w-4 h-4 opacity-75" />
+          {/* Skyline (centered at y = 8px) */}
+          <div className="absolute top-[-2px] left-0.5 flex items-center justify-center w-6 h-5">
+            <SkylineImage className="w-6 h-5 object-contain" />
           </div>
-          {/* Plane icon (middle-upper) */}
-          <div className="absolute top-[12px] left-0">
-            <PlaneIcon className="w-4 h-4 opacity-75" />
+
+          {/* Plane line (centered at y = 30px) */}
+          <div className="absolute top-[20px] left-0 flex items-center justify-center w-7 h-5">
+            <PlaneImage className="w-7 h-5 object-contain" />
           </div>
-          {/* Grass icon (grass line) */}
-          <div className="absolute top-[25px] left-0">
-            <GrassIcon className="w-4 h-4 opacity-80" />
+
+          {/* Grass line (centered at y = 52px) */}
+          <div className="absolute top-[42px] left-0.5 flex items-center justify-center w-6 h-5">
+            <GrassImage className="w-6 h-5 object-contain" />
           </div>
-          {/* Worm icon (worm line) */}
-          <div className="absolute top-[36px] left-0">
-            <WormIcon className="w-4 h-4 opacity-75" />
+
+          {/* Worm line (centered at y = 64px) */}
+          <div className="absolute top-[54px] left-0.5 flex items-center justify-center w-6 h-5">
+            <WormImage className="w-6 h-5 object-contain" />
           </div>
         </div>
       )}
 
-      {/* Writing Grid Container */}
+      {/* 3. The 4-Line Writing Grid Container */}
       <div className="relative flex-1" style={{ height: `${totalHeight}px` }}>
-        {/* If NO slots are specified -> Standard Continuous Fundations Grid */}
-        {!slots || slots.length === 0 ? (
-          <svg
-            className="w-full h-full block"
-            preserveAspectRatio="none"
-            viewBox="0 0 100 46"
-          >
-            {/* Skyline (solid line) */}
-            <line x1="0" y1="6" x2="100" y2="6" stroke="#94A3B8" strokeWidth="0.8" />
-            {/* Plane line (dashed line) */}
-            <line
-              x1="0"
-              y1="19"
-              x2="100"
-              y2="19"
-              stroke="#94A3B8"
-              strokeWidth="0.8"
-              strokeDasharray="3 3"
-            />
-            {/* Grass line (solid baseline) */}
-            <line x1="0" y1="32" x2="100" y2="32" stroke="#475569" strokeWidth="1.2" />
-            {/* Worm line (solid line) */}
-            <line x1="0" y1="42" x2="100" y2="42" stroke="#94A3B8" strokeWidth="0.8" />
-          </svg>
-        ) : (
-          /* Modified Slots Mode: discrete slots with Fundations guide lines passing through */
-          <div className="relative w-full h-full flex items-center">
-            {/* Background 4-lines that guide the row */}
-            <svg
-              className="absolute inset-0 w-full h-full pointer-events-none"
-              preserveAspectRatio="none"
-              viewBox="0 0 100 46"
-            >
-              {/* Skyline */}
-              <line x1="0" y1="6" x2="100" y2="6" stroke="#CBD5E1" strokeWidth="0.6" />
-              {/* Plane line (dashed) */}
-              <line
-                x1="0"
-                y1="19"
-                x2="100"
-                y2="19"
-                stroke="#CBD5E1"
-                strokeWidth="0.6"
-                strokeDasharray="2.5 2.5"
-              />
-              {/* Grass line */}
-              <line x1="0" y1="32" x2="100" y2="32" stroke="#94A3B8" strokeWidth="0.6" />
-              {/* Worm line */}
-              <line x1="0" y1="42" x2="100" y2="42" stroke="#CBD5E1" strokeWidth="0.6" />
-            </svg>
+        {/* Continuous 4 Guidelines across the entire row */}
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          preserveAspectRatio="none"
+          viewBox="0 0 100 68"
+        >
+          {/* 1. Skyline: slightly thicker solid */}
+          <line
+            x1="0"
+            y1="8"
+            x2="100"
+            y2="8"
+            stroke="#1E293B"
+            strokeWidth="1.8"
+            vectorEffect="non-scaling-stroke"
+          />
 
-            {/* Individual blanks / slots */}
-            <div className="relative z-10 flex items-center flex-wrap gap-x-2 gap-y-1">
-              {slots.map((slot, index) => {
-                const defaultWidth = slot.isWider ? 'w-14' : 'w-8';
-                const widthStyle =
-                  typeof slot.width === 'number'
-                    ? { width: `${slot.width}px` }
-                    : typeof slot.width === 'string' && slot.width.startsWith('w-')
-                    ? {}
-                    : slot.width
-                    ? { width: slot.width }
-                    : {};
+          {/* 2. Plane line: dashed line */}
+          <line
+            x1="0"
+            y1="30"
+            x2="100"
+            y2="30"
+            stroke="#64748B"
+            strokeWidth="1.3"
+            strokeDasharray="6 4.5"
+            vectorEffect="non-scaling-stroke"
+          />
 
-                return (
-                  <React.Fragment key={index}>
+          {/* 3. Grass line: regular solid line (baseline) */}
+          <line
+            x1="0"
+            y1="52"
+            x2="100"
+            y2="52"
+            stroke="#475569"
+            strokeWidth="1.4"
+            vectorEffect="non-scaling-stroke"
+          />
+
+          {/* 4. Worm line: regular solid line (descender) */}
+          <line
+            x1="0"
+            y1="64"
+            x2="100"
+            y2="64"
+            stroke="#64748B"
+            strokeWidth="1.4"
+            vectorEffect="non-scaling-stroke"
+          />
+        </svg>
+
+        {/* Level 1 Scaffold Layer: Distinct blank underlines drawn on the Grass line */}
+        {slots && slots.length > 0 && (
+          <div className="absolute inset-0 flex items-center gap-x-2.5 z-10 pointer-events-none">
+            {slots.map((slot, index) => {
+              const defaultWidth = slot.isWider ? 'w-16' : 'w-10';
+              const widthStyle =
+                typeof slot.width === 'number'
+                  ? { width: `${slot.width}px` }
+                  : typeof slot.width === 'string' && slot.width.startsWith('w-')
+                  ? {}
+                  : slot.width
+                  ? { width: slot.width }
+                  : {};
+
+              return (
+                <React.Fragment key={index}>
+                  <div
+                    className={`relative h-[68px] flex flex-col justify-end ${
+                      typeof slot.width === 'string' && slot.width.startsWith('w-')
+                        ? slot.width
+                        : !slot.width
+                        ? defaultWidth
+                        : ''
+                    }`}
+                    style={widthStyle}
+                  >
+                    {/* Dark, prominent blank underline resting exactly on the Grass line (y = 52px) */}
                     <div
-                      className={`relative flex flex-col justify-end h-[46px] ${
-                        typeof slot.width === 'string' && slot.width.startsWith('w-')
-                          ? slot.width
-                          : !slot.width
-                          ? defaultWidth
-                          : ''
-                      }`}
-                      style={widthStyle}
-                    >
-                      {/* Prominent dark Grass Line underline for this slot */}
-                      <div className="absolute top-[31px] inset-x-0 h-[2.5px] bg-slate-900 rounded-xs" />
-                      
-                      {/* Pre-filled label / letter / word if provided */}
-                      {slot.label && (
-                        <div className="absolute top-[12px] inset-x-0 text-center font-sans text-base font-semibold text-slate-800 leading-none">
-                          {slot.label}
-                        </div>
-                      )}
-                    </div>
+                      className="absolute left-0 right-0 h-[3.5px] bg-slate-950 rounded-xs"
+                      style={{ top: '50px' }}
+                    />
 
-                    {/* Comma between sound slots */}
-                    {commasBetweenSlots && index < slots.length - 1 && (
-                      <span className="font-serif text-xl font-bold text-slate-800 self-end mb-2 mr-1">
-                        ,
-                      </span>
+                    {/* Pre-filled text if applicable */}
+                    {slot.label && (
+                      <div
+                        className="absolute inset-x-0 text-center font-sans text-xl font-bold text-slate-800 leading-none"
+                        style={{ top: '30px' }}
+                      >
+                        {slot.label}
+                      </div>
                     )}
-                  </React.Fragment>
-                );
-              })}
+                  </div>
 
-              {/* Trailing punctuation cue (e.g., period at the end of sentence) */}
-              {trailingPunctuation && (
-                <span className="font-serif text-2xl font-black text-slate-900 self-end mb-2 ml-0.5">
-                  {trailingPunctuation}
-                </span>
-              )}
-            </div>
+                  {/* Comma between sound slots (rests right on the grass line) */}
+                  {commasBetweenSlots && index < slots.length - 1 && (
+                    <div
+                      className="relative h-[68px] flex items-end font-serif text-2xl font-black text-slate-950 select-none pb-[14px]"
+                    >
+                      ,
+                    </div>
+                  )}
+                </React.Fragment>
+              );
+            })}
+
+            {/* Trailing punctuation cue (rests right on the grass line at the end of the sentence) */}
+            {trailingPunctuation && (
+              <div
+                className="relative h-[68px] flex items-end font-serif text-3xl font-black text-slate-950 select-none pb-[12px] pl-0.5"
+              >
+                {trailingPunctuation}
+              </div>
+            )}
           </div>
         )}
       </div>
