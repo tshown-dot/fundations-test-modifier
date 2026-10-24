@@ -174,14 +174,14 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
             </div>
           </div>
 
-          {/* SECTION: Sentences (Spacious gaps between each set of lines) */}
+          {/* SECTION: Sentences (Spacious gaps between clusters) */}
           <div className="my-auto">
             <h3 className="font-serif text-2xl font-bold text-slate-900 mb-2 tracking-wide pl-1">
               Sentences:
             </h3>
 
-            {/* Sentence 1 */}
-            <div className="mb-7 flex flex-col gap-y-7">
+            {/* Line Cluster 1: Sentence 1 */}
+            <div className="mb-14 flex flex-col gap-y-6">
               {/* Line 1 */}
               <FundationsGridRow
                 itemNumber={1}
@@ -194,8 +194,8 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
               />
             </div>
 
-            {/* Sentence 2 */}
-            <div className="flex flex-col gap-y-7">
+            {/* Line Cluster 2: Sentence 2 */}
+            <div className="flex flex-col gap-y-6">
               {/* Line 1 */}
               <FundationsGridRow
                 itemNumber={2}
