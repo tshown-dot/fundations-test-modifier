@@ -24,8 +24,8 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
   };
 
   // Word slots: blanks per tap unit (wider for digraphs/suffixes)
-  const getWordSlots = (wordItem: (typeof testData.words)[0]): BlankSlot[] | undefined => {
-    if (!settings.wordTapBlanks) return undefined;
+  const getWordSlots = (wordItem?: (typeof testData.words)[0]): BlankSlot[] | undefined => {
+    if (!settings.wordTapBlanks || !wordItem) return undefined;
     return wordItem.tapUnits.map((unit) => {
       const isWider = settings.wordWiderDigraphSuffix && (unit.isDigraphOrSuffix || unit.text.length > 1);
       return {
@@ -88,64 +88,89 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
             </div>
           </div>
 
-          {/* SECTION: Sounds */}
+          {/* SECTION: Sounds (Arranged row-by-row: [1, 2], [3, 4], [5]) */}
           <div className="my-auto">
             <h3 className="font-serif text-2xl font-bold text-slate-900 mb-3 tracking-wide pl-1">
               Sounds:
             </h3>
-            <div className="grid grid-cols-2 gap-x-12 gap-y-10">
-              {/* Column 1: Items 1, 2, 3 */}
-              <div className="flex flex-col gap-y-10">
-                {testData.sounds.slice(0, 3).map((item) => (
-                  <FundationsGridRow
-                    key={item.number}
-                    itemNumber={item.number}
-                    slots={getSoundSlots(item.answers)}
-                    commasBetweenSlots={settings.soundShowCommas && (getSoundSlots(item.answers)?.length || 0) > 1}
-                  />
-                ))}
+            <div className="flex flex-col gap-y-10">
+              {/* Row 1: Items 1 and 2 */}
+              <div className="grid grid-cols-2 gap-x-12">
+                <FundationsGridRow
+                  itemNumber={1}
+                  slots={getSoundSlots(testData.sounds[0]?.answers || [])}
+                  commasBetweenSlots={settings.soundShowCommas && (getSoundSlots(testData.sounds[0]?.answers || [])?.length || 0) > 1}
+                />
+                <FundationsGridRow
+                  itemNumber={2}
+                  slots={getSoundSlots(testData.sounds[1]?.answers || [])}
+                  commasBetweenSlots={settings.soundShowCommas && (getSoundSlots(testData.sounds[1]?.answers || [])?.length || 0) > 1}
+                />
               </div>
 
-              {/* Column 2: Items 4, 5 */}
-              <div className="flex flex-col gap-y-10">
-                {testData.sounds.slice(3, 5).map((item) => (
-                  <FundationsGridRow
-                    key={item.number}
-                    itemNumber={item.number}
-                    slots={getSoundSlots(item.answers)}
-                    commasBetweenSlots={settings.soundShowCommas && (getSoundSlots(item.answers)?.length || 0) > 1}
-                  />
-                ))}
+              {/* Row 2: Items 3 and 4 */}
+              <div className="grid grid-cols-2 gap-x-12">
+                <FundationsGridRow
+                  itemNumber={3}
+                  slots={getSoundSlots(testData.sounds[2]?.answers || [])}
+                  commasBetweenSlots={settings.soundShowCommas && (getSoundSlots(testData.sounds[2]?.answers || [])?.length || 0) > 1}
+                />
+                <FundationsGridRow
+                  itemNumber={4}
+                  slots={getSoundSlots(testData.sounds[3]?.answers || [])}
+                  commasBetweenSlots={settings.soundShowCommas && (getSoundSlots(testData.sounds[3]?.answers || [])?.length || 0) > 1}
+                />
+              </div>
+
+              {/* Row 3: Item 5 (and clean empty spacer on right) */}
+              <div className="grid grid-cols-2 gap-x-12">
+                <FundationsGridRow
+                  itemNumber={5}
+                  slots={getSoundSlots(testData.sounds[4]?.answers || [])}
+                  commasBetweenSlots={settings.soundShowCommas && (getSoundSlots(testData.sounds[4]?.answers || [])?.length || 0) > 1}
+                />
+                <div />
               </div>
             </div>
           </div>
 
-          {/* SECTION: Words */}
+          {/* SECTION: Words (Arranged row-by-row: [1, 2], [3, 4], [5]) */}
           <div className="my-auto">
             <h3 className="font-serif text-2xl font-bold text-slate-900 mb-3 tracking-wide pl-1">
               Words:
             </h3>
-            <div className="grid grid-cols-2 gap-x-12 gap-y-10">
-              {/* Column 1: Items 1, 2, 3 */}
-              <div className="flex flex-col gap-y-10">
-                {testData.words.slice(0, 3).map((item) => (
-                  <FundationsGridRow
-                    key={item.number}
-                    itemNumber={item.number}
-                    slots={getWordSlots(item)}
-                  />
-                ))}
+            <div className="flex flex-col gap-y-10">
+              {/* Row 1: Items 1 and 2 */}
+              <div className="grid grid-cols-2 gap-x-12">
+                <FundationsGridRow
+                  itemNumber={1}
+                  slots={getWordSlots(testData.words[0])}
+                />
+                <FundationsGridRow
+                  itemNumber={2}
+                  slots={getWordSlots(testData.words[1])}
+                />
               </div>
 
-              {/* Column 2: Items 4, 5 */}
-              <div className="flex flex-col gap-y-10">
-                {testData.words.slice(3, 5).map((item) => (
-                  <FundationsGridRow
-                    key={item.number}
-                    itemNumber={item.number}
-                    slots={getWordSlots(item)}
-                  />
-                ))}
+              {/* Row 2: Items 3 and 4 */}
+              <div className="grid grid-cols-2 gap-x-12">
+                <FundationsGridRow
+                  itemNumber={3}
+                  slots={getWordSlots(testData.words[2])}
+                />
+                <FundationsGridRow
+                  itemNumber={4}
+                  slots={getWordSlots(testData.words[3])}
+                />
+              </div>
+
+              {/* Row 3: Item 5 (and clean empty spacer on right) */}
+              <div className="grid grid-cols-2 gap-x-12">
+                <FundationsGridRow
+                  itemNumber={5}
+                  slots={getWordSlots(testData.words[4])}
+                />
+                <div />
               </div>
             </div>
           </div>
@@ -214,7 +239,7 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
           {/* Solid divider line separating Sentences from the Scoring section */}
           <div className="w-full border-b-2 border-slate-700 my-4" />
 
-          {/* BOTTOM: Scoring Guide (Dynamically customized for Level 1 vs Level 2) */}
+          {/* BOTTOM: Scoring Guide */}
           <div className="pt-1">
             {isLevel1 ? (
               /* Grade 1 Scoring Format: Sounds /5, Words /5, Marking /5, Sentences: Words /5, Trick Words /5 */
