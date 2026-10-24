@@ -3,37 +3,63 @@ import { level2Units } from './data/level2Units';
 import { level1Units } from './data/level1Units';
 import { ModificationLevel, ModificationSettings } from './types/fundations';
 import { FundationsTestSheet } from './components/FundationsTestSheet';
-import { Printer, Settings2, Sparkles, BookOpen, User, CheckCircle2 } from 'lucide-react';
-
-const LEVEL_1_PRESET: ModificationSettings = {
-  level: 'level1',
-  soundBlanksCount: true,
-  soundShowCommas: true,
-  wordTapBlanks: true,
-  wordWiderDigraphSuffix: true,
-  trickWordLetterBlanks: true,
-  sentenceWordBlanks: true,
-  sentencePunctuationCue: true,
-};
+import { Printer, Settings2, Sparkles, BookOpen, User, CheckCircle2, Layers } from 'lucide-react';
 
 const BASELINE_PRESET: ModificationSettings = {
   level: 'baseline',
   soundBlanksCount: false,
   soundShowCommas: false,
+  soundTileBoxes: false,
   wordTapBlanks: false,
   wordWiderDigraphSuffix: false,
+  wordTileTemplate: false,
+  wordShowMarkingPrompt: false,
   trickWordLetterBlanks: false,
+  trickWordMultipleChoice: false,
   sentenceWordBlanks: false,
   sentencePunctuationCue: false,
+  sentenceClozeScaffold: false,
+};
+
+const LEVEL_1_PRESET: ModificationSettings = {
+  level: 'level1',
+  soundBlanksCount: true,
+  soundShowCommas: true,
+  soundTileBoxes: false,
+  wordTapBlanks: true,
+  wordWiderDigraphSuffix: true,
+  wordTileTemplate: false,
+  wordShowMarkingPrompt: false,
+  trickWordLetterBlanks: true,
+  trickWordMultipleChoice: false,
+  sentenceWordBlanks: true,
+  sentencePunctuationCue: true,
+  sentenceClozeScaffold: false,
+};
+
+const LEVEL_2_PRESET: ModificationSettings = {
+  level: 'level2',
+  soundBlanksCount: false,
+  soundShowCommas: true,
+  soundTileBoxes: true,
+  wordTapBlanks: false,
+  wordWiderDigraphSuffix: false,
+  wordTileTemplate: true,
+  wordShowMarkingPrompt: true,
+  trickWordLetterBlanks: false,
+  trickWordMultipleChoice: true,
+  sentenceWordBlanks: false,
+  sentencePunctuationCue: true,
+  sentenceClozeScaffold: true,
 };
 
 export const App: React.FC = () => {
   const [selectedGrade, setSelectedGrade] = useState<number>(2); // 1 or 2
   const [selectedUnit, setSelectedUnit] = useState<number>(4);
   const [studentName, setStudentName] = useState<string>('');
-  const [activeTier, setActiveTier] = useState<ModificationLevel>('level1');
+  const [activeTier, setActiveTier] = useState<ModificationLevel>('level2');
   const [showAnswerKey, setShowAnswerKey] = useState<boolean>(false);
-  const [customSettings, setCustomSettings] = useState<ModificationSettings>(LEVEL_1_PRESET);
+  const [customSettings, setCustomSettings] = useState<ModificationSettings>(LEVEL_2_PRESET);
 
   // Pick dataset based on grade
   const availableUnits = selectedGrade === 1 ? level1Units : level2Units;
@@ -46,9 +72,11 @@ export const App: React.FC = () => {
       ? BASELINE_PRESET
       : activeTier === 'level1'
       ? LEVEL_1_PRESET
+      : activeTier === 'level2'
+      ? LEVEL_2_PRESET
       : activeTier === 'custom'
       ? { ...customSettings, level: 'custom' }
-      : LEVEL_1_PRESET;
+      : LEVEL_2_PRESET;
 
   const handlePrint = () => {
     window.print();
@@ -184,14 +212,17 @@ export const App: React.FC = () => {
                 Level 1 (Least Modified)
               </button>
 
-              {/* Level 2 (Placeholder) */}
+              {/* Level 2 (Moderate) */}
               <button
                 onClick={() => setActiveTier('level2')}
-                disabled
-                className="px-3 py-1.5 text-xs font-medium rounded-md bg-slate-100 text-slate-400 cursor-not-allowed opacity-60"
-                title="Level 2 will be defined next"
+                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition cursor-pointer ${
+                  activeTier === 'level2'
+                    ? 'bg-emerald-600 text-white shadow-xs font-semibold'
+                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                }`}
               >
-                Level 2 (Moderate) [Next]
+                <Layers className="w-3.5 h-3.5" />
+                Level 2 (Moderate Support)
               </button>
 
               {/* Level 3 (Placeholder) */}
@@ -224,7 +255,9 @@ export const App: React.FC = () => {
               <span>
                 {activeTier === 'baseline' && 'Standard Fundations 4-line grid, unmodified.'}
                 {activeTier === 'level1' &&
-                  `Level 1 Active for Grade ${selectedGrade}: Sound count blanks, tap unit blanks, sentence word blanks.`}
+                  `Level 1 Active: Sound count blanks, tap unit blanks, sentence word blanks.`}
+                {activeTier === 'level2' &&
+                  `Level 2 Active: Sound tile boxes, connected word tile template + marking prompt, trick word bank, 3-tier cloze sentences.`}
                 {activeTier === 'custom' && 'Super User Mode: Toggle individual scaffolds below.'}
               </span>
             </div>
@@ -236,85 +269,79 @@ export const App: React.FC = () => {
               <span className="font-bold text-indigo-900 w-full mb-1">
                 Super User Checkboxes (Customize for Student IEP):
               </span>
+
+              {/* Sounds */}
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
                   type="checkbox"
-                  checked={customSettings.soundBlanksCount}
+                  checked={customSettings.soundTileBoxes}
                   onChange={(e) =>
-                    setCustomSettings({ ...customSettings, soundBlanksCount: e.target.checked })
+                    setCustomSettings({ ...customSettings, soundTileBoxes: e.target.checked })
                   }
                   className="rounded text-indigo-600"
                 />
-                <span>Sounds: Show blank slots for each spelling choice</span>
+                <span>Sounds: Color-coded Fundations sound tile boxes</span>
+              </label>
+
+              {/* Words */}
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={customSettings.wordTileTemplate}
+                  onChange={(e) =>
+                    setCustomSettings({ ...customSettings, wordTileTemplate: e.target.checked })
+                  }
+                  className="rounded text-indigo-600"
+                />
+                <span>Words: Connected color-coded tile template</span>
               </label>
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
                   type="checkbox"
-                  checked={customSettings.wordTapBlanks}
-                  onChange={(e) =>
-                    setCustomSettings({ ...customSettings, wordTapBlanks: e.target.checked })
-                  }
-                  className="rounded text-indigo-600"
-                />
-                <span>Words: Show blank slots for tap units</span>
-              </label>
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={customSettings.wordWiderDigraphSuffix}
+                  checked={customSettings.wordShowMarkingPrompt}
                   onChange={(e) =>
                     setCustomSettings({
                       ...customSettings,
-                      wordWiderDigraphSuffix: e.target.checked,
+                      wordShowMarkingPrompt: e.target.checked,
                     })
                   }
                   className="rounded text-indigo-600"
                 />
-                <span>Words: Wider slots for digraphs, suffixes, and welded sounds</span>
+                <span>Words: Print exact district marking directive</span>
               </label>
+
+              {/* Trick Words */}
               {selectedGrade === 2 && (
                 <label className="flex items-center gap-2 cursor-pointer">
                   <input
                     type="checkbox"
-                    checked={customSettings.trickWordLetterBlanks}
+                    checked={customSettings.trickWordMultipleChoice}
                     onChange={(e) =>
                       setCustomSettings({
                         ...customSettings,
-                        trickWordLetterBlanks: e.target.checked,
+                        trickWordMultipleChoice: e.target.checked,
                       })
                     }
                     className="rounded text-indigo-600"
                   />
-                  <span>Trick Words: 1 blank line per letter</span>
+                  <span>Trick Words: 3-option multiple-choice word bank</span>
                 </label>
               )}
+
+              {/* Sentences */}
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
                   type="checkbox"
-                  checked={customSettings.sentenceWordBlanks}
+                  checked={customSettings.sentenceClozeScaffold}
                   onChange={(e) =>
                     setCustomSettings({
                       ...customSettings,
-                      sentenceWordBlanks: e.target.checked,
+                      sentenceClozeScaffold: e.target.checked,
                     })
                   }
                   className="rounded text-indigo-600"
                 />
-                <span>Sentences: Blank line for each word</span>
-              </label>
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={customSettings.sentencePunctuationCue}
-                  onChange={(e) =>
-                    setCustomSettings({
-                      ...customSettings,
-                      sentencePunctuationCue: e.target.checked,
-                    })
-                  }
-                  className="rounded text-indigo-600"
-                />
-                <span>Sentences: Pre-print punctuation mark at end</span>
+                <span>Sentences: 3-tier cloze frame (Untested text, Trick in capsule, Phonetic with tap dashes)</span>
               </label>
             </div>
           )}
