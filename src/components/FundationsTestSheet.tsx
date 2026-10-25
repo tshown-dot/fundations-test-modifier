@@ -16,7 +16,6 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
   studentName = '',
 }) => {
   const isLevel1 = testData.level === 1;
-  const isLevel2Mode = settings.level === 'level2';
 
   // Sound slots for Level 1: discrete blanks on the grass line
   const getSoundSlots = (answers: string[]): BlankSlot[] | undefined => {
@@ -156,7 +155,7 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
               <h3 className="font-serif text-2xl font-bold text-slate-900 tracking-wide">
                 Sounds:
               </h3>
-              {isLevel2Mode && (
+              {Boolean(settings.soundTileBoxes) && (
                 <div className="flex items-center gap-3 text-[11px] font-semibold text-slate-500">
                   <span className="flex items-center gap-1">
                     <span className="w-3 h-3 bg-yellow-100 border border-yellow-400 rounded-xs inline-block" /> Consonant

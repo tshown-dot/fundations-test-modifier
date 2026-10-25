@@ -1,5 +1,14 @@
 export type ModificationLevel = 'baseline' | 'level1' | 'level2' | 'level3' | 'custom';
 
+export type SectionModLevel = 'none' | 'level1' | 'level2';
+
+export interface CustomSections {
+  sounds: SectionModLevel;
+  words: SectionModLevel;
+  trickWords: SectionModLevel;
+  sentences: SectionModLevel;
+}
+
 export type TileColorType = 'consonant' | 'vowel' | 'welded' | 'suffix';
 
 export interface SoundItem {
