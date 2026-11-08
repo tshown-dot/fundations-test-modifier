@@ -143,24 +143,9 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
 
           {/* SECTION: Sounds */}
           <div className="my-auto">
-            <div className="flex items-center justify-between mb-3 pl-1">
-              <h3 className="font-serif text-2xl font-bold text-slate-900 tracking-wide">
-                Sounds:
-              </h3>
-              {Boolean(settings.soundTileBoxes) && (
-                <div className="flex items-center gap-3 text-[11px] font-semibold text-slate-500">
-                  <span className="flex items-center gap-1">
-                    <span className="w-3 h-3 bg-yellow-100 border border-yellow-400 rounded-xs inline-block" /> Consonant
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <span className="w-3 h-3 bg-orange-100 border border-orange-400 rounded-xs inline-block" /> Vowel
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <span className="w-4 h-3 bg-emerald-100 border border-emerald-500 rounded-xs inline-block" /> Glued Sound
-                  </span>
-                </div>
-              )}
-            </div>
+            <h3 className="font-serif text-2xl font-bold text-slate-900 mb-3 tracking-wide pl-1">
+              Sounds:
+            </h3>
 
             {/* 4-Line Writing Grid with Authentic Icons (Level 1: blanks, Level 2: tiles directly on lines) */}
             <div className="flex flex-col gap-y-7">
