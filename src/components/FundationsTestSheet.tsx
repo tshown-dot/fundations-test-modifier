@@ -67,14 +67,6 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
     });
   };
 
-  // Trick word slots for Level 1: 1 blank line per letter
-  const getTrickWordSlots = (word: string): BlankSlot[] | undefined => {
-    if (!settings.trickWordLetterBlanks) return undefined;
-    return Array.from({ length: word.length }).map(() => ({
-      width: 26,
-    }));
-  };
-
   // Sentence words breakdown
   const s1Words = testData.sentences[0]?.words || [];
   const s1Line1Words = s1Words.slice(0, Math.ceil(s1Words.length / 2));
@@ -293,7 +285,6 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
                     <FundationsGridRow
                       key={item.number}
                       itemNumber={item.number}
-                      slots={getTrickWordSlots(item.word)}
                     />
                   ))}
                 </div>

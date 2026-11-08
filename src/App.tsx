@@ -50,7 +50,7 @@ const LEVEL_1_PRESET: ModificationSettings = {
   wordWiderDigraphSuffix: true,
   wordTileTemplate: false,
   wordShowMarkingPrompt: false,
-  trickWordLetterBlanks: true,
+  trickWordLetterBlanks: false,
   trickWordMultipleChoice: false,
   sentenceWordBlanks: true,
   sentencePunctuationCue: true,
@@ -94,8 +94,8 @@ function computeSettingsFromSections(sections: CustomSections): ModificationSett
     wordTileTemplate: sections.words === 'level2',
     wordShowMarkingPrompt: sections.words === 'level2',
 
-    // Trick Words
-    trickWordLetterBlanks: sections.trickWords === 'level1',
+    // Trick Words (no Level 1 modification; only Level 2 word bank or standard open lines)
+    trickWordLetterBlanks: false,
     trickWordMultipleChoice: sections.trickWords === 'level2',
 
     // Sentences
@@ -116,7 +116,11 @@ export const App: React.FC = () => {
     return u >= 1 ? u : 4;
   });
   const [studentName, setStudentName] = useState<string>('');
-  const [activeTier, setActiveTier] = useState<ModificationLevel>('level2');
+  const [activeTier, setActiveTier] = useState<ModificationLevel>(() => {
+    const t = queryParams.get('tier');
+    if (t === 'baseline' || t === 'level1' || t === 'level2' || t === 'custom') return t;
+    return 'level2';
+  });
   const [showAnswerKey, setShowAnswerKey] = useState<boolean>(false);
   const [customSections, setCustomSections] = useState<CustomSections>(() => {
     try {
@@ -143,7 +147,7 @@ export const App: React.FC = () => {
     const updated: CustomSections = {
       sounds: tier,
       words: tier,
-      trickWords: tier,
+      trickWords: tier === 'level1' ? 'none' : tier,
       sentences: tier,
     };
     setCustomSections(updated);
@@ -602,7 +606,7 @@ export const App: React.FC = () => {
                   </div>
                 </div>
 
-                {/* 3. Trick Words Card (Grade 2 only) */}
+                {/* 3. Trick Words Card (Grade 2 only - No Level 1 mod) */}
                 {selectedGrade === 2 && (
                   <div className="bg-white p-3 rounded-lg border border-indigo-100 shadow-2xs flex flex-col justify-between">
                     <div>
@@ -613,43 +617,26 @@ export const App: React.FC = () => {
                         </span>
                         <span
                           className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${
-                            customSections.trickWords === 'none'
-                              ? 'bg-slate-100 text-slate-700'
-                              : customSections.trickWords === 'level1'
-                              ? 'bg-sky-100 text-sky-800'
-                              : 'bg-indigo-100 text-indigo-800'
+                            customSections.trickWords === 'level2'
+                              ? 'bg-indigo-100 text-indigo-800'
+                              : 'bg-slate-100 text-slate-700'
                           }`}
                         >
-                          {customSections.trickWords === 'none'
-                            ? 'No Mod'
-                            : customSections.trickWords === 'level1'
-                            ? 'Level 1'
-                            : 'Level 2'}
+                          {customSections.trickWords === 'level2' ? 'Level 2' : 'No Mod'}
                         </span>
                       </div>
 
-                      <div className="grid grid-cols-3 gap-1 bg-slate-100 p-0.5 rounded-md text-[11px] font-medium">
+                      <div className="grid grid-cols-2 gap-1 bg-slate-100 p-0.5 rounded-md text-[11px] font-medium">
                         <button
                           type="button"
                           onClick={() => handleUpdateSection('trickWords', 'none')}
                           className={`py-1 rounded text-center transition-all cursor-pointer ${
-                            customSections.trickWords === 'none'
+                            customSections.trickWords !== 'level2'
                               ? 'bg-white text-slate-900 font-bold shadow-xs'
-                            : 'text-slate-600 hover:text-slate-900'
-                          }`}
-                        >
-                          No Mod
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => handleUpdateSection('trickWords', 'level1')}
-                          className={`py-1 rounded text-center transition-all cursor-pointer ${
-                            customSections.trickWords === 'level1'
-                              ? 'bg-sky-600 text-white font-bold shadow-xs'
                               : 'text-slate-600 hover:text-slate-900'
                           }`}
                         >
-                          Level 1
+                          No Mod
                         </button>
                         <button
                           type="button"
@@ -666,9 +653,9 @@ export const App: React.FC = () => {
                     </div>
 
                     <div className="mt-2 text-[10.5px] text-slate-600 leading-snug min-h-[32px] flex items-center border-t border-slate-100 pt-1.5">
-                      {customSections.trickWords === 'none' && 'Standard open 4-lines.'}
-                      {customSections.trickWords === 'level1' && 'Letter blanks (1 discrete dash per letter).'}
-                      {customSections.trickWords === 'level2' && '3-Option multiple-choice recognition bank & copy line.'}
+                      {customSections.trickWords === 'level2'
+                        ? '3-Option multiple-choice recognition bank & copy line.'
+                        : 'Standard open 4-lines (no modifications).'}
                     </div>
                   </div>
                 )}
