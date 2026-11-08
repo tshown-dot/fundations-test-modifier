@@ -410,17 +410,17 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
                     </div>
                   </div>
                   <div className="flex flex-col items-center">
-                    <span className="text-xs font-bold text-slate-800 whitespace-nowrap mb-1">Trick Words</span>
-                    <div className="flex items-baseline text-sm font-semibold text-slate-900 whitespace-nowrap">
-                      <span className="inline-block w-10 border-b-2 border-slate-700 mr-1.5"></span>
-                      <span>/ 2</span>
-                    </div>
-                  </div>
-                  <div className="flex flex-col items-center">
                     <span className="text-xs font-bold text-slate-800 whitespace-nowrap mb-1">Marking</span>
                     <div className="flex items-baseline text-sm font-semibold text-slate-900 whitespace-nowrap">
                       <span className="inline-block w-10 border-b-2 border-slate-700 mr-1.5"></span>
                       <span>/ 5</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <span className="text-xs font-bold text-slate-800 whitespace-nowrap mb-1">Trick Words</span>
+                    <div className="flex items-baseline text-sm font-semibold text-slate-900 whitespace-nowrap">
+                      <span className="inline-block w-10 border-b-2 border-slate-700 mr-1.5"></span>
+                      <span>/ 2</span>
                     </div>
                   </div>
                   <div className="flex flex-col items-center">
