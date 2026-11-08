@@ -22,7 +22,7 @@ export const level2Units: Record<string, UnitTestData> = {
       },
       {
         "number": 3,
-        "prompt": "/\u0115/",
+        "prompt": "/ĕ/",
         "answers": [
           "e"
         ]
@@ -165,49 +165,47 @@ export const level2Units: Record<string, UnitTestData> = {
       }
     ],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "Ken had milk with his snack.",
-                "words": [
-                        "Ken",
-                        "had",
-                        "milk",
-                        "with",
-                        "his",
-                        "snack"
-                ],
-                "phoneticWords": [
-                        "Ken",
-                        "milk",
-                        "snack"
-                ],
-                "trickWords": [],
-                "punctuation": "."
-        },
-        {
-                "number": 2,
-                "text": "They said to pack one bag.",
-                "words": [
-                        "They",
-                        "said",
-                        "to",
-                        "pack",
-                        "one",
-                        "bag"
-                ],
-                "phoneticWords": [
-                        "pack",
-                        "bag"
-                ],
-                "trickWords": [
-                        "They",
-                        "said",
-                        "one"
-                ],
-                "punctuation": "."
-        }
-
+      {
+        "number": 1,
+        "text": "Ken had milk with his snack.",
+        "words": [
+          "Ken",
+          "had",
+          "milk",
+          "with",
+          "his",
+          "snack"
+        ],
+        "phoneticWords": [
+          "Ken",
+          "milk",
+          "snack"
+        ],
+        "trickWords": [],
+        "punctuation": "."
+      },
+      {
+        "number": 2,
+        "text": "They said to pack one bag.",
+        "words": [
+          "They",
+          "said",
+          "to",
+          "pack",
+          "one",
+          "bag"
+        ],
+        "phoneticWords": [
+          "pack",
+          "bag"
+        ],
+        "trickWords": [
+          "They",
+          "said",
+          "one"
+        ],
+        "punctuation": "."
+      }
     ],
     "level": 2,
     "unit": 1,
@@ -232,7 +230,7 @@ export const level2Units: Record<string, UnitTestData> = {
       },
       {
         "number": 3,
-        "prompt": "/o\u0307l/",
+        "prompt": "/ȯl/",
         "answers": [
           "all"
         ]
@@ -363,55 +361,53 @@ export const level2Units: Record<string, UnitTestData> = {
       }
     ],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "Did Jeff think that the tank was full?",
-                "words": [
-                        "Did",
-                        "Jeff",
-                        "think",
-                        "that",
-                        "the",
-                        "tank",
-                        "was",
-                        "full"
-                ],
-                "phoneticWords": [
-                        "Jeff",
-                        "think",
-                        "tank"
-                ],
-                "trickWords": [
-                        "full"
-                ],
-                "punctuation": "?"
-        },
-        {
-                "number": 2,
-                "text": "Both men had a long talk with the boss.",
-                "words": [
-                        "Both",
-                        "men",
-                        "had",
-                        "a",
-                        "long",
-                        "talk",
-                        "with",
-                        "the",
-                        "boss"
-                ],
-                "phoneticWords": [
-                        "long",
-                        "boss"
-                ],
-                "trickWords": [
-                        "Both",
-                        "talk"
-                ],
-                "punctuation": "."
-        }
-
+      {
+        "number": 1,
+        "text": "Did Jeff think that the tank was full?",
+        "words": [
+          "Did",
+          "Jeff",
+          "think",
+          "that",
+          "the",
+          "tank",
+          "was",
+          "full"
+        ],
+        "phoneticWords": [
+          "Jeff",
+          "think",
+          "tank"
+        ],
+        "trickWords": [
+          "full"
+        ],
+        "punctuation": "?"
+      },
+      {
+        "number": 2,
+        "text": "Both men had a long talk with the boss.",
+        "words": [
+          "Both",
+          "men",
+          "had",
+          "a",
+          "long",
+          "talk",
+          "with",
+          "the",
+          "boss"
+        ],
+        "phoneticWords": [
+          "long",
+          "boss"
+        ],
+        "trickWords": [
+          "Both",
+          "talk"
+        ],
+        "punctuation": "."
+      }
     ],
     "level": 2,
     "unit": 2,
@@ -422,35 +418,35 @@ export const level2Units: Record<string, UnitTestData> = {
     "sounds": [
       {
         "number": 1,
-        "prompt": "/\u012bnd/",
+        "prompt": "/īnd/",
         "answers": [
           "ind"
         ]
       },
       {
         "number": 2,
-        "prompt": "/\u012bld/",
+        "prompt": "/īld/",
         "answers": [
           "ild"
         ]
       },
       {
         "number": 3,
-        "prompt": "/\u014dld/",
+        "prompt": "/ōld/",
         "answers": [
           "old"
         ]
       },
       {
         "number": 4,
-        "prompt": "/\u014dst/",
+        "prompt": "/ōst/",
         "answers": [
           "ost"
         ]
       },
       {
         "number": 5,
-        "prompt": "/\u014dlt/",
+        "prompt": "/ōlt/",
         "answers": [
           "olt"
         ]
@@ -554,52 +550,50 @@ export const level2Units: Record<string, UnitTestData> = {
       }
     ],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "Who got the most stuff done?",
-                "words": [
-                        "Who",
-                        "got",
-                        "the",
-                        "most",
-                        "stuff",
-                        "done"
-                ],
-                "phoneticWords": [
-                        "most",
-                        "stuff"
-                ],
-                "trickWords": [
-                        "Who",
-                        "done"
-                ],
-                "punctuation": "?"
-        },
-        {
-                "number": 2,
-                "text": "The small child will pet the pretty colt.",
-                "words": [
-                        "The",
-                        "small",
-                        "child",
-                        "will",
-                        "pet",
-                        "the",
-                        "pretty",
-                        "colt"
-                ],
-                "phoneticWords": [
-                        "child",
-                        "pet",
-                        "colt"
-                ],
-                "trickWords": [
-                        "pretty"
-                ],
-                "punctuation": "."
-        }
-
+      {
+        "number": 1,
+        "text": "Who got the most stuff done?",
+        "words": [
+          "Who",
+          "got",
+          "the",
+          "most",
+          "stuff",
+          "done"
+        ],
+        "phoneticWords": [
+          "most",
+          "stuff"
+        ],
+        "trickWords": [
+          "Who",
+          "done"
+        ],
+        "punctuation": "?"
+      },
+      {
+        "number": 2,
+        "text": "The small child will pet the pretty colt.",
+        "words": [
+          "The",
+          "small",
+          "child",
+          "will",
+          "pet",
+          "the",
+          "pretty",
+          "colt"
+        ],
+        "phoneticWords": [
+          "child",
+          "pet",
+          "colt"
+        ],
+        "trickWords": [
+          "pretty"
+        ],
+        "punctuation": "."
+      }
     ],
     "level": 2,
     "unit": 3,
@@ -785,50 +779,48 @@ export const level2Units: Record<string, UnitTestData> = {
       }
     ],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "The fastest foxes sprinted there by the hills.",
-                "words": [
-                        "The",
-                        "fastest",
-                        "foxes",
-                        "sprinted",
-                        "there",
-                        "by",
-                        "the",
-                        "hills"
-                ],
-                "phoneticWords": [
-                        "fastest",
-                        "foxes",
-                        "sprinted",
-                        "hills"
-                ],
-                "trickWords": [
-                        "there"
-                ],
-                "punctuation": "."
-        },
-        {
-                "number": 2,
-                "text": "Please use the blocks.",
-                "words": [
-                        "Please",
-                        "use",
-                        "the",
-                        "blocks"
-                ],
-                "phoneticWords": [
-                        "blocks"
-                ],
-                "trickWords": [
-                        "Please",
-                        "use"
-                ],
-                "punctuation": "."
-        }
-
+      {
+        "number": 1,
+        "text": "The fastest foxes sprinted there by the hills.",
+        "words": [
+          "The",
+          "fastest",
+          "foxes",
+          "sprinted",
+          "there",
+          "by",
+          "the",
+          "hills"
+        ],
+        "phoneticWords": [
+          "fastest",
+          "foxes",
+          "sprinted",
+          "hills"
+        ],
+        "trickWords": [
+          "there"
+        ],
+        "punctuation": "."
+      },
+      {
+        "number": 2,
+        "text": "Please use the blocks.",
+        "words": [
+          "Please",
+          "use",
+          "the",
+          "blocks"
+        ],
+        "phoneticWords": [
+          "blocks"
+        ],
+        "trickWords": [
+          "Please",
+          "use"
+        ],
+        "punctuation": "."
+      }
     ],
     "level": 2,
     "unit": 4,
@@ -854,7 +846,7 @@ export const level2Units: Record<string, UnitTestData> = {
       },
       {
         "number": 3,
-        "prompt": "/\u014f/",
+        "prompt": "/ŏ/",
         "answers": [
           "o"
         ]
@@ -880,12 +872,34 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "combat",
         "tapUnits": [
           {
-            "text": "com",
-            "isDigraphOrSuffix": true
+            "text": "c",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "bat",
-            "isDigraphOrSuffix": true
+            "text": "o",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "m",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "b",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "a",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"combat\", and scoop and mark both syllables."
@@ -916,12 +930,29 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "panic",
         "tapUnits": [
           {
-            "text": "pan",
-            "isDigraphOrSuffix": true
+            "text": "p",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "ic",
-            "isDigraphOrSuffix": true
+            "text": "a",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "n",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "i",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "c",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"panic\", and scoop and mark the syllables."
@@ -953,12 +984,34 @@ export const level2Units: Record<string, UnitTestData> = {
         "suffix": "ed",
         "tapUnits": [
           {
-            "text": "in",
-            "isDigraphOrSuffix": true
+            "text": "i",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "vent",
-            "isDigraphOrSuffix": true
+            "text": "n",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "v",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "n",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
             "text": "ed",
@@ -979,53 +1032,51 @@ export const level2Units: Record<string, UnitTestData> = {
       }
     ],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "I know that is a childish habit.",
-                "words": [
-                        "I",
-                        "know",
-                        "that",
-                        "is",
-                        "a",
-                        "childish",
-                        "habit"
-                ],
-                "phoneticWords": [
-                        "childish",
-                        "habit"
-                ],
-                "trickWords": [
-                        "know"
-                ],
-                "punctuation": "."
-        },
-        {
-                "number": 2,
-                "text": "The dentist always insisted that we floss often.",
-                "words": [
-                        "The",
-                        "dentist",
-                        "always",
-                        "insisted",
-                        "that",
-                        "we",
-                        "floss",
-                        "often"
-                ],
-                "phoneticWords": [
-                        "dentist",
-                        "insisted",
-                        "floss"
-                ],
-                "trickWords": [
-                        "always",
-                        "often"
-                ],
-                "punctuation": "."
-        }
-
+      {
+        "number": 1,
+        "text": "I know that is a childish habit.",
+        "words": [
+          "I",
+          "know",
+          "that",
+          "is",
+          "a",
+          "childish",
+          "habit"
+        ],
+        "phoneticWords": [
+          "childish",
+          "habit"
+        ],
+        "trickWords": [
+          "know"
+        ],
+        "punctuation": "."
+      },
+      {
+        "number": 2,
+        "text": "The dentist always insisted that we floss often.",
+        "words": [
+          "The",
+          "dentist",
+          "always",
+          "insisted",
+          "that",
+          "we",
+          "floss",
+          "often"
+        ],
+        "phoneticWords": [
+          "dentist",
+          "insisted",
+          "floss"
+        ],
+        "trickWords": [
+          "always",
+          "often"
+        ],
+        "punctuation": "."
+      }
     ],
     "level": 2,
     "unit": 5,
@@ -1036,7 +1087,7 @@ export const level2Units: Record<string, UnitTestData> = {
     "sounds": [
       {
         "number": 1,
-        "prompt": "/\u016b/",
+        "prompt": "/ū/",
         "answers": [
           "u-e"
         ]
@@ -1050,7 +1101,7 @@ export const level2Units: Record<string, UnitTestData> = {
       },
       {
         "number": 3,
-        "prompt": "/\u0113/",
+        "prompt": "/ē/",
         "answers": [
           "e-e"
         ]
@@ -1083,11 +1134,15 @@ export const level2Units: Record<string, UnitTestData> = {
             "text": "p"
           },
           {
-            "text": "o-e",
-            "isDigraphOrSuffix": true
+            "text": "o",
+            "type": "single"
           },
           {
             "text": "k"
+          },
+          {
+            "text": "e",
+            "type": "single"
           }
         ],
         "markingDescription": "Spell the word, \"spoke\" and mark the v-e syllable."
@@ -1103,11 +1158,15 @@ export const level2Units: Record<string, UnitTestData> = {
             "text": "l"
           },
           {
-            "text": "a-e",
-            "isDigraphOrSuffix": true
+            "text": "a",
+            "type": "single"
           },
           {
             "text": "z"
+          },
+          {
+            "text": "e",
+            "type": "single"
           }
         ],
         "markingDescription": "Spell the word, \"blaze\" and mark the v-e syllable."
@@ -1122,11 +1181,15 @@ export const level2Units: Record<string, UnitTestData> = {
             "text": "t"
           },
           {
-            "text": "i-e",
-            "isDigraphOrSuffix": true
+            "text": "i",
+            "type": "single"
           },
           {
             "text": "m"
+          },
+          {
+            "text": "e",
+            "type": "single"
           },
           {
             "text": "less",
@@ -1140,12 +1203,34 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "athlete",
         "tapUnits": [
           {
-            "text": "ath",
+            "text": "a",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "th",
+            "type": "digraph",
             "isDigraphOrSuffix": true
           },
           {
-            "text": "lete",
-            "isDigraphOrSuffix": true
+            "text": "l",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"athlete\" and scoop the word and mark the two syllables."
@@ -1155,11 +1240,28 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "captive",
         "tapUnits": [
           {
-            "text": "cap",
-            "isDigraphOrSuffix": true
+            "text": "c",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "tive",
+            "text": "a",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "p",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "ive",
+            "type": "welded",
             "isDigraphOrSuffix": true
           }
         ],
@@ -1177,52 +1279,50 @@ export const level2Units: Record<string, UnitTestData> = {
       }
     ],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "Dave rode his bike to his house.",
-                "words": [
-                        "Dave",
-                        "rode",
-                        "his",
-                        "bike",
-                        "to",
-                        "his",
-                        "house"
-                ],
-                "phoneticWords": [
-                        "Dave",
-                        "rode",
-                        "bike"
-                ],
-                "trickWords": [
-                        "house"
-                ],
-                "punctuation": "."
-        },
-        {
-                "number": 2,
-                "text": "Take the plates to the right place.",
-                "words": [
-                        "Take",
-                        "the",
-                        "plates",
-                        "to",
-                        "the",
-                        "right",
-                        "place"
-                ],
-                "phoneticWords": [
-                        "plates",
-                        "place"
-                ],
-                "trickWords": [
-                        "Take",
-                        "right"
-                ],
-                "punctuation": "."
-        }
-
+      {
+        "number": 1,
+        "text": "Dave rode his bike to his house.",
+        "words": [
+          "Dave",
+          "rode",
+          "his",
+          "bike",
+          "to",
+          "his",
+          "house"
+        ],
+        "phoneticWords": [
+          "Dave",
+          "rode",
+          "bike"
+        ],
+        "trickWords": [
+          "house"
+        ],
+        "punctuation": "."
+      },
+      {
+        "number": 2,
+        "text": "Take the plates to the right place.",
+        "words": [
+          "Take",
+          "the",
+          "plates",
+          "to",
+          "the",
+          "right",
+          "place"
+        ],
+        "phoneticWords": [
+          "plates",
+          "place"
+        ],
+        "trickWords": [
+          "Take",
+          "right"
+        ],
+        "punctuation": "."
+      }
     ],
     "level": 2,
     "unit": 6,
@@ -1233,7 +1333,7 @@ export const level2Units: Record<string, UnitTestData> = {
     "sounds": [
       {
         "number": 1,
-        "prompt": "/\u0113/",
+        "prompt": "/ē/",
         "answers": [
           "e-e",
           "e",
@@ -1242,7 +1342,7 @@ export const level2Units: Record<string, UnitTestData> = {
       },
       {
         "number": 2,
-        "prompt": "/\u012b/",
+        "prompt": "/ī/",
         "answers": [
           "i-e",
           "i",
@@ -1251,21 +1351,21 @@ export const level2Units: Record<string, UnitTestData> = {
       },
       {
         "number": 3,
-        "prompt": "/\u0113/",
+        "prompt": "/ē/",
         "answers": [
           "y"
         ]
       },
       {
         "number": 4,
-        "prompt": "/\u016b/",
+        "prompt": "/ū/",
         "answers": [
           "u"
         ]
       },
       {
         "number": 5,
-        "prompt": "/\u012bld/",
+        "prompt": "/īld/",
         "answers": [
           "ild"
         ]
@@ -1277,12 +1377,34 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "remote",
         "tapUnits": [
           {
-            "text": "re",
-            "isDigraphOrSuffix": true
+            "text": "r",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "mote",
-            "isDigraphOrSuffix": true
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "m",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "o",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"remote\" and scoop the word and mark the two syllables."
@@ -1337,12 +1459,29 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "lobby",
         "tapUnits": [
           {
-            "text": "lob",
-            "isDigraphOrSuffix": true
+            "text": "l",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "by",
-            "isDigraphOrSuffix": true
+            "text": "o",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "b",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "b",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "y",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"lobby\" and scoop the word and mark the two syllables."
@@ -1352,8 +1491,19 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "menu",
         "tapUnits": [
           {
-            "text": "men",
-            "isDigraphOrSuffix": true
+            "text": "m",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "n",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
             "text": "u",
@@ -1374,56 +1524,54 @@ export const level2Units: Record<string, UnitTestData> = {
       }
     ],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "His family is trying to find a large hotel in the city.",
-                "words": [
-                        "His",
-                        "family",
-                        "is",
-                        "trying",
-                        "to",
-                        "find",
-                        "a",
-                        "large",
-                        "hotel",
-                        "in",
-                        "the",
-                        "city"
-                ],
-                "phoneticWords": [
-                        "trying",
-                        "find",
-                        "hotel"
-                ],
-                "trickWords": [
-                        "family",
-                        "large",
-                        "city"
-                ],
-                "punctuation": "."
-        },
-        {
-                "number": 2,
-                "text": "We depend on firemen to protect us.",
-                "words": [
-                        "We",
-                        "depend",
-                        "on",
-                        "firemen",
-                        "to",
-                        "protect",
-                        "us"
-                ],
-                "phoneticWords": [
-                        "depend",
-                        "protect"
-                ],
-                "trickWords": [],
-                "punctuation": "."
-        }
-
+      {
+        "number": 1,
+        "text": "His family is trying to find a large hotel in the city.",
+        "words": [
+          "His",
+          "family",
+          "is",
+          "trying",
+          "to",
+          "find",
+          "a",
+          "large",
+          "hotel",
+          "in",
+          "the",
+          "city"
+        ],
+        "phoneticWords": [
+          "trying",
+          "find",
+          "hotel"
+        ],
+        "trickWords": [
+          "family",
+          "large",
+          "city"
+        ],
+        "punctuation": "."
+      },
+      {
+        "number": 2,
+        "text": "We depend on firemen to protect us.",
+        "words": [
+          "We",
+          "depend",
+          "on",
+          "firemen",
+          "to",
+          "protect",
+          "us"
+        ],
+        "phoneticWords": [
+          "depend",
+          "protect"
+        ],
+        "trickWords": [],
+        "punctuation": "."
+      }
     ],
     "level": 2,
     "unit": 7,
@@ -1434,7 +1582,7 @@ export const level2Units: Record<string, UnitTestData> = {
     "sounds": [
       {
         "number": 1,
-        "prompt": "/\u012b/",
+        "prompt": "/ī/",
         "answers": [
           "i-e",
           "i",
@@ -1443,7 +1591,7 @@ export const level2Units: Record<string, UnitTestData> = {
       },
       {
         "number": 2,
-        "prompt": "/\u016b/",
+        "prompt": "/ū/",
         "answers": [
           "u-e",
           "u"
@@ -1480,12 +1628,29 @@ export const level2Units: Record<string, UnitTestData> = {
         "suffix": "ed",
         "tapUnits": [
           {
-            "text": "re",
-            "isDigraphOrSuffix": true
+            "text": "r",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "port",
-            "isDigraphOrSuffix": true
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "p",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "or",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
             "text": "ed",
@@ -1499,12 +1664,34 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "explore",
         "tapUnits": [
           {
-            "text": "ex",
-            "isDigraphOrSuffix": true
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "plore",
-            "isDigraphOrSuffix": true
+            "text": "x",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "p",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "l",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "or",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"explore\" and scoop the word and mark the two syllables."
@@ -1531,12 +1718,29 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "garlic",
         "tapUnits": [
           {
-            "text": "gar",
-            "isDigraphOrSuffix": true
+            "text": "g",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "lic",
-            "isDigraphOrSuffix": true
+            "text": "ar",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "l",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "i",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "c",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"garlic\" and scoop the word and mark the two syllables."
@@ -1579,54 +1783,52 @@ export const level2Units: Record<string, UnitTestData> = {
       }
     ],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "The army marched to many different spots.",
-                "words": [
-                        "The",
-                        "army",
-                        "marched",
-                        "to",
-                        "many",
-                        "different",
-                        "spots"
-                ],
-                "phoneticWords": [
-                        "marched",
-                        "spots"
-                ],
-                "trickWords": [
-                        "many",
-                        "different"
-                ],
-                "punctuation": "."
-        },
-        {
-                "number": 2,
-                "text": "The cart will carry the acorns from the garden.",
-                "words": [
-                        "The",
-                        "cart",
-                        "will",
-                        "carry",
-                        "the",
-                        "acorns",
-                        "from",
-                        "the",
-                        "garden"
-                ],
-                "phoneticWords": [
-                        "cart",
-                        "acorns",
-                        "garden"
-                ],
-                "trickWords": [
-                        "carry"
-                ],
-                "punctuation": "."
-        }
-
+      {
+        "number": 1,
+        "text": "The army marched to many different spots.",
+        "words": [
+          "The",
+          "army",
+          "marched",
+          "to",
+          "many",
+          "different",
+          "spots"
+        ],
+        "phoneticWords": [
+          "marched",
+          "spots"
+        ],
+        "trickWords": [
+          "many",
+          "different"
+        ],
+        "punctuation": "."
+      },
+      {
+        "number": 2,
+        "text": "The cart will carry the acorns from the garden.",
+        "words": [
+          "The",
+          "cart",
+          "will",
+          "carry",
+          "the",
+          "acorns",
+          "from",
+          "the",
+          "garden"
+        ],
+        "phoneticWords": [
+          "cart",
+          "acorns",
+          "garden"
+        ],
+        "trickWords": [
+          "carry"
+        ],
+        "punctuation": "."
+      }
     ],
     "level": 2,
     "unit": 8,
@@ -1637,7 +1839,7 @@ export const level2Units: Record<string, UnitTestData> = {
     "sounds": [
       {
         "number": 1,
-        "prompt": "/\u0113/",
+        "prompt": "/ē/",
         "answers": [
           "e-e",
           "e",
@@ -1706,12 +1908,29 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "chapter",
         "tapUnits": [
           {
-            "text": "chap",
+            "text": "ch",
+            "type": "digraph",
             "isDigraphOrSuffix": true
           },
           {
-            "text": "ter",
-            "isDigraphOrSuffix": true
+            "text": "a",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "p",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "er",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"chapter\" and scoop the word and mark the two syllables."
@@ -1721,12 +1940,29 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "sturdy",
         "tapUnits": [
           {
-            "text": "stur",
-            "isDigraphOrSuffix": true
+            "text": "s",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "dy",
-            "isDigraphOrSuffix": true
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "ur",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "d",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "y",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"sturdy\" and scoop the word and mark the two syllables."
@@ -1736,12 +1972,24 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "corner",
         "tapUnits": [
           {
-            "text": "cor",
-            "isDigraphOrSuffix": true
+            "text": "c",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "ner",
-            "isDigraphOrSuffix": true
+            "text": "or",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "n",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "er",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"corner\" and scoop the word and mark the two syllables."
@@ -1751,12 +1999,34 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "termite",
         "tapUnits": [
           {
-            "text": "ter",
-            "isDigraphOrSuffix": true
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "mite",
-            "isDigraphOrSuffix": true
+            "text": "er",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "m",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "i",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"termite\" and scoop the word and mark the two syllables."
@@ -1773,54 +2043,52 @@ export const level2Units: Record<string, UnitTestData> = {
       }
     ],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "You will learn cursive in the third term.",
-                "words": [
-                        "You",
-                        "will",
-                        "learn",
-                        "cursive",
-                        "in",
-                        "the",
-                        "third",
-                        "term"
-                ],
-                "phoneticWords": [
-                        "cursive",
-                        "third",
-                        "term"
-                ],
-                "trickWords": [
-                        "learn"
-                ],
-                "punctuation": "."
-        },
-        {
-                "number": 2,
-                "text": "My mother and father have returned from church.",
-                "words": [
-                        "My",
-                        "mother",
-                        "and",
-                        "father",
-                        "have",
-                        "returned",
-                        "from",
-                        "church"
-                ],
-                "phoneticWords": [
-                        "returned",
-                        "church"
-                ],
-                "trickWords": [
-                        "mother",
-                        "father"
-                ],
-                "punctuation": "."
-        }
-
+      {
+        "number": 1,
+        "text": "You will learn cursive in the third term.",
+        "words": [
+          "You",
+          "will",
+          "learn",
+          "cursive",
+          "in",
+          "the",
+          "third",
+          "term"
+        ],
+        "phoneticWords": [
+          "cursive",
+          "third",
+          "term"
+        ],
+        "trickWords": [
+          "learn"
+        ],
+        "punctuation": "."
+      },
+      {
+        "number": 2,
+        "text": "My mother and father have returned from church.",
+        "words": [
+          "My",
+          "mother",
+          "and",
+          "father",
+          "have",
+          "returned",
+          "from",
+          "church"
+        ],
+        "phoneticWords": [
+          "returned",
+          "church"
+        ],
+        "trickWords": [
+          "mother",
+          "father"
+        ],
+        "punctuation": "."
+      }
     ],
     "level": 2,
     "unit": 9,
@@ -1831,7 +2099,7 @@ export const level2Units: Record<string, UnitTestData> = {
     "sounds": [
       {
         "number": 1,
-        "prompt": "/\u0101/",
+        "prompt": "/ā/",
         "answers": [
           "a-e",
           "a",
@@ -1841,7 +2109,7 @@ export const level2Units: Record<string, UnitTestData> = {
       },
       {
         "number": 2,
-        "prompt": "/\u012b/",
+        "prompt": "/ī/",
         "answers": [
           "i-e",
           "i",
@@ -1906,12 +2174,29 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "replay",
         "tapUnits": [
           {
-            "text": "re",
-            "isDigraphOrSuffix": true
+            "text": "r",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "play",
-            "isDigraphOrSuffix": true
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "p",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "l",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "ay",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"replay\" and scoop the word and mark the two syllables."
@@ -1944,12 +2229,34 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "explain",
         "tapUnits": [
           {
-            "text": "ex",
-            "isDigraphOrSuffix": true
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "plain",
-            "isDigraphOrSuffix": true
+            "text": "x",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "p",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "l",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "ai",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "n",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"explain\" and scoop the word and mark the two syllables."
@@ -1965,11 +2272,15 @@ export const level2Units: Record<string, UnitTestData> = {
             "text": "r"
           },
           {
-            "text": "a-e",
-            "isDigraphOrSuffix": true
+            "text": "a",
+            "type": "single"
           },
           {
             "text": "n"
+          },
+          {
+            "text": "e",
+            "type": "single"
           }
         ],
         "markingDescription": "Spell the word, \"crane\" and scoop the word and mark the syllable."
@@ -1986,58 +2297,56 @@ export const level2Units: Record<string, UnitTestData> = {
       }
     ],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "I thought his painting of the school was great.",
-                "words": [
-                        "I",
-                        "thought",
-                        "his",
-                        "painting",
-                        "of",
-                        "the",
-                        "school",
-                        "was",
-                        "great"
-                ],
-                "phoneticWords": [
-                        "painting"
-                ],
-                "trickWords": [
-                        "thought",
-                        "school",
-                        "great"
-                ],
-                "punctuation": "."
-        },
-        {
-                "number": 2,
-                "text": "We had to wait in the rain when the train was delayed.",
-                "words": [
-                        "We",
-                        "had",
-                        "to",
-                        "wait",
-                        "in",
-                        "the",
-                        "rain",
-                        "when",
-                        "the",
-                        "train",
-                        "was",
-                        "delayed"
-                ],
-                "phoneticWords": [
-                        "wait",
-                        "rain",
-                        "train",
-                        "delayed"
-                ],
-                "trickWords": [],
-                "punctuation": "."
-        }
-
+      {
+        "number": 1,
+        "text": "I thought his painting of the school was great.",
+        "words": [
+          "I",
+          "thought",
+          "his",
+          "painting",
+          "of",
+          "the",
+          "school",
+          "was",
+          "great"
+        ],
+        "phoneticWords": [
+          "painting"
+        ],
+        "trickWords": [
+          "thought",
+          "school",
+          "great"
+        ],
+        "punctuation": "."
+      },
+      {
+        "number": 2,
+        "text": "We had to wait in the rain when the train was delayed.",
+        "words": [
+          "We",
+          "had",
+          "to",
+          "wait",
+          "in",
+          "the",
+          "rain",
+          "when",
+          "the",
+          "train",
+          "was",
+          "delayed"
+        ],
+        "phoneticWords": [
+          "wait",
+          "rain",
+          "train",
+          "delayed"
+        ],
+        "trickWords": [],
+        "punctuation": "."
+      }
     ],
     "level": 2,
     "unit": 10,
@@ -2048,7 +2357,7 @@ export const level2Units: Record<string, UnitTestData> = {
     "sounds": [
       {
         "number": 1,
-        "prompt": "/\u0113/",
+        "prompt": "/ē/",
         "answers": [
           "e-e",
           "e",
@@ -2060,7 +2369,7 @@ export const level2Units: Record<string, UnitTestData> = {
       },
       {
         "number": 2,
-        "prompt": "/\u0101/",
+        "prompt": "/ā/",
         "answers": [
           "a-e",
           "a",
@@ -2085,7 +2394,7 @@ export const level2Units: Record<string, UnitTestData> = {
       },
       {
         "number": 5,
-        "prompt": "/\u0113/",
+        "prompt": "/ē/",
         "answers": [
           "y"
         ]
@@ -2097,12 +2406,29 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "chimney",
         "tapUnits": [
           {
-            "text": "chim",
+            "text": "ch",
+            "type": "digraph",
             "isDigraphOrSuffix": true
           },
           {
-            "text": "ney",
-            "isDigraphOrSuffix": true
+            "text": "i",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "m",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "n",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "ey",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"chimney\" and scoop the word and mark the two syllables."
@@ -2114,12 +2440,44 @@ export const level2Units: Record<string, UnitTestData> = {
         "suffix": "ly",
         "tapUnits": [
           {
-            "text": "com",
-            "isDigraphOrSuffix": true
+            "text": "c",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "plete",
-            "isDigraphOrSuffix": true
+            "text": "o",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "m",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "p",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "l",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
             "text": "ly",
@@ -2211,49 +2569,47 @@ export const level2Units: Record<string, UnitTestData> = {
       }
     ],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "The hockey team won thirteen games.",
-                "words": [
-                        "The",
-                        "hockey",
-                        "team",
-                        "won",
-                        "thirteen",
-                        "games"
-                ],
-                "phoneticWords": [
-                        "hockey",
-                        "team",
-                        "thirteen",
-                        "games"
-                ],
-                "trickWords": [
-                        "won"
-                ],
-                "punctuation": "."
-        },
-        {
-                "number": 2,
-                "text": "The breakfast feast is ready!",
-                "words": [
-                        "The",
-                        "breakfast",
-                        "feast",
-                        "is",
-                        "ready"
-                ],
-                "phoneticWords": [
-                        "feast"
-                ],
-                "trickWords": [
-                        "breakfast",
-                        "ready"
-                ],
-                "punctuation": "!"
-        }
-
+      {
+        "number": 1,
+        "text": "The hockey team won thirteen games.",
+        "words": [
+          "The",
+          "hockey",
+          "team",
+          "won",
+          "thirteen",
+          "games"
+        ],
+        "phoneticWords": [
+          "hockey",
+          "team",
+          "thirteen",
+          "games"
+        ],
+        "trickWords": [
+          "won"
+        ],
+        "punctuation": "."
+      },
+      {
+        "number": 2,
+        "text": "The breakfast feast is ready!",
+        "words": [
+          "The",
+          "breakfast",
+          "feast",
+          "is",
+          "ready"
+        ],
+        "phoneticWords": [
+          "feast"
+        ],
+        "trickWords": [
+          "breakfast",
+          "ready"
+        ],
+        "punctuation": "!"
+      }
     ],
     "level": 2,
     "unit": 11,
@@ -2281,7 +2637,7 @@ export const level2Units: Record<string, UnitTestData> = {
       },
       {
         "number": 3,
-        "prompt": "/\u0113/",
+        "prompt": "/ē/",
         "answers": [
           "e-e",
           "e",
@@ -2300,7 +2656,7 @@ export const level2Units: Record<string, UnitTestData> = {
       },
       {
         "number": 5,
-        "prompt": "/o\u0307l/",
+        "prompt": "/ȯl/",
         "answers": [
           "all"
         ]
@@ -2338,12 +2694,34 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "destroy",
         "tapUnits": [
           {
-            "text": "de",
-            "isDigraphOrSuffix": true
+            "text": "d",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "stroy",
-            "isDigraphOrSuffix": true
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "s",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "r",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "oy",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"destroy\" and scoop the word and mark the two syllables."
@@ -2423,56 +2801,54 @@ export const level2Units: Record<string, UnitTestData> = {
       }
     ],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "She had an enjoyable day at her favorite ocean beach.",
-                "words": [
-                        "She",
-                        "had",
-                        "an",
-                        "enjoyable",
-                        "day",
-                        "at",
-                        "her",
-                        "favorite",
-                        "ocean",
-                        "beach"
-                ],
-                "phoneticWords": [
-                        "enjoyable",
-                        "day",
-                        "beach"
-                ],
-                "trickWords": [
-                        "favorite",
-                        "ocean"
-                ],
-                "punctuation": "."
-        },
-        {
-                "number": 2,
-                "text": "The soil is moist early in the morning.",
-                "words": [
-                        "The",
-                        "soil",
-                        "is",
-                        "moist",
-                        "early",
-                        "in",
-                        "the",
-                        "morning"
-                ],
-                "phoneticWords": [
-                        "soil",
-                        "moist"
-                ],
-                "trickWords": [
-                        "early"
-                ],
-                "punctuation": "."
-        }
-
+      {
+        "number": 1,
+        "text": "She had an enjoyable day at her favorite ocean beach.",
+        "words": [
+          "She",
+          "had",
+          "an",
+          "enjoyable",
+          "day",
+          "at",
+          "her",
+          "favorite",
+          "ocean",
+          "beach"
+        ],
+        "phoneticWords": [
+          "enjoyable",
+          "day",
+          "beach"
+        ],
+        "trickWords": [
+          "favorite",
+          "ocean"
+        ],
+        "punctuation": "."
+      },
+      {
+        "number": 2,
+        "text": "The soil is moist early in the morning.",
+        "words": [
+          "The",
+          "soil",
+          "is",
+          "moist",
+          "early",
+          "in",
+          "the",
+          "morning"
+        ],
+        "phoneticWords": [
+          "soil",
+          "moist"
+        ],
+        "trickWords": [
+          "early"
+        ],
+        "punctuation": "."
+      }
     ],
     "level": 2,
     "unit": 12,
@@ -2483,7 +2859,7 @@ export const level2Units: Record<string, UnitTestData> = {
     "sounds": [
       {
         "number": 1,
-        "prompt": "/\u014d/",
+        "prompt": "/ō/",
         "answers": [
           "o-e",
           "o",
@@ -2501,7 +2877,7 @@ export const level2Units: Record<string, UnitTestData> = {
       },
       {
         "number": 3,
-        "prompt": "/\u012b/",
+        "prompt": "/ī/",
         "answers": [
           "i-e",
           "i",
@@ -2571,12 +2947,24 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "below",
         "tapUnits": [
           {
-            "text": "be",
-            "isDigraphOrSuffix": true
+            "text": "b",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "low",
-            "isDigraphOrSuffix": true
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "l",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "ow",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"below\" and scoop the word and mark the two syllables."
@@ -2606,12 +2994,39 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "explode",
         "tapUnits": [
           {
-            "text": "ex",
-            "isDigraphOrSuffix": true
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "plode",
-            "isDigraphOrSuffix": true
+            "text": "x",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "p",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "l",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "o",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "d",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"explode\" and scoop the word and mark the two syllables."
@@ -2628,54 +3043,52 @@ export const level2Units: Record<string, UnitTestData> = {
       }
     ],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "My cousin met her coach on Tuesday.",
-                "words": [
-                        "My",
-                        "cousin",
-                        "met",
-                        "her",
-                        "coach",
-                        "on",
-                        "Tuesday"
-                ],
-                "phoneticWords": [
-                        "coach"
-                ],
-                "trickWords": [
-                        "cousin",
-                        "Tuesday"
-                ],
-                "punctuation": "."
-        },
-        {
-                "number": 2,
-                "text": "A storm will bring snow to the coast tomorrow.",
-                "words": [
-                        "A",
-                        "storm",
-                        "will",
-                        "bring",
-                        "snow",
-                        "to",
-                        "the",
-                        "coast",
-                        "tomorrow"
-                ],
-                "phoneticWords": [
-                        "storm",
-                        "bring",
-                        "snow",
-                        "coast"
-                ],
-                "trickWords": [
-                        "tomorrow"
-                ],
-                "punctuation": "."
-        }
-
+      {
+        "number": 1,
+        "text": "My cousin met her coach on Tuesday.",
+        "words": [
+          "My",
+          "cousin",
+          "met",
+          "her",
+          "coach",
+          "on",
+          "Tuesday"
+        ],
+        "phoneticWords": [
+          "coach"
+        ],
+        "trickWords": [
+          "cousin",
+          "Tuesday"
+        ],
+        "punctuation": "."
+      },
+      {
+        "number": 2,
+        "text": "A storm will bring snow to the coast tomorrow.",
+        "words": [
+          "A",
+          "storm",
+          "will",
+          "bring",
+          "snow",
+          "to",
+          "the",
+          "coast",
+          "tomorrow"
+        ],
+        "phoneticWords": [
+          "storm",
+          "bring",
+          "snow",
+          "coast"
+        ],
+        "trickWords": [
+          "tomorrow"
+        ],
+        "punctuation": "."
+      }
     ],
     "level": 2,
     "unit": 13,
@@ -2703,7 +3116,7 @@ export const level2Units: Record<string, UnitTestData> = {
       },
       {
         "number": 3,
-        "prompt": "/\u014d/",
+        "prompt": "/ō/",
         "answers": [
           "o-e",
           "o",
@@ -2714,7 +3127,7 @@ export const level2Units: Record<string, UnitTestData> = {
       },
       {
         "number": 4,
-        "prompt": "/\u0101/",
+        "prompt": "/ā/",
         "answers": [
           "a-e",
           "a",
@@ -2764,8 +3177,14 @@ export const level2Units: Record<string, UnitTestData> = {
         "suffix": "ing",
         "tapUnits": [
           {
-            "text": "show",
+            "text": "sh",
+            "type": "digraph",
             "isDigraphOrSuffix": true
+          },
+          {
+            "text": "ow",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
             "text": "er",
@@ -2803,12 +3222,34 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "outline",
         "tapUnits": [
           {
-            "text": "out",
-            "isDigraphOrSuffix": true
+            "text": "ou",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "line",
-            "isDigraphOrSuffix": true
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "l",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "i",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "n",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"outline\" and scoop the word and mark the two syllables."
@@ -2851,57 +3292,55 @@ export const level2Units: Record<string, UnitTestData> = {
       }
     ],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "Jim found a piece of candy on the ground.",
-                "words": [
-                        "Jim",
-                        "found",
-                        "a",
-                        "piece",
-                        "of",
-                        "candy",
-                        "on",
-                        "the",
-                        "ground"
-                ],
-                "phoneticWords": [
-                        "found",
-                        "candy",
-                        "ground"
-                ],
-                "trickWords": [
-                        "piece"
-                ],
-                "punctuation": "."
-        },
-        {
-                "number": 2,
-                "text": "He brought the lost hound to the pound on Wednesday.",
-                "words": [
-                        "He",
-                        "brought",
-                        "the",
-                        "lost",
-                        "hound",
-                        "to",
-                        "the",
-                        "pound",
-                        "on",
-                        "Wednesday"
-                ],
-                "phoneticWords": [
-                        "hound",
-                        "pound"
-                ],
-                "trickWords": [
-                        "brought",
-                        "Wednesday"
-                ],
-                "punctuation": "."
-        }
-
+      {
+        "number": 1,
+        "text": "Jim found a piece of candy on the ground.",
+        "words": [
+          "Jim",
+          "found",
+          "a",
+          "piece",
+          "of",
+          "candy",
+          "on",
+          "the",
+          "ground"
+        ],
+        "phoneticWords": [
+          "found",
+          "candy",
+          "ground"
+        ],
+        "trickWords": [
+          "piece"
+        ],
+        "punctuation": "."
+      },
+      {
+        "number": 2,
+        "text": "He brought the lost hound to the pound on Wednesday.",
+        "words": [
+          "He",
+          "brought",
+          "the",
+          "lost",
+          "hound",
+          "to",
+          "the",
+          "pound",
+          "on",
+          "Wednesday"
+        ],
+        "phoneticWords": [
+          "hound",
+          "pound"
+        ],
+        "trickWords": [
+          "brought",
+          "Wednesday"
+        ],
+        "punctuation": "."
+      }
     ],
     "level": 2,
     "unit": 14,
@@ -2932,14 +3371,14 @@ export const level2Units: Record<string, UnitTestData> = {
       },
       {
         "number": 3,
-        "prompt": "/\u014f\u014f/",
+        "prompt": "/ŏŏ/",
         "answers": [
           "oo"
         ]
       },
       {
         "number": 4,
-        "prompt": "/\u016b/",
+        "prompt": "/ū/",
         "answers": [
           "u-e",
           "u",
@@ -2948,7 +3387,7 @@ export const level2Units: Record<string, UnitTestData> = {
       },
       {
         "number": 5,
-        "prompt": "/\u0113/",
+        "prompt": "/ē/",
         "answers": [
           "e-e",
           "e",
@@ -3012,12 +3451,34 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "continue",
         "tapUnits": [
           {
-            "text": "con",
-            "isDigraphOrSuffix": true
+            "text": "c",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "tin",
-            "isDigraphOrSuffix": true
+            "text": "o",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "n",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "i",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "n",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
             "text": "ue",
@@ -3087,57 +3548,55 @@ export const level2Units: Record<string, UnitTestData> = {
       }
     ],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "If it is hot enough in July the special flowers will bloom.",
-                "words": [
-                        "If",
-                        "it",
-                        "is",
-                        "hot",
-                        "enough",
-                        "in",
-                        "July",
-                        "the",
-                        "special",
-                        "flowers",
-                        "will",
-                        "bloom"
-                ],
-                "phoneticWords": [
-                        "flowers",
-                        "bloom"
-                ],
-                "trickWords": [
-                        "enough",
-                        "July",
-                        "special"
-                ],
-                "punctuation": "."
-        },
-        {
-                "number": 2,
-                "text": "It is foolish to argue with the umpire.",
-                "words": [
-                        "It",
-                        "is",
-                        "foolish",
-                        "to",
-                        "argue",
-                        "with",
-                        "the",
-                        "umpire"
-                ],
-                "phoneticWords": [
-                        "foolish",
-                        "argue",
-                        "umpire"
-                ],
-                "trickWords": [],
-                "punctuation": "."
-        }
-
+      {
+        "number": 1,
+        "text": "If it is hot enough in July the special flowers will bloom.",
+        "words": [
+          "If",
+          "it",
+          "is",
+          "hot",
+          "enough",
+          "in",
+          "July",
+          "the",
+          "special",
+          "flowers",
+          "will",
+          "bloom"
+        ],
+        "phoneticWords": [
+          "flowers",
+          "bloom"
+        ],
+        "trickWords": [
+          "enough",
+          "July",
+          "special"
+        ],
+        "punctuation": "."
+      },
+      {
+        "number": 2,
+        "text": "It is foolish to argue with the umpire.",
+        "words": [
+          "It",
+          "is",
+          "foolish",
+          "to",
+          "argue",
+          "with",
+          "the",
+          "umpire"
+        ],
+        "phoneticWords": [
+          "foolish",
+          "argue",
+          "umpire"
+        ],
+        "trickWords": [],
+        "punctuation": "."
+      }
     ],
     "level": 2,
     "unit": 15,
@@ -3148,7 +3607,7 @@ export const level2Units: Record<string, UnitTestData> = {
     "sounds": [
       {
         "number": 1,
-        "prompt": "/o\u0307/",
+        "prompt": "/ȯ/",
         "answers": [
           "au",
           "aw"
@@ -3176,7 +3635,7 @@ export const level2Units: Record<string, UnitTestData> = {
       },
       {
         "number": 4,
-        "prompt": "/\u0101/",
+        "prompt": "/ā/",
         "answers": [
           "a-e",
           "a",
@@ -3186,7 +3645,7 @@ export const level2Units: Record<string, UnitTestData> = {
       },
       {
         "number": 5,
-        "prompt": "/\u014d/",
+        "prompt": "/ō/",
         "answers": [
           "o-e",
           "o",
@@ -3243,16 +3702,44 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "astronaut",
         "tapUnits": [
           {
-            "text": "as",
-            "isDigraphOrSuffix": true
+            "text": "a",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "tro",
-            "isDigraphOrSuffix": true
+            "text": "s",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "naut",
-            "isDigraphOrSuffix": true
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "r",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "o",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "n",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "au",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"astronaut\" and scoop the word and mark the three syllables."
@@ -3321,55 +3808,53 @@ export const level2Units: Record<string, UnitTestData> = {
       }
     ],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "I saw a hawk with sharp claws by the water.",
-                "words": [
-                        "I",
-                        "saw",
-                        "a",
-                        "hawk",
-                        "with",
-                        "sharp",
-                        "claws",
-                        "by",
-                        "the",
-                        "water"
-                ],
-                "phoneticWords": [
-                        "saw",
-                        "hawk",
-                        "sharp",
-                        "claws"
-                ],
-                "trickWords": [
-                        "water"
-                ],
-                "punctuation": "."
-        },
-        {
-                "number": 2,
-                "text": "My daughter will laugh at the clown.",
-                "words": [
-                        "My",
-                        "daughter",
-                        "will",
-                        "laugh",
-                        "at",
-                        "the",
-                        "clown"
-                ],
-                "phoneticWords": [
-                        "clown"
-                ],
-                "trickWords": [
-                        "daughter",
-                        "laugh"
-                ],
-                "punctuation": "."
-        }
-
+      {
+        "number": 1,
+        "text": "I saw a hawk with sharp claws by the water.",
+        "words": [
+          "I",
+          "saw",
+          "a",
+          "hawk",
+          "with",
+          "sharp",
+          "claws",
+          "by",
+          "the",
+          "water"
+        ],
+        "phoneticWords": [
+          "saw",
+          "hawk",
+          "sharp",
+          "claws"
+        ],
+        "trickWords": [
+          "water"
+        ],
+        "punctuation": "."
+      },
+      {
+        "number": 2,
+        "text": "My daughter will laugh at the clown.",
+        "words": [
+          "My",
+          "daughter",
+          "will",
+          "laugh",
+          "at",
+          "the",
+          "clown"
+        ],
+        "phoneticWords": [
+          "clown"
+        ],
+        "trickWords": [
+          "daughter",
+          "laugh"
+        ],
+        "punctuation": "."
+      }
     ],
     "level": 2,
     "unit": 16,
@@ -3380,7 +3865,7 @@ export const level2Units: Record<string, UnitTestData> = {
     "sounds": [
       {
         "number": 1,
-        "prompt": "/\u016b/",
+        "prompt": "/ū/",
         "answers": [
           "u-e",
           "u",
@@ -3389,14 +3874,14 @@ export const level2Units: Record<string, UnitTestData> = {
       },
       {
         "number": 2,
-        "prompt": "/\u014f\u014f/",
+        "prompt": "/ŏŏ/",
         "answers": [
           "oo"
         ]
       },
       {
         "number": 3,
-        "prompt": "/o\u0307/",
+        "prompt": "/ȯ/",
         "answers": [
           "au",
           "aw"
@@ -3424,12 +3909,39 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "stumble",
         "tapUnits": [
           {
-            "text": "stum",
-            "isDigraphOrSuffix": true
+            "text": "s",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "ble",
-            "isDigraphOrSuffix": true
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "u",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "m",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "b",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "l",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"stumble\" and scoop the word and mark the two syllables."
@@ -3441,12 +3953,29 @@ export const level2Units: Record<string, UnitTestData> = {
         "suffix": "s",
         "tapUnits": [
           {
-            "text": "mar",
-            "isDigraphOrSuffix": true
+            "text": "m",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "ble",
-            "isDigraphOrSuffix": true
+            "text": "ar",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "b",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "l",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
             "text": "s",
@@ -3460,12 +3989,39 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "snuggle",
         "tapUnits": [
           {
-            "text": "snug",
-            "isDigraphOrSuffix": true
+            "text": "s",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "gle",
-            "isDigraphOrSuffix": true
+            "text": "n",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "u",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "g",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "g",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "l",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"snuggle\" and scoop the word and mark the two syllables."
@@ -3477,12 +4033,34 @@ export const level2Units: Record<string, UnitTestData> = {
         "suffix": "s",
         "tapUnits": [
           {
-            "text": "spar",
-            "isDigraphOrSuffix": true
+            "text": "s",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "kle",
-            "isDigraphOrSuffix": true
+            "text": "p",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "ar",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "k",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "l",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
             "text": "s",
@@ -3496,12 +4074,29 @@ export const level2Units: Record<string, UnitTestData> = {
         "word": "cable",
         "tapUnits": [
           {
-            "text": "ca",
-            "isDigraphOrSuffix": true
+            "text": "c",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "ble",
-            "isDigraphOrSuffix": true
+            "text": "a",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "b",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "l",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"cable\" and scoop the word and mark the two syllables."
@@ -3518,57 +4113,55 @@ export const level2Units: Record<string, UnitTestData> = {
       }
     ],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "The young child had trouble with a couple of the simple puzzles.",
-                "words": [
-                        "The",
-                        "young",
-                        "child",
-                        "had",
-                        "trouble",
-                        "with",
-                        "a",
-                        "couple",
-                        "of",
-                        "the",
-                        "simple",
-                        "puzzles"
-                ],
-                "phoneticWords": [
-                        "simple",
-                        "puzzles"
-                ],
-                "trickWords": [
-                        "young",
-                        "trouble",
-                        "couple"
-                ],
-                "punctuation": "."
-        },
-        {
-                "number": 2,
-                "text": "Are the purple candles on the table yet?",
-                "words": [
-                        "Are",
-                        "the",
-                        "purple",
-                        "candles",
-                        "on",
-                        "the",
-                        "table",
-                        "yet"
-                ],
-                "phoneticWords": [
-                        "purple",
-                        "candles",
-                        "table"
-                ],
-                "trickWords": [],
-                "punctuation": "?"
-        }
-
+      {
+        "number": 1,
+        "text": "The young child had trouble with a couple of the simple puzzles.",
+        "words": [
+          "The",
+          "young",
+          "child",
+          "had",
+          "trouble",
+          "with",
+          "a",
+          "couple",
+          "of",
+          "the",
+          "simple",
+          "puzzles"
+        ],
+        "phoneticWords": [
+          "simple",
+          "puzzles"
+        ],
+        "trickWords": [
+          "young",
+          "trouble",
+          "couple"
+        ],
+        "punctuation": "."
+      },
+      {
+        "number": 2,
+        "text": "Are the purple candles on the table yet?",
+        "words": [
+          "Are",
+          "the",
+          "purple",
+          "candles",
+          "on",
+          "the",
+          "table",
+          "yet"
+        ],
+        "phoneticWords": [
+          "purple",
+          "candles",
+          "table"
+        ],
+        "trickWords": [],
+        "punctuation": "?"
+      }
     ],
     "level": 2,
     "unit": 17,

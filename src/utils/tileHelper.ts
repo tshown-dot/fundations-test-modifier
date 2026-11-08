@@ -1,4 +1,4 @@
-import { TileColorType } from '../types/fundations';
+import { TileColorType, WordItem, WordTapUnit } from '../types/fundations';
 import { GLUED_SOUNDS } from '../data/curriculum';
 
 export const VOWELS = new Set([
@@ -12,17 +12,172 @@ export const VOWELS = new Set([
 ]);
 
 // Multi-letter suffixes that are always suffixes
-const MULTI_LETTER_SUFFIXES = new Set([
+export const MULTI_LETTER_SUFFIXES = new Set([
   'es', 'ed', 'ing', 'est', 'er', 'ful', 'less', 'ness', 'able', 'en', 'ish', 'ly',
 ]);
 
-const BONUS_AND_DIGRAPHS = [
+export const BONUS_AND_DIGRAPHS = [
   'ck', 'ch', 'sh', 'th', 'wh', 'ph', 'qu', 'll', 'ss', 'ff', 'zz'
 ];
 
-const COMMON_SUFFIXES = [
+export const COMMON_SUFFIXES = [
   'less', 'ness', 'ful', 'ing', 'est', 'es', 'ed', 'er', 'en', 'ly', 's'
 ];
+
+const VOWEL_TEAMS_LIST = [
+  'ai', 'ay', 'ee', 'ea', 'ey', 'oi', 'oy', 'oa', 'oe', 'ow',
+  'ou', 'oo', 'ue', 'ew', 'au', 'aw'
+];
+
+const R_CONTROLLED_LIST = ['ar', 'er', 'ir', 'or', 'ur'];
+
+const DIGRAPHS_LIST = [
+  'ck', 'ch', 'sh', 'th', 'wh', 'ph', 'qu', 'wr', 'kn', 'gn',
+  'ff', 'll', 'ss', 'zz'
+];
+
+function segmentMultiLetterChunk(chunk: string): WordTapUnit[] {
+  const tiles: WordTapUnit[] = [];
+  let i = 0;
+  const s = chunk.toLowerCase();
+  while (i < s.length) {
+    let matched = false;
+
+    // 1. Glued sounds
+    for (const g of GLUED_SOUNDS) {
+      if (s.startsWith(g, i)) {
+        tiles.push({
+          text: chunk.substr(i, g.length),
+          type: 'welded',
+          tileType: 'welded',
+          isDigraphOrSuffix: true,
+        });
+        i += g.length;
+        matched = true;
+        break;
+      }
+    }
+    if (matched) continue;
+
+    // 2. Vowel teams
+    for (const vt of VOWEL_TEAMS_LIST) {
+      if (s.startsWith(vt, i)) {
+        tiles.push({
+          text: chunk.substr(i, vt.length),
+          type: 'single',
+          tileType: 'vowel',
+          isDigraphOrSuffix: false,
+        });
+        i += vt.length;
+        matched = true;
+        break;
+      }
+    }
+    if (matched) continue;
+
+    // 3. R-controlled
+    for (const rc of R_CONTROLLED_LIST) {
+      if (s.startsWith(rc, i)) {
+        tiles.push({
+          text: chunk.substr(i, rc.length),
+          type: 'single',
+          tileType: 'vowel',
+          isDigraphOrSuffix: false,
+        });
+        i += rc.length;
+        matched = true;
+        break;
+      }
+    }
+    if (matched) continue;
+
+    // 4. Digraphs & bonus letters
+    for (const dg of DIGRAPHS_LIST) {
+      if (s.startsWith(dg, i)) {
+        tiles.push({
+          text: chunk.substr(i, dg.length),
+          type: 'digraph',
+          tileType: 'consonant',
+          isDigraphOrSuffix: true,
+        });
+        i += dg.length;
+        matched = true;
+        break;
+      }
+    }
+    if (matched) continue;
+
+    // 5. Single letters
+    const ch = chunk[i];
+    const isVowelLetter = 'aeiou'.includes(s[i]) || (s[i] === 'y' && i > 0);
+    tiles.push({
+      text: ch,
+      type: 'single',
+      tileType: isVowelLetter ? 'vowel' : 'consonant',
+      isDigraphOrSuffix: false,
+    });
+    i++;
+  }
+  return tiles;
+}
+
+/**
+ * Normalizes and resolves tap units for a WordItem.
+ * If a word was mistakenly chunked by syllable scoops (e.g. "com", "bat", "pan", "ic"),
+ * it automatically segments each chunk into authentic Fundations sound tiles
+ * (consonants, vowels, digraphs, welded cards, and suffixes).
+ */
+export function resolveWordTapUnits(wordItem?: WordItem): WordTapUnit[] {
+  if (!wordItem || !wordItem.tapUnits || wordItem.tapUnits.length === 0) {
+    return segmentMultiLetterChunk(wordItem?.word || '');
+  }
+
+  // Handle silent-e notation like [s, p, o-e, k] -> [s, p, o, k, e]
+  const hasVE = wordItem.tapUnits.some((u) => /^[aeiou]-e$/i.test(u.text));
+  if (hasVE) {
+    const expanded: WordTapUnit[] = [];
+    let pendingE = false;
+    for (const u of wordItem.tapUnits) {
+      if (/^[aeiou]-e$/i.test(u.text)) {
+        expanded.push({ text: u.text[0], type: 'single', tileType: 'vowel' });
+        pendingE = true;
+      } else if (
+        pendingE &&
+        (u.type === 'suffix' || MULTI_LETTER_SUFFIXES.has(u.text.toLowerCase()) || u.text.toLowerCase() === 's')
+      ) {
+        expanded.push({ text: 'e', type: 'single', tileType: 'vowel' });
+        expanded.push(u);
+        pendingE = false;
+      } else {
+        expanded.push(u);
+      }
+    }
+    if (pendingE) {
+      expanded.push({ text: 'e', type: 'single', tileType: 'vowel' });
+    }
+    return expanded;
+  }
+
+  // Decompose any syllable chunk that is not an authentic multi-letter Fundations tile
+  const result: WordTapUnit[] = [];
+  for (const u of wordItem.tapUnits) {
+    const t = u.text.toLowerCase().trim().replace(/^-/, '');
+    const isKnownSuffix = u.type === 'suffix' || MULTI_LETTER_SUFFIXES.has(t) || (t === 's' && u.isDigraphOrSuffix);
+    const isKnownWelded = u.type === 'welded' || GLUED_SOUNDS.includes(t as any);
+    const isKnownVowelTeam = VOWEL_TEAMS_LIST.includes(t);
+    const isKnownRControlled = R_CONTROLLED_LIST.includes(t);
+    const isKnownDigraph = DIGRAPHS_LIST.includes(t);
+
+    if (t.length <= 1 || isKnownSuffix || isKnownWelded || isKnownVowelTeam || isKnownRControlled || isKnownDigraph) {
+      result.push(u);
+    } else {
+      // Chunk that needs segmenting (e.g. "com", "bat", "pan", "ic", "vent", "ath", "lete")
+      result.push(...segmentMultiLetterChunk(u.text));
+    }
+  }
+
+  return result;
+}
 
 /**
  * Calculates authentic Wilson Fundations tap counts:

@@ -21,14 +21,14 @@ export const level1Units: Record<string, UnitTestData> = {
       },
       {
         "number": 3,
-        "prompt": "/\u012d/",
+        "prompt": "/ĭ/",
         "answers": [
           "i"
         ]
       },
       {
         "number": 4,
-        "prompt": "/\u016d/",
+        "prompt": "/ŭ/",
         "answers": [
           "u"
         ]
@@ -130,53 +130,51 @@ export const level1Units: Record<string, UnitTestData> = {
     ],
     "trickWords": [],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "We got into a hot bath.",
-                "words": [
-                        "We",
-                        "got",
-                        "into",
-                        "a",
-                        "hot",
-                        "bath"
-                ],
-                "phoneticWords": [
-                        "got",
-                        "hot",
-                        "bath"
-                ],
-                "trickWords": [
-                        "We",
-                        "into",
-                        "a"
-                ],
-                "punctuation": "."
-        },
-        {
-                "number": 2,
-                "text": "Did Jack rush to get the bus?",
-                "words": [
-                        "Did",
-                        "Jack",
-                        "rush",
-                        "to",
-                        "get",
-                        "the",
-                        "bus"
-                ],
-                "phoneticWords": [
-                        "Jack",
-                        "rush"
-                ],
-                "trickWords": [
-                        "to",
-                        "the"
-                ],
-                "punctuation": "?"
-        }
-
+      {
+        "number": 1,
+        "text": "We got into a hot bath.",
+        "words": [
+          "We",
+          "got",
+          "into",
+          "a",
+          "hot",
+          "bath"
+        ],
+        "phoneticWords": [
+          "got",
+          "hot",
+          "bath"
+        ],
+        "trickWords": [
+          "We",
+          "into",
+          "a"
+        ],
+        "punctuation": "."
+      },
+      {
+        "number": 2,
+        "text": "Did Jack rush to get the bus?",
+        "words": [
+          "Did",
+          "Jack",
+          "rush",
+          "to",
+          "get",
+          "the",
+          "bus"
+        ],
+        "phoneticWords": [
+          "Jack",
+          "rush"
+        ],
+        "trickWords": [
+          "to",
+          "the"
+        ],
+        "punctuation": "?"
+      }
     ],
     "level": 1,
     "unit": 3,
@@ -194,21 +192,21 @@ export const level1Units: Record<string, UnitTestData> = {
       },
       {
         "number": 2,
-        "prompt": "/\u012d/",
+        "prompt": "/ĭ/",
         "answers": [
           "i"
         ]
       },
       {
         "number": 3,
-        "prompt": "/o\u0307l/",
+        "prompt": "/ȯl/",
         "answers": [
           "all"
         ]
       },
       {
         "number": 4,
-        "prompt": "/\u0103/",
+        "prompt": "/ă/",
         "answers": [
           "a"
         ]
@@ -309,52 +307,50 @@ export const level1Units: Record<string, UnitTestData> = {
     ],
     "trickWords": [],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "They will toss the ball to me.",
-                "words": [
-                        "They",
-                        "will",
-                        "toss",
-                        "the",
-                        "ball",
-                        "to",
-                        "me"
-                ],
-                "phoneticWords": [
-                        "will",
-                        "toss",
-                        "ball"
-                ],
-                "trickWords": [
-                        "They",
-                        "the",
-                        "to",
-                        "me"
-                ],
-                "punctuation": "."
-        },
-        {
-                "number": 2,
-                "text": "Your pack is a mess!",
-                "words": [
-                        "Your",
-                        "pack",
-                        "is",
-                        "a",
-                        "mess"
-                ],
-                "phoneticWords": [
-                        "pack",
-                        "mess"
-                ],
-                "trickWords": [
-                        "Your"
-                ],
-                "punctuation": "!"
-        }
-
+      {
+        "number": 1,
+        "text": "They will toss the ball to me.",
+        "words": [
+          "They",
+          "will",
+          "toss",
+          "the",
+          "ball",
+          "to",
+          "me"
+        ],
+        "phoneticWords": [
+          "will",
+          "toss",
+          "ball"
+        ],
+        "trickWords": [
+          "They",
+          "the",
+          "to",
+          "me"
+        ],
+        "punctuation": "."
+      },
+      {
+        "number": 2,
+        "text": "Your pack is a mess!",
+        "words": [
+          "Your",
+          "pack",
+          "is",
+          "a",
+          "mess"
+        ],
+        "phoneticWords": [
+          "pack",
+          "mess"
+        ],
+        "trickWords": [
+          "Your"
+        ],
+        "punctuation": "!"
+      }
     ],
     "level": 1,
     "unit": 4,
@@ -388,7 +384,7 @@ export const level1Units: Record<string, UnitTestData> = {
       },
       {
         "number": 4,
-        "prompt": "/\u0115/",
+        "prompt": "/ĕ/",
         "answers": [
           "e"
         ]
@@ -483,54 +479,52 @@ export const level1Units: Record<string, UnitTestData> = {
     ],
     "trickWords": [],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "They ran from the back of the mall.",
-                "words": [
-                        "They",
-                        "ran",
-                        "from",
-                        "the",
-                        "back",
-                        "of",
-                        "the",
-                        "mall"
-                ],
-                "phoneticWords": [
-                        "ran",
-                        "back",
-                        "mall"
-                ],
-                "trickWords": [
-                        "They",
-                        "from",
-                        "the",
-                        "of",
-                        "the"
-                ],
-                "punctuation": "."
-        },
-        {
-                "number": 2,
-                "text": "Does she have the pan for Rick?",
-                "words": [
-                        "Does",
-                        "she",
-                        "have",
-                        "the",
-                        "pan",
-                        "for",
-                        "Rick"
-                ],
-                "phoneticWords": [
-                        "pan",
-                        "Rick"
-                ],
-                "trickWords": [],
-                "punctuation": "?"
-        }
-
+      {
+        "number": 1,
+        "text": "They ran from the back of the mall.",
+        "words": [
+          "They",
+          "ran",
+          "from",
+          "the",
+          "back",
+          "of",
+          "the",
+          "mall"
+        ],
+        "phoneticWords": [
+          "ran",
+          "back",
+          "mall"
+        ],
+        "trickWords": [
+          "They",
+          "from",
+          "the",
+          "of",
+          "the"
+        ],
+        "punctuation": "."
+      },
+      {
+        "number": 2,
+        "text": "Does she have the pan for Rick?",
+        "words": [
+          "Does",
+          "she",
+          "have",
+          "the",
+          "pan",
+          "for",
+          "Rick"
+        ],
+        "phoneticWords": [
+          "pan",
+          "Rick"
+        ],
+        "trickWords": [],
+        "punctuation": "?"
+      }
     ],
     "level": 1,
     "unit": 5,
@@ -563,14 +557,14 @@ export const level1Units: Record<string, UnitTestData> = {
       },
       {
         "number": 4,
-        "prompt": "/\u0103/",
+        "prompt": "/ă/",
         "answers": [
           "a"
         ]
       },
       {
         "number": 5,
-        "prompt": "/\u014f/",
+        "prompt": "/ŏ/",
         "answers": [
           "o"
         ]
@@ -692,53 +686,51 @@ export const level1Units: Record<string, UnitTestData> = {
     ],
     "trickWords": [],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "Who said the kids had chips and dip?",
-                "words": [
-                        "Who",
-                        "said",
-                        "the",
-                        "kids",
-                        "had",
-                        "chips",
-                        "and",
-                        "dip"
-                ],
-                "phoneticWords": [
-                        "kids",
-                        "chips",
-                        "dip"
-                ],
-                "trickWords": [
-                        "Who",
-                        "said",
-                        "the"
-                ],
-                "punctuation": "?"
-        },
-        {
-                "number": 2,
-                "text": "Where are your tan socks?",
-                "words": [
-                        "Where",
-                        "are",
-                        "your",
-                        "tan",
-                        "socks"
-                ],
-                "phoneticWords": [
-                        "tan",
-                        "socks"
-                ],
-                "trickWords": [
-                        "Where",
-                        "are"
-                ],
-                "punctuation": "?"
-        }
-
+      {
+        "number": 1,
+        "text": "Who said the kids had chips and dip?",
+        "words": [
+          "Who",
+          "said",
+          "the",
+          "kids",
+          "had",
+          "chips",
+          "and",
+          "dip"
+        ],
+        "phoneticWords": [
+          "kids",
+          "chips",
+          "dip"
+        ],
+        "trickWords": [
+          "Who",
+          "said",
+          "the"
+        ],
+        "punctuation": "?"
+      },
+      {
+        "number": 2,
+        "text": "Where are your tan socks?",
+        "words": [
+          "Where",
+          "are",
+          "your",
+          "tan",
+          "socks"
+        ],
+        "phoneticWords": [
+          "tan",
+          "socks"
+        ],
+        "trickWords": [
+          "Where",
+          "are"
+        ],
+        "punctuation": "?"
+      }
     ],
     "level": 1,
     "unit": 6,
@@ -771,7 +763,7 @@ export const level1Units: Record<string, UnitTestData> = {
       },
       {
         "number": 4,
-        "prompt": "/\u0115/",
+        "prompt": "/ĕ/",
         "answers": [
           "e"
         ]
@@ -878,52 +870,50 @@ export const level1Units: Record<string, UnitTestData> = {
     ],
     "trickWords": [],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "Put my junk here.",
-                "words": [
-                        "Put",
-                        "my",
-                        "junk",
-                        "here"
-                ],
-                "phoneticWords": [
-                        "junk"
-                ],
-                "trickWords": [
-                        "Put",
-                        "my",
-                        "here"
-                ],
-                "punctuation": "."
-        },
-        {
-                "number": 2,
-                "text": "The king also sang a very long song.",
-                "words": [
-                        "The",
-                        "king",
-                        "also",
-                        "sang",
-                        "a",
-                        "very",
-                        "long",
-                        "song"
-                ],
-                "phoneticWords": [
-                        "king",
-                        "sang",
-                        "long",
-                        "song"
-                ],
-                "trickWords": [
-                        "The",
-                        "also"
-                ],
-                "punctuation": "."
-        }
-
+      {
+        "number": 1,
+        "text": "Put my junk here.",
+        "words": [
+          "Put",
+          "my",
+          "junk",
+          "here"
+        ],
+        "phoneticWords": [
+          "junk"
+        ],
+        "trickWords": [
+          "Put",
+          "my",
+          "here"
+        ],
+        "punctuation": "."
+      },
+      {
+        "number": 2,
+        "text": "The king also sang a very long song.",
+        "words": [
+          "The",
+          "king",
+          "also",
+          "sang",
+          "a",
+          "very",
+          "long",
+          "song"
+        ],
+        "phoneticWords": [
+          "king",
+          "sang",
+          "long",
+          "song"
+        ],
+        "trickWords": [
+          "The",
+          "also"
+        ],
+        "punctuation": "."
+      }
     ],
     "level": 1,
     "unit": 7,
@@ -949,14 +939,14 @@ export const level1Units: Record<string, UnitTestData> = {
       },
       {
         "number": 3,
-        "prompt": "/\u012d/",
+        "prompt": "/ĭ/",
         "answers": [
           "i"
         ]
       },
       {
         "number": 4,
-        "prompt": "/o\u0307l/",
+        "prompt": "/ȯl/",
         "answers": [
           "all"
         ]
@@ -1077,53 +1067,51 @@ export const level1Units: Record<string, UnitTestData> = {
     ],
     "trickWords": [],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "Could Jill munch on her plum?",
-                "words": [
-                        "Could",
-                        "Jill",
-                        "munch",
-                        "on",
-                        "her",
-                        "plum"
-                ],
-                "phoneticWords": [
-                        "Jill",
-                        "munch",
-                        "plum"
-                ],
-                "trickWords": [
-                        "Could",
-                        "on",
-                        "her"
-                ],
-                "punctuation": "?"
-        },
-        {
-                "number": 2,
-                "text": "Where did the dog sniff some clams?",
-                "words": [
-                        "Where",
-                        "did",
-                        "the",
-                        "dog",
-                        "sniff",
-                        "some",
-                        "clams"
-                ],
-                "phoneticWords": [
-                        "sniff",
-                        "clams"
-                ],
-                "trickWords": [
-                        "Where",
-                        "some"
-                ],
-                "punctuation": "?"
-        }
-
+      {
+        "number": 1,
+        "text": "Could Jill munch on her plum?",
+        "words": [
+          "Could",
+          "Jill",
+          "munch",
+          "on",
+          "her",
+          "plum"
+        ],
+        "phoneticWords": [
+          "Jill",
+          "munch",
+          "plum"
+        ],
+        "trickWords": [
+          "Could",
+          "on",
+          "her"
+        ],
+        "punctuation": "?"
+      },
+      {
+        "number": 2,
+        "text": "Where did the dog sniff some clams?",
+        "words": [
+          "Where",
+          "did",
+          "the",
+          "dog",
+          "sniff",
+          "some",
+          "clams"
+        ],
+        "phoneticWords": [
+          "sniff",
+          "clams"
+        ],
+        "trickWords": [
+          "Where",
+          "some"
+        ],
+        "punctuation": "?"
+      }
     ],
     "level": 1,
     "unit": 8,
@@ -1156,14 +1144,14 @@ export const level1Units: Record<string, UnitTestData> = {
       },
       {
         "number": 4,
-        "prompt": "/\u0115/",
+        "prompt": "/ĕ/",
         "answers": [
           "e"
         ]
       },
       {
         "number": 5,
-        "prompt": "/\u0103/",
+        "prompt": "/ă/",
         "answers": [
           "a"
         ]
@@ -1280,53 +1268,51 @@ export const level1Units: Record<string, UnitTestData> = {
     ],
     "trickWords": [],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "Did you see his golf clubs?",
-                "words": [
-                        "Did",
-                        "you",
-                        "see",
-                        "his",
-                        "golf",
-                        "clubs"
-                ],
-                "phoneticWords": [
-                        "golf",
-                        "clubs"
-                ],
-                "trickWords": [
-                        "you",
-                        "see"
-                ],
-                "punctuation": "?"
-        },
-        {
-                "number": 2,
-                "text": "Each block was on the last bench.",
-                "words": [
-                        "Each",
-                        "block",
-                        "was",
-                        "on",
-                        "the",
-                        "last",
-                        "bench"
-                ],
-                "phoneticWords": [
-                        "block",
-                        "last",
-                        "bench"
-                ],
-                "trickWords": [
-                        "Each",
-                        "was",
-                        "the"
-                ],
-                "punctuation": "."
-        }
-
+      {
+        "number": 1,
+        "text": "Did you see his golf clubs?",
+        "words": [
+          "Did",
+          "you",
+          "see",
+          "his",
+          "golf",
+          "clubs"
+        ],
+        "phoneticWords": [
+          "golf",
+          "clubs"
+        ],
+        "trickWords": [
+          "you",
+          "see"
+        ],
+        "punctuation": "?"
+      },
+      {
+        "number": 2,
+        "text": "Each block was on the last bench.",
+        "words": [
+          "Each",
+          "block",
+          "was",
+          "on",
+          "the",
+          "last",
+          "bench"
+        ],
+        "phoneticWords": [
+          "block",
+          "last",
+          "bench"
+        ],
+        "trickWords": [
+          "Each",
+          "was",
+          "the"
+        ],
+        "punctuation": "."
+      }
     ],
     "level": 1,
     "unit": 9,
@@ -1351,7 +1337,7 @@ export const level1Units: Record<string, UnitTestData> = {
       },
       {
         "number": 3,
-        "prompt": "/\u0115/",
+        "prompt": "/ĕ/",
         "answers": [
           "e"
         ]
@@ -1503,51 +1489,49 @@ export const level1Units: Record<string, UnitTestData> = {
     ],
     "trickWords": [],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "How could Frank get stung?",
-                "words": [
-                        "How",
-                        "could",
-                        "Frank",
-                        "get",
-                        "stung"
-                ],
-                "phoneticWords": [
-                        "Frank",
-                        "get",
-                        "stung"
-                ],
-                "trickWords": [
-                        "How",
-                        "could"
-                ],
-                "punctuation": "?"
-        },
-        {
-                "number": 2,
-                "text": "I am thinking about the quiz.",
-                "words": [
-                        "I",
-                        "am",
-                        "thinking",
-                        "about",
-                        "the",
-                        "quiz"
-                ],
-                "phoneticWords": [
-                        "thinking",
-                        "quiz"
-                ],
-                "trickWords": [
-                        "about",
-                        "the",
-                        "I"
-                ],
-                "punctuation": "."
-        }
-
+      {
+        "number": 1,
+        "text": "How could Frank get stung?",
+        "words": [
+          "How",
+          "could",
+          "Frank",
+          "get",
+          "stung"
+        ],
+        "phoneticWords": [
+          "Frank",
+          "get",
+          "stung"
+        ],
+        "trickWords": [
+          "How",
+          "could"
+        ],
+        "punctuation": "?"
+      },
+      {
+        "number": 2,
+        "text": "I am thinking about the quiz.",
+        "words": [
+          "I",
+          "am",
+          "thinking",
+          "about",
+          "the",
+          "quiz"
+        ],
+        "phoneticWords": [
+          "thinking",
+          "quiz"
+        ],
+        "trickWords": [
+          "about",
+          "the",
+          "I"
+        ],
+        "punctuation": "."
+      }
     ],
     "level": 1,
     "unit": 10,
@@ -1558,28 +1542,28 @@ export const level1Units: Record<string, UnitTestData> = {
     "sounds": [
       {
         "number": 1,
-        "prompt": "/\u0101/",
+        "prompt": "/ā/",
         "answers": [
           "a-e"
         ]
       },
       {
         "number": 2,
-        "prompt": "/\u0103/",
+        "prompt": "/ă/",
         "answers": [
           "a"
         ]
       },
       {
         "number": 3,
-        "prompt": "/\u012b/",
+        "prompt": "/ī/",
         "answers": [
           "i-e"
         ]
       },
       {
         "number": 4,
-        "prompt": "/\u016b/",
+        "prompt": "/ū/",
         "answers": [
           "u-e"
         ]
@@ -1601,11 +1585,15 @@ export const level1Units: Record<string, UnitTestData> = {
             "text": "m"
           },
           {
-            "text": "u-e",
-            "isDigraphOrSuffix": true
+            "text": "u",
+            "type": "single"
           },
           {
             "text": "l"
+          },
+          {
+            "text": "e",
+            "type": "single"
           }
         ],
         "markingDescription": "Spell the word, \"mule\" and mark the vowel-consonant-e syllable."
@@ -1621,11 +1609,15 @@ export const level1Units: Record<string, UnitTestData> = {
             "text": "r"
           },
           {
-            "text": "a-e",
-            "isDigraphOrSuffix": true
+            "text": "a",
+            "type": "single"
           },
           {
             "text": "v"
+          },
+          {
+            "text": "e",
+            "type": "single"
           }
         ],
         "markingDescription": "Spell the word, \"brave\" and mark the vowel-consonant-e syllable."
@@ -1638,11 +1630,15 @@ export const level1Units: Record<string, UnitTestData> = {
             "text": "j"
           },
           {
-            "text": "o-e",
-            "isDigraphOrSuffix": true
+            "text": "o",
+            "type": "single"
           },
           {
             "text": "k"
+          },
+          {
+            "text": "e",
+            "type": "single"
           }
         ],
         "markingDescription": "Spell the word, \"joke\" and mark the vowel-consonant-e syllable."
@@ -1658,11 +1654,15 @@ export const level1Units: Record<string, UnitTestData> = {
             "text": "r"
           },
           {
-            "text": "a-e",
-            "isDigraphOrSuffix": true
+            "text": "a",
+            "type": "single"
           },
           {
             "text": "d"
+          },
+          {
+            "text": "e",
+            "type": "single"
           }
         ],
         "markingDescription": "Spell the word, \"grade\" and mark the vowel-consonant-e syllable."
@@ -1678,11 +1678,15 @@ export const level1Units: Record<string, UnitTestData> = {
             "text": "m"
           },
           {
-            "text": "i-e",
-            "isDigraphOrSuffix": true
+            "text": "i",
+            "type": "single"
           },
           {
             "text": "l"
+          },
+          {
+            "text": "e",
+            "type": "single"
           }
         ],
         "markingDescription": "Spell the word, \"smile\" and mark the vowel-consonant-e syllable."
@@ -1690,53 +1694,51 @@ export const level1Units: Record<string, UnitTestData> = {
     ],
     "trickWords": [],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "Another cave is down by the lake.",
-                "words": [
-                        "Another",
-                        "cave",
-                        "is",
-                        "down",
-                        "by",
-                        "the",
-                        "lake"
-                ],
-                "phoneticWords": [
-                        "cave",
-                        "lake"
-                ],
-                "trickWords": [
-                        "Another",
-                        "down"
-                ],
-                "punctuation": "."
-        },
-        {
-                "number": 2,
-                "text": "That friend tells the best jokes.",
-                "words": [
-                        "That",
-                        "friend",
-                        "tells",
-                        "the",
-                        "best",
-                        "jokes"
-                ],
-                "phoneticWords": [
-                        "tells",
-                        "best",
-                        "jokes"
-                ],
-                "trickWords": [
-                        "That",
-                        "friend",
-                        "the"
-                ],
-                "punctuation": "."
-        }
-
+      {
+        "number": 1,
+        "text": "Another cave is down by the lake.",
+        "words": [
+          "Another",
+          "cave",
+          "is",
+          "down",
+          "by",
+          "the",
+          "lake"
+        ],
+        "phoneticWords": [
+          "cave",
+          "lake"
+        ],
+        "trickWords": [
+          "Another",
+          "down"
+        ],
+        "punctuation": "."
+      },
+      {
+        "number": 2,
+        "text": "That friend tells the best jokes.",
+        "words": [
+          "That",
+          "friend",
+          "tells",
+          "the",
+          "best",
+          "jokes"
+        ],
+        "phoneticWords": [
+          "tells",
+          "best",
+          "jokes"
+        ],
+        "trickWords": [
+          "That",
+          "friend",
+          "the"
+        ],
+        "punctuation": "."
+      }
     ],
     "level": 1,
     "unit": 11,
@@ -1755,7 +1757,7 @@ export const level1Units: Record<string, UnitTestData> = {
       },
       {
         "number": 2,
-        "prompt": "/\u0101/",
+        "prompt": "/ā/",
         "answers": [
           "a-e"
         ]
@@ -1778,7 +1780,7 @@ export const level1Units: Record<string, UnitTestData> = {
       },
       {
         "number": 5,
-        "prompt": "/\u0103/",
+        "prompt": "/ă/",
         "answers": [
           "a"
         ]
@@ -1790,12 +1792,29 @@ export const level1Units: Record<string, UnitTestData> = {
         "word": "upset",
         "tapUnits": [
           {
-            "text": "up",
-            "isDigraphOrSuffix": true
+            "text": "u",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "set",
-            "isDigraphOrSuffix": true
+            "text": "p",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "s",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"upset\" and underline the two different syllables."
@@ -1805,12 +1824,29 @@ export const level1Units: Record<string, UnitTestData> = {
         "word": "admit",
         "tapUnits": [
           {
-            "text": "ad",
-            "isDigraphOrSuffix": true
+            "text": "a",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "mit",
-            "isDigraphOrSuffix": true
+            "text": "d",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "m",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "i",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"admit\" and underline the two different syllables."
@@ -1820,12 +1856,34 @@ export const level1Units: Record<string, UnitTestData> = {
         "word": "public",
         "tapUnits": [
           {
-            "text": "pub",
-            "isDigraphOrSuffix": true
+            "text": "p",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "lic",
-            "isDigraphOrSuffix": true
+            "text": "u",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "b",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "l",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "i",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "c",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"public\" and underline the two different syllables."
@@ -1835,12 +1893,39 @@ export const level1Units: Record<string, UnitTestData> = {
         "word": "dislike",
         "tapUnits": [
           {
-            "text": "dis",
-            "isDigraphOrSuffix": true
+            "text": "d",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "like",
-            "isDigraphOrSuffix": true
+            "text": "i",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "s",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "l",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "i",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "k",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"dislike\" and underline the two different syllables."
@@ -1850,12 +1935,39 @@ export const level1Units: Record<string, UnitTestData> = {
         "word": "reptile",
         "tapUnits": [
           {
-            "text": "rep",
-            "isDigraphOrSuffix": true
+            "text": "r",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "tile",
-            "isDigraphOrSuffix": true
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "p",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "i",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "l",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"reptile\" and underline the two different syllables."
@@ -1863,52 +1975,50 @@ export const level1Units: Record<string, UnitTestData> = {
     ],
     "trickWords": [],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "People squinted into the sunshine.",
-                "words": [
-                        "People",
-                        "squinted",
-                        "into",
-                        "the",
-                        "sunshine"
-                ],
-                "phoneticWords": [
-                        "squinted",
-                        "sunshine"
-                ],
-                "trickWords": [
-                        "People",
-                        "into"
-                ],
-                "punctuation": "."
-        },
-        {
-                "number": 2,
-                "text": "Is there a cupcake inside your backpack?",
-                "words": [
-                        "Is",
-                        "there",
-                        "a",
-                        "cupcake",
-                        "inside",
-                        "your",
-                        "backpack"
-                ],
-                "phoneticWords": [
-                        "cupcake",
-                        "inside",
-                        "backpack"
-                ],
-                "trickWords": [
-                        "there",
-                        "a",
-                        "your"
-                ],
-                "punctuation": "?"
-        }
-
+      {
+        "number": 1,
+        "text": "People squinted into the sunshine.",
+        "words": [
+          "People",
+          "squinted",
+          "into",
+          "the",
+          "sunshine"
+        ],
+        "phoneticWords": [
+          "squinted",
+          "sunshine"
+        ],
+        "trickWords": [
+          "People",
+          "into"
+        ],
+        "punctuation": "."
+      },
+      {
+        "number": 2,
+        "text": "Is there a cupcake inside your backpack?",
+        "words": [
+          "Is",
+          "there",
+          "a",
+          "cupcake",
+          "inside",
+          "your",
+          "backpack"
+        ],
+        "phoneticWords": [
+          "cupcake",
+          "inside",
+          "backpack"
+        ],
+        "trickWords": [
+          "there",
+          "a",
+          "your"
+        ],
+        "punctuation": "?"
+      }
     ],
     "level": 1,
     "unit": 12,
@@ -1919,28 +2029,28 @@ export const level1Units: Record<string, UnitTestData> = {
     "sounds": [
       {
         "number": 1,
-        "prompt": "/\u0101/",
+        "prompt": "/ā/",
         "answers": [
           "a-e"
         ]
       },
       {
         "number": 2,
-        "prompt": "/\u0103/",
+        "prompt": "/ă/",
         "answers": [
           "a"
         ]
       },
       {
         "number": 3,
-        "prompt": "/\u012b/",
+        "prompt": "/ī/",
         "answers": [
           "i-e"
         ]
       },
       {
         "number": 4,
-        "prompt": "/\u016b/",
+        "prompt": "/ū/",
         "answers": [
           "u-e"
         ]
@@ -1958,19 +2068,36 @@ export const level1Units: Record<string, UnitTestData> = {
         "number": 1,
         "word": "expect",
         "baseword": "expect",
-        "suffix": "ed",
         "tapUnits": [
           {
-            "text": "ex",
-            "isDigraphOrSuffix": true
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "pect",
-            "isDigraphOrSuffix": true
+            "text": "x",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "ed",
-            "isDigraphOrSuffix": true
+            "text": "p",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "c",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
           }
         ],
         "markingDescription": "Spell the word, \"expect\" and underline the base word and circle the suffix."
@@ -2034,12 +2161,39 @@ export const level1Units: Record<string, UnitTestData> = {
         "suffix": "ing",
         "tapUnits": [
           {
-            "text": "dis",
-            "isDigraphOrSuffix": true
+            "text": "d",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
-            "text": "rupt",
-            "isDigraphOrSuffix": true
+            "text": "i",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "s",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "r",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "u",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "p",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
             "text": "ing",
@@ -2055,12 +2209,34 @@ export const level1Units: Record<string, UnitTestData> = {
         "suffix": "s",
         "tapUnits": [
           {
-            "text": "ath",
+            "text": "a",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "th",
+            "type": "digraph",
             "isDigraphOrSuffix": true
           },
           {
-            "text": "lete",
-            "isDigraphOrSuffix": true
+            "text": "l",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "t",
+            "type": "single",
+            "isDigraphOrSuffix": false
+          },
+          {
+            "text": "e",
+            "type": "single",
+            "isDigraphOrSuffix": false
           },
           {
             "text": "s",
@@ -2072,50 +2248,48 @@ export const level1Units: Record<string, UnitTestData> = {
     ],
     "trickWords": [],
     "sentences": [
-
-        {
-                "number": 1,
-                "text": "They invented that little game.",
-                "words": [
-                        "They",
-                        "invented",
-                        "that",
-                        "little",
-                        "game"
-                ],
-                "phoneticWords": [
-                        "invented",
-                        "that",
-                        "game"
-                ],
-                "trickWords": [
-                        "They",
-                        "little"
-                ],
-                "punctuation": "."
-        },
-        {
-                "number": 2,
-                "text": "Their dentist has new glasses.",
-                "words": [
-                        "Their",
-                        "dentist",
-                        "has",
-                        "new",
-                        "glasses"
-                ],
-                "phoneticWords": [
-                        "dentist",
-                        "glasses"
-                ],
-                "trickWords": [
-                        "Their",
-                        "has",
-                        "new"
-                ],
-                "punctuation": "."
-        }
-
+      {
+        "number": 1,
+        "text": "They invented that little game.",
+        "words": [
+          "They",
+          "invented",
+          "that",
+          "little",
+          "game"
+        ],
+        "phoneticWords": [
+          "invented",
+          "that",
+          "game"
+        ],
+        "trickWords": [
+          "They",
+          "little"
+        ],
+        "punctuation": "."
+      },
+      {
+        "number": 2,
+        "text": "Their dentist has new glasses.",
+        "words": [
+          "Their",
+          "dentist",
+          "has",
+          "new",
+          "glasses"
+        ],
+        "phoneticWords": [
+          "dentist",
+          "glasses"
+        ],
+        "trickWords": [
+          "Their",
+          "has",
+          "new"
+        ],
+        "punctuation": "."
+      }
     ],
     "level": 1,
     "unit": 13,

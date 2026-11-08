@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { UnitTestData, TileColorType, SentenceWordToken, WordTapUnit } from '../types/fundations';
 import { FundationsGridRow } from './FundationsGridRow';
-import { getTileType } from '../utils/tileHelper';
+import { getTileType, resolveWordTapUnits } from '../utils/tileHelper';
 import { getSmartTrickWordDistractors, getTrickWordBankOptions } from '../data/trickWordsCurriculum';
 import { 
   Database, 
@@ -52,7 +52,7 @@ export const DatabaseManager: React.FC<DatabaseManagerProps> = ({
   // Quick word splitter helper: "c-old-est" -> WordTapUnit[]
   const splitWordToTapUnits = (hyphenated: string): WordTapUnit[] => {
     const segments = hyphenated.split('-').map((s) => s.trim()).filter(Boolean);
-    return segments.map((seg) => {
+    const rawUnits: WordTapUnit[] = segments.map((seg) => {
       const tileType = getTileType(seg);
       const unitType: 'single' | 'digraph' | 'blend' | 'suffix' | 'welded' =
         tileType === 'suffix' ? 'suffix' : tileType === 'welded' ? 'welded' : seg.length > 1 ? 'digraph' : 'single';
@@ -60,6 +60,25 @@ export const DatabaseManager: React.FC<DatabaseManagerProps> = ({
       return {
         text: seg,
         isDigraphOrSuffix: tileType === 'suffix' || tileType === 'welded' || seg.length > 1,
+        type: unitType,
+        tileType,
+      };
+    });
+
+    // Auto-resolve any syllable chunks into authentic tiles
+    const resolved = resolveWordTapUnits({
+      number: 1,
+      word: segments.join(''),
+      tapUnits: rawUnits,
+    });
+
+    return resolved.map((u) => {
+      const tileType = u.tileType || getTileType(u.text, { isSuffix: u.type === 'suffix', isWelded: u.type === 'welded' });
+      const unitType: 'single' | 'digraph' | 'blend' | 'suffix' | 'welded' =
+        tileType === 'suffix' ? 'suffix' : tileType === 'welded' ? 'welded' : u.text.length > 1 ? 'digraph' : 'single';
+      return {
+        text: u.text,
+        isDigraphOrSuffix: tileType === 'suffix' || tileType === 'welded' || u.text.length > 1,
         type: unitType,
         tileType,
       };
@@ -371,7 +390,8 @@ export const DatabaseManager: React.FC<DatabaseManagerProps> = ({
 
             <div className="grid grid-cols-1 gap-6">
               {data.words.map((wordItem, wordIdx) => {
-                const hyphenated = wordItem.tapUnits.map((u) => u.text).join('-');
+                const resolvedUnits = resolveWordTapUnits(wordItem);
+                const hyphenated = resolvedUnits.map((u) => u.text).join('-');
                 return (
                   <div
                     key={wordItem.number}
@@ -396,7 +416,7 @@ export const DatabaseManager: React.FC<DatabaseManagerProps> = ({
 
                       {/* Tap count badge */}
                       <span className="px-3 py-1 rounded-full text-xs font-bold bg-slate-900 text-slate-300 border border-slate-700">
-                        {wordItem.tapUnits.length} Tap Units / Tiles
+                        {resolvedUnits.length} Tap Units / Tiles
                       </span>
                     </div>
 
@@ -405,7 +425,7 @@ export const DatabaseManager: React.FC<DatabaseManagerProps> = ({
                       <span className="text-xs font-semibold text-slate-400 mr-2">
                         Detected Tiles:
                       </span>
-                      {wordItem.tapUnits.map((unit, tapIdx) => {
+                      {resolvedUnits.map((unit, tapIdx) => {
                         const tileType = unit.tileType || getTileType(unit.text, {
                           isSuffix: unit.type === 'suffix',
                           isWelded: unit.type === 'welded',
@@ -452,6 +472,7 @@ export const DatabaseManager: React.FC<DatabaseManagerProps> = ({
                       <input
                         type="text"
                         defaultValue={hyphenated}
+                        key={`word-${wordItem.word}-${hyphenated}`}
                         onBlur={(e) => handleWordTapUnitsChange(wordIdx, e.target.value)}
                         onKeyDown={(e) => {
                           if (e.key === 'Enter') {
@@ -473,7 +494,7 @@ export const DatabaseManager: React.FC<DatabaseManagerProps> = ({
                       </span>
                       <FundationsGridRow
                         itemNumber={wordItem.number}
-                        tiles={wordItem.tapUnits.map((u) => {
+                        tiles={resolvedUnits.map((u) => {
                           const t = u.tileType || getTileType(u.text, {
                             isSuffix: u.type === 'suffix',
                             isWelded: u.type === 'welded',

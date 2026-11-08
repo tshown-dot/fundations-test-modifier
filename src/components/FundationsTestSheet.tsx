@@ -1,7 +1,7 @@
 import React from 'react';
 import { UnitTestData, ModificationSettings, WordItem, SoundItem, SentenceItem, SentenceWordToken } from '../types/fundations';
 import { FundationsGridRow, BlankSlot, GridTile } from './FundationsGridRow';
-import { getTileType, calculateTapCount } from '../utils/tileHelper';
+import { getTileType, calculateTapCount, resolveWordTapUnits } from '../utils/tileHelper';
 import { Level2TrickWordBank } from './Level2TrickWordBank';
 
 interface FundationsTestSheetProps {
@@ -43,7 +43,8 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
   // Word slots for Level 1: blanks per tap unit (wider for digraphs/suffixes)
   const getWordSlots = (wordItem?: WordItem): BlankSlot[] | undefined => {
     if (!settings.wordTapBlanks || !wordItem) return undefined;
-    return wordItem.tapUnits.map((unit) => {
+    const units = resolveWordTapUnits(wordItem);
+    return units.map((unit) => {
       const isWider = settings.wordWiderDigraphSuffix && (unit.isDigraphOrSuffix || unit.text.length > 1);
       return {
         isWider,
@@ -55,7 +56,8 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
   // Word tiles for Level 2: color-coded tile train framing the 4 lines
   const getWordTiles = (wordItem?: WordItem): GridTile[] | undefined => {
     if (!settings.wordTileTemplate || !wordItem) return undefined;
-    return wordItem.tapUnits.map((unit) => {
+    const units = resolveWordTapUnits(wordItem);
+    return units.map((unit) => {
       const tileType = getTileType(unit.text, {
         isSuffix: unit.type === 'suffix',
         isWelded: unit.type === 'welded',
