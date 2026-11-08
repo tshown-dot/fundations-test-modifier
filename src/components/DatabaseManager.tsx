@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { UnitTestData, TileColorType, SentenceWordToken, WordTapUnit } from '../types/fundations';
 import { FundationsGridRow } from './FundationsGridRow';
 import { getTileType } from '../utils/tileHelper';
+import { getSmartTrickWordDistractors, getTrickWordBankOptions } from '../data/trickWordsCurriculum';
 import { 
   Database, 
   ArrowLeft, 
@@ -586,14 +587,24 @@ export const DatabaseManager: React.FC<DatabaseManagerProps> = ({
                   Grade 2 &bull; Unit {unit} Trick Words
                 </h3>
                 <p className="text-xs text-slate-400 mt-1">
-                  Specify the target Trick Word and its 2 distractors to create the 3-option multiple choice bank.
+                  Word bank distractors are automatically pulled from taught trick words (all of Level 1 + Level 2 up to Unit {unit}) that are similar to the target word. Clear custom distractors to restore automatic curriculum selection.
                 </p>
               </div>
             </div>
 
             <div className="grid grid-cols-1 gap-6">
               {data.trickWords.map((twItem, twIdx) => {
-                const distractorsCsv = (twItem.distractors || []).join(', ');
+                const autoDistractors = getSmartTrickWordDistractors(twItem.word, grade, unit);
+                const hasCustomDistractors = Boolean(twItem.distractors && twItem.distractors.length >= 2);
+                const distractorsCsv = hasCustomDistractors ? (twItem.distractors || []).join(', ') : '';
+                const activeOptions = getTrickWordBankOptions(
+                  twItem.word,
+                  grade,
+                  unit,
+                  twItem.number,
+                  hasCustomDistractors ? twItem.distractors : undefined
+                );
+
                 return (
                   <div
                     key={twItem.number}
@@ -619,6 +630,7 @@ export const DatabaseManager: React.FC<DatabaseManagerProps> = ({
                         <input
                           type="text"
                           defaultValue={distractorsCsv}
+                          key={`dist-${twItem.word}-${distractorsCsv}`}
                           onBlur={(e) => handleTrickWordChange(twIdx, twItem.word, e.target.value)}
                           onKeyDown={(e) => {
                             if (e.key === 'Enter') {
@@ -626,9 +638,44 @@ export const DatabaseManager: React.FC<DatabaseManagerProps> = ({
                             }
                           }}
                           className="flex-1 bg-slate-900 text-white font-mono text-sm px-3 py-1 rounded border border-slate-700"
-                          placeholder="e.g. agan, agen"
+                          placeholder={`Auto from curriculum: ${autoDistractors.join(', ')}`}
                         />
+                        {hasCustomDistractors && (
+                          <button
+                            type="button"
+                            onClick={() => handleTrickWordChange(twIdx, twItem.word, '')}
+                            className="text-xs bg-slate-700 hover:bg-slate-600 text-amber-300 px-2 py-1 rounded cursor-pointer whitespace-nowrap"
+                          >
+                            Reset to Auto
+                          </button>
+                        )}
                       </div>
+                    </div>
+
+                    {/* Word Bank Preview */}
+                    <div className="bg-slate-900/60 rounded-lg p-3 border border-slate-700/60 flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <span className="text-[11px] font-semibold text-slate-400">
+                          3-Option Bank Preview:
+                        </span>
+                        <div className="flex items-center gap-2">
+                          {activeOptions.map((opt, oIdx) => (
+                            <span
+                              key={oIdx}
+                              className={`text-xs px-2.5 py-1 rounded border font-medium ${
+                                opt.toLowerCase() === twItem.word.toLowerCase()
+                                  ? 'bg-amber-950/60 border-amber-600 text-amber-300 font-bold'
+                                  : 'bg-slate-800 border-slate-600 text-slate-200'
+                              }`}
+                            >
+                              {opt}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <span className="text-[10px] text-slate-500">
+                        {hasCustomDistractors ? 'Custom override active' : 'Auto-selected from taught trick words'}
+                      </span>
                     </div>
                   </div>
                 );

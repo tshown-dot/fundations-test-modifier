@@ -1,14 +1,29 @@
 import React from 'react';
 import { TrickWordItem } from '../types/fundations';
-import { getTrickWordOptions } from '../data/trickWordDistractors';
+import { getTrickWordBankOptions } from '../data/trickWordsCurriculum';
 import { FundationsGridRow } from './FundationsGridRow';
 
 interface Level2TrickWordBankProps {
   item: TrickWordItem;
+  level?: number;
+  unit?: number;
+  siblingTargetWords?: string[];
 }
 
-export const Level2TrickWordBank: React.FC<Level2TrickWordBankProps> = ({ item }) => {
-  const options = getTrickWordOptions(item.word);
+export const Level2TrickWordBank: React.FC<Level2TrickWordBankProps> = ({
+  item,
+  level = 2,
+  unit = 4,
+  siblingTargetWords,
+}) => {
+  const options = getTrickWordBankOptions(
+    item.word,
+    level,
+    unit,
+    item.number,
+    item.distractors,
+    siblingTargetWords
+  );
 
   return (
     <div className="flex flex-col w-full gap-2">

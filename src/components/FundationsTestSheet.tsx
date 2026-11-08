@@ -276,7 +276,13 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
               {settings.trickWordMultipleChoice ? (
                 <div className="flex flex-col gap-y-4">
                   {testData.trickWords.map((item) => (
-                    <Level2TrickWordBank key={item.number} item={item} />
+                    <Level2TrickWordBank
+                      key={item.number}
+                      item={item}
+                      level={testData.level}
+                      unit={testData.unit}
+                      siblingTargetWords={testData.trickWords.map((t) => t.word)}
+                    />
                   ))}
                 </div>
               ) : (
