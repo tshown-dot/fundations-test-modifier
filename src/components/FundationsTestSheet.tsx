@@ -348,12 +348,42 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
             {isLevel1 ? (
               /* Grade 1 Scoring Format */
               <>
-                <div className="flex justify-between items-center text-sm font-semibold text-slate-800 mb-2 px-1">
-                  <div>Sounds: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
-                  <div>Words: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
-                  <div>Marking: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
-                  <div>Sentences (Words): <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
-                  <div>Trick Words: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
+                <div className="grid grid-cols-5 gap-2 text-center mb-2.5 px-1">
+                  <div className="flex flex-col items-center">
+                    <span className="text-xs font-bold text-slate-800 whitespace-nowrap mb-1">Sounds</span>
+                    <div className="flex items-baseline text-sm font-semibold text-slate-900 whitespace-nowrap">
+                      <span className="inline-block w-12 border-b-2 border-slate-700 mr-1.5"></span>
+                      <span>/ 5</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <span className="text-xs font-bold text-slate-800 whitespace-nowrap mb-1">Words</span>
+                    <div className="flex items-baseline text-sm font-semibold text-slate-900 whitespace-nowrap">
+                      <span className="inline-block w-12 border-b-2 border-slate-700 mr-1.5"></span>
+                      <span>/ 5</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <span className="text-xs font-bold text-slate-800 whitespace-nowrap mb-1">Marking</span>
+                    <div className="flex items-baseline text-sm font-semibold text-slate-900 whitespace-nowrap">
+                      <span className="inline-block w-12 border-b-2 border-slate-700 mr-1.5"></span>
+                      <span>/ 5</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <span className="text-xs font-bold text-slate-800 whitespace-nowrap mb-1">Sentences (Words)</span>
+                    <div className="flex items-baseline text-sm font-semibold text-slate-900 whitespace-nowrap">
+                      <span className="inline-block w-12 border-b-2 border-slate-700 mr-1.5"></span>
+                      <span>/ 5</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <span className="text-xs font-bold text-slate-800 whitespace-nowrap mb-1">Trick Words</span>
+                    <div className="flex items-baseline text-sm font-semibold text-slate-900 whitespace-nowrap">
+                      <span className="inline-block w-12 border-b-2 border-slate-700 mr-1.5"></span>
+                      <span>/ 5</span>
+                    </div>
+                  </div>
                 </div>
                 <div className="flex justify-end items-center gap-3 text-base font-bold text-slate-900 border-t border-slate-300 pt-1.5 px-1">
                   <span>Total:</span>
@@ -364,13 +394,49 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
             ) : (
               /* Grade 2 Scoring Format */
               <>
-                <div className="flex justify-between items-center text-sm font-semibold text-slate-800 mb-2 px-1">
-                  <div>Sounds: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
-                  <div>Words: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
-                  <div>Trick Words: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /2</div>
-                  <div>Marking: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
-                  <div>Sentences (Words): <span className="inline-block w-14 border-b-2 border-slate-700"></span> /5</div>
-                  <div>Trick Words: <span className="inline-block w-14 border-b-2 border-slate-700"></span> /3</div>
+                <div className="grid grid-cols-6 gap-2 text-center mb-2.5 px-1">
+                  <div className="flex flex-col items-center">
+                    <span className="text-xs font-bold text-slate-800 whitespace-nowrap mb-1">Sounds</span>
+                    <div className="flex items-baseline text-sm font-semibold text-slate-900 whitespace-nowrap">
+                      <span className="inline-block w-10 border-b-2 border-slate-700 mr-1.5"></span>
+                      <span>/ 5</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <span className="text-xs font-bold text-slate-800 whitespace-nowrap mb-1">Words</span>
+                    <div className="flex items-baseline text-sm font-semibold text-slate-900 whitespace-nowrap">
+                      <span className="inline-block w-10 border-b-2 border-slate-700 mr-1.5"></span>
+                      <span>/ 5</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <span className="text-xs font-bold text-slate-800 whitespace-nowrap mb-1">Trick Words</span>
+                    <div className="flex items-baseline text-sm font-semibold text-slate-900 whitespace-nowrap">
+                      <span className="inline-block w-10 border-b-2 border-slate-700 mr-1.5"></span>
+                      <span>/ 2</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <span className="text-xs font-bold text-slate-800 whitespace-nowrap mb-1">Marking</span>
+                    <div className="flex items-baseline text-sm font-semibold text-slate-900 whitespace-nowrap">
+                      <span className="inline-block w-10 border-b-2 border-slate-700 mr-1.5"></span>
+                      <span>/ 5</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <span className="text-xs font-bold text-slate-800 whitespace-nowrap mb-1">Sentences (Words)</span>
+                    <div className="flex items-baseline text-sm font-semibold text-slate-900 whitespace-nowrap">
+                      <span className="inline-block w-10 border-b-2 border-slate-700 mr-1.5"></span>
+                      <span>/ 5</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <span className="text-xs font-bold text-slate-800 whitespace-nowrap mb-1">Trick Words</span>
+                    <div className="flex items-baseline text-sm font-semibold text-slate-900 whitespace-nowrap">
+                      <span className="inline-block w-10 border-b-2 border-slate-700 mr-1.5"></span>
+                      <span>/ 3</span>
+                    </div>
+                  </div>
                 </div>
                 <div className="flex justify-end items-center gap-3 text-base font-bold text-slate-900 border-t border-slate-300 pt-1.5 px-1">
                   <span>Total:</span>
