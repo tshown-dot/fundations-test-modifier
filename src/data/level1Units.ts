@@ -1369,10 +1369,9 @@ export const level1Units: Record<string, UnitTestData> = {
             "text": "l"
           },
           {
-            "text": "a"
-          },
-          {
-            "text": "n"
+            "text": "an",
+            "type": "welded",
+            "isDigraphOrSuffix": true
           },
           {
             "text": "t"

@@ -526,10 +526,9 @@ export const level2Units: Record<string, UnitTestData> = {
             "text": "r"
           },
           {
-            "text": "a"
-          },
-          {
-            "text": "n"
+            "text": "an",
+            "type": "welded",
+            "isDigraphOrSuffix": true
           },
           {
             "text": "ch",
@@ -935,14 +934,9 @@ export const level2Units: Record<string, UnitTestData> = {
             "isDigraphOrSuffix": false
           },
           {
-            "text": "a",
-            "type": "single",
-            "isDigraphOrSuffix": false
-          },
-          {
-            "text": "n",
-            "type": "single",
-            "isDigraphOrSuffix": false
+            "text": "an",
+            "type": "welded",
+            "isDigraphOrSuffix": true
           },
           {
             "text": "i",

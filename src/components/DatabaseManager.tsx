@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { UnitTestData, TileColorType, SentenceWordToken, WordTapUnit } from '../types/fundations';
 import { FundationsGridRow } from './FundationsGridRow';
-import { getTileType, resolveWordTapUnits } from '../utils/tileHelper';
+import { getTileType, getSoundTileType, resolveWordTapUnits } from '../utils/tileHelper';
 import { getSmartTrickWordDistractors, getTrickWordBankOptions } from '../data/trickWordsCurriculum';
 import { 
   Database, 
@@ -579,10 +579,7 @@ export const DatabaseManager: React.FC<DatabaseManagerProps> = ({
                       <FundationsGridRow
                         itemNumber={soundItem.number}
                         tiles={soundItem.answers.map((ans) => {
-                          const t = getTileType(ans, {
-                            isSuffix: ans === 'ed' || ans === 's' || ans === 'es',
-                            isWelded: soundItem.prompt.includes('ng') || soundItem.prompt.includes('nk') || soundItem.prompt.includes('old'),
-                          });
+                          const t = getSoundTileType(soundItem, ans);
                           return {
                             type: t,
                             isRectangle: t === 'welded' || t === 'suffix',

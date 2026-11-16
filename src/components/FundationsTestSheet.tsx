@@ -1,7 +1,7 @@
 import React from 'react';
 import { UnitTestData, ModificationSettings, WordItem, SoundItem, SentenceItem, SentenceWordToken } from '../types/fundations';
 import { FundationsGridRow, BlankSlot, GridTile } from './FundationsGridRow';
-import { getTileType, calculateTapCount, resolveWordTapUnits } from '../utils/tileHelper';
+import { getTileType, getSoundTileType, calculateTapCount, resolveWordTapUnits } from '../utils/tileHelper';
 import { Level2TrickWordBank } from './Level2TrickWordBank';
 
 interface FundationsTestSheetProps {
@@ -29,10 +29,7 @@ export const FundationsTestSheet: React.FC<FundationsTestSheetProps> = ({
   const getSoundTiles = (soundItem?: SoundItem): GridTile[] | undefined => {
     if (!settings.soundTileBoxes || !soundItem) return undefined;
     return soundItem.answers.map((ans) => {
-      const tileType = getTileType(ans, {
-        isSuffix: ans === 'ed' || ans === 's' || ans === 'es',
-        isWelded: soundItem.prompt.includes('ng') || soundItem.prompt.includes('nk') || soundItem.prompt.includes('old'),
-      });
+      const tileType = getSoundTileType(soundItem, ans);
       return {
         type: tileType,
         isRectangle: tileType === 'welded' || tileType === 'suffix',

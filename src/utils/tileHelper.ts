@@ -1,4 +1,4 @@
-import { TileColorType, WordItem, WordTapUnit } from '../types/fundations';
+import { SoundItem, TileColorType, WordItem, WordTapUnit } from '../types/fundations';
 import { GLUED_SOUNDS } from '../data/curriculum';
 
 export const VOWELS = new Set([
@@ -266,6 +266,22 @@ export function getTileType(
 
   // 6. Default: consonant / digraph (tan square)
   return 'consonant';
+}
+
+/**
+ * Resolves the tile color for one answer of a Sounds item.
+ * The letter "y" is a consonant (tan) when the dictated sound is /y/ (as in "yes"),
+ * and a vowel (salmon) only when it spells a vowel sound such as /ē/ or /ī/.
+ */
+export function getSoundTileType(soundItem: SoundItem, ans: string): TileColorType {
+  const prompt = soundItem.prompt.toLowerCase().replace(/[^a-z\u00C0-\u024F]/g, '');
+  if (ans.toLowerCase().trim() === 'y' && prompt === 'y') {
+    return 'consonant';
+  }
+  return getTileType(ans, {
+    isSuffix: ans === 'ed' || ans === 's' || ans === 'es',
+    isWelded: soundItem.prompt.includes('ng') || soundItem.prompt.includes('nk') || soundItem.prompt.includes('old'),
+  });
 }
 
 export function getTileStyles(type: TileColorType): {
